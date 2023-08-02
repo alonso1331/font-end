@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .all{
+        width: 600px;
+    }
+    header{
+        width: 600px;
+        height: 200px;
+        background-color: mediumaquamarine
+    }
+
+    .left{
+        width: 200px;
+        height: 400px;
+        background-color: cornflowerblue;
+        float: left;
+    }
+
+    .top{
+        width: 400px;
+        height: 133px;
+        background-color: darkgray;
+        float: left;
+    }
+
+    .mid{
+        width: 400px;
+        height: 134px;
+        background-color:  gray;
+        float: left;
+    }
+
+    .bottom{
+        width: 400px;
+        height: 133px;
+        background-color: darkgray;
+        float: left;
+    }
+
+    footer{
+        width: 600px;
+        height: 200px;
+        background-color: indianred;
+        clear: both;
+    }
+    
+</style>
+
+
+<body>
+    <!-- 用float有個問題，寬度夠寬時，會跑版，因此要用巢狀結構，因應巢狀結構，要有正確的命名方式 -->
+    <header></header>
+    <div class="left"></div>
+    <div class="top"></div>
+    <div class="mid"></div>
+    <div class="bottom"></div>
+    <footer></footer>
+
+    <!-- 老師：加個外框固定，才不會跑版 -->
+    <!-- <div class="all">
+        <header></header>
+        <main>
+            <div class="nav"></div>
+            <div class="content">
+                <div class="block1"></div>
+                <div class="block2"></div>
+                <div class="block3"></div>
+            </div>
+        </main>
+        <footer></footer>
+    </div> -->
+</body>
+</html>
