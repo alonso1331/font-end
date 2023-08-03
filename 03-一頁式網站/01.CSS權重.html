@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+        }
+        
+        .large{
+            width: 300px;
+            height: 300px;
+            background-color: gold !important;
+        }
+
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: burlywood;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box">我是id-box</div>
+    <div class="box large">吾是class-box class-large
+        <p>照理說.box比.large晚執行，但是因為.large有!important，所以權重較.box重，會影響優先性</p>
+    </div>
+    
+</body>
+</html>
