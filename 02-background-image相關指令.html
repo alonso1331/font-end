@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            color: yellow;
+            padding: 5px 10px;
+            margin-bottom: 20px;
+        }
+
+        .img{
+            width: 600px;
+            height: 300px;
+            background-image: url(https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg?resize=768,512);
+        }
+
+        .img-size{
+            width: 600px;
+            height: 300px;
+            background-image: url(https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg?resize=768,512);
+            background-size: 100%;
+        }
+
+        .img-cover{
+            width: 600px;
+            height: 300px;
+            background-image: url(https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg?resize=768,512);
+            background-size: cover;
+        }
+
+        .img-contain{
+            width: 600px;
+            height: 300px;
+            background-image: url(https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg?resize=768,512);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .img-position{
+            width: 600px;
+            height: 300px;
+            background-image: url(https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg?resize=768,512);
+            background-position: bottom right;
+            color: blanchedalmond;
+            text-align: right;
+        }
+
+        .img-all{
+            width: 600px;
+            height: 300px;
+            background-image: url(https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg?resize=768,512);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            text-align: center;    
+        }
+
+    </style>
+</head>
+<body>
+    <div class="img">僅設長寬</div>
+    <div class="img-size">設百分比</div>
+    <div class="img-cover">cover(填滿,會切到圖片)，多用在背景圖</div>
+    <div class="img-contain">contain(填滿,不會切到圖片，多餘的空間會留<br/>白)，多用在logo</div>
+    <div class="img-position">在有限的長寬內，設定<br/>想要顯示的圖片部位</div>
+    <div class="img-all">背景圖常見設個設定bg-img, <br/> bg-position, bg-size, bg-repeat</div>
+</body>
+</html>
