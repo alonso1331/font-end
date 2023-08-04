@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tryhow_css_parallax_demo</title>
     <style>
+        /* 視窗滑動感 */
+        html{
+            scroll-behavior: smooth;
+        }
+
         *{
-            margin: 0;
-            padding: 0;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        nav{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            background-color: #ccc;
+            position: fixed;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        a{
+            margin-left: 20px;
+            text-decoration: none;
+            color: #000;
         }
 
         main{
@@ -100,7 +121,14 @@
 <body>
     <!-- 參考網站:https://www.w3schools.com/howto/tryhow_css_parallax_demo.htm ，課程 04-圖片相關屬性 52:00-->
     <main>
+        <nav>
+            <a href="#img1">圖片1</a>
+            <a href="#img2">圖片2</a>
+            <a href="#img3">圖片3</a>
+            <a href="#img4">圖片4</a>
+        </nav>
         <div class="img1">
+            <div id="img1"></div>
             <h2>SCROLL DOWN</h2>
         </div>
         <div class="text1">
@@ -108,18 +136,21 @@
             <p>Parallax scrolling is a web site trend where the background content is moved at a different speed than the foreground content while scrolling. Nascetur per nec posuere turpis, lectus nec libero turpis nunc at, sed posuere mollis ullamcorper libero ante lectus, blandit pellentesque a, magna turpis est sapien duis blandit dignissim. Viverra interdum mi magna mi, morbi sociis. Condimentum dui ipsum consequat morbi, curabitur aliquam pede, nullam vitae eu placerat eget et vehicula. Varius quisque non molestie dolor, nunc nisl dapibus vestibulum at, sodales tincidunt mauris ullamcorper, dapibus pulvinar, in in neque risus odio. Accumsan fringilla vulputate at quibusdam sociis eleifend, aenean maecenas vulputate, non id vehicula lorem mattis, ratione interdum sociis ornare. Suscipit proin magna cras vel, non sit platea sit, maecenas ante augue etiam maecenas, porta porttitor placerat leo.</p>
         </div>
         <div class="img2">
+            <div id="img2"></div>
             <h2>LESS HEIGHT</h2>
         </div>
         <div class="text2">
             <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
         </div>
         <div class="img3">
+            <div id="img3"></div>
             <h2>SCROLL UP</h2>
         </div>
         <div class="text3">
             <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
         </div>
         <div class="img4">
+            <div id="img4"></div>
             <h2>COOL!</h2>
         </div>
     </main>
