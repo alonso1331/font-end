@@ -1,159 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
-    *{
+    * {
         margin: 0px;
         padding: 0px;
         /* 可以自動扣掉padding增加的部分 */
         box-sizing: border-box;
     }
+    /* 主要資訊區塊 */
+    .info {
+        width: 100%;
+        height: 618px;
+        background: linear-gradient(to top, #161616, #89734c);
+        background-color: #89734c;
+    }
 
     /* 左邊nav區塊 */
-    nav{
+    nav {
         width: 100%;
-        height: 70px;
+        height: 56px;
         background-color: #242526;
-        padding: 0px 20px;
+        padding: 8px 16px;
+        position: fixed;
+        z-index: 2;
     }
 
-    .logo-search{
-        width: 410px;
-        height: 70px;
-        padding: 8px 0px;
+    .logo-search {
+        width: 330px;
+        height: 56px;
         float: left;
     }
 
-    .logo{
-        width: 50px;
-        height: 50px;
+    .logo {
+        width: 40px;
+        height: 40px;
         background-image: url(../04-FB仿切練習/img/icon/fb-logo.svg);
-        background-size: cover;
-        background-repeat: no-repeat;
         float: left;
     }
 
-    .search{
-        width: 350px;
-        height: 50px;
-        padding: 10px;
+    .search {
+        width: 280px;
+        height: 40px;
+        padding: 8px;
         background-color: #3a3b3c;
         float: right;
         border-radius: 40px;
     }
 
-    .search-icon{
+    .search-icon {
         width: 20px;
         height: 20px;
         background: url(../04-FB仿切練習/img/icon/search.svg);
         color: #afb2b7;
         float: left;
-        margin: 0px 15px;
+        margin: 3px 8px 5px 4px;
     }
 
-    .search-box{
+    .search-box {
         width: 230px;
         height: 20px;
         float: right;
     }
 
-    input{
+    input {
         color: #afb2b7;
         padding: 5px 0;
         font-size: 14px;
         background-color: #3a3b3c;
+        border: 0px;
     }
 
     /* 中間link區塊 */
-    .links{
-        /* width: 805px; */
+    .links {
         float: left;
-        margin-left: 70px;
-        margin-right: 270px;
-        /* padding: 8px 0px; */
+        margin: -4px 20px -4px 120px;
     }
 
-    .link{
-        width: 153px;
-        height: 50px;
+    .link {
+        width: 112px;
+        height: 48px;
+        margin-right: 8px;
         float: left;
+        position: relative;
     }
 
-    .link:hover{
-        width: 153px;
-        height: 50px;
-        border-radius: 20px;
-        background-color: #ccc;
+    .link:hover {
+        width: 112px;
+        height: 48px;
+        border-radius: 10px;
+        background-color: #3a3b3c;
     }
 
-    .index{
-        /* width: 40px;
-        height: 40px;
-        background: url(../04-FB仿切練習/img/icon/index.svg);
+    .index {
+        width: 28px;
+        height: 28px;
+        /*background: url(../04-FB仿切練習/img/icon/index.svg);
         background-size: cover; */
-        width: 153px;
-        height: 50px;
-        background-color: aqua;
         color: #afb2b7;
-        margin-top: 10px;
+        position: absolute;
+        top: calc(50% - 14px);
+        left: calc(50% - 14px);
     }
 
-    .video{
-        /* width: 40px;
-        height: 40px;
-        background: url(../04-FB仿切練習/img/icon/video.svg); */
-        background-size: cover;
-        width: 153px;
-        height: 50px;
-        color: #afb2b7;
-        margin: 10px 10px;
-        background-color: aqua;
+    .video {
+        width: 28px;
+        height: 28px;
+        /* background: url(../04-FB仿切練習/img/icon/video.svg);
+        background-size: cover; */
+        position: absolute;
+        top: calc(50% - 14px);
+        left: calc(50% - 14px);
     }
 
-    .store{
-        /* width: 40px;
-        height: 40px;
-        background: url(../04-FB仿切練習/img/icon/store.svg); */
-        background-size: cover;
-        width: 153px;
-        height: 50px;
-        color: #afb2b7;
-        margin-top: 10px;
-        background-color: aqua;
+    .makeplace {
+        width: 28px;
+        height: 28px;
+        /* background: url(../04-FB仿切練習/img/icon/makeplace.svg);
+        background-size: cover; */
+        position: absolute;
+        top: calc(50% - 14px);
+        left: calc(50% - 14px);
     }
 
-    .group{
-        /* width: 40px;
-        height: 40px;
-        background: url(../04-FB仿切練習/img/icon/group.svg); */
-        background-size: cover;
-        width: 153px;
-        height: 50px;
-        color: #afb2b7;
-        margin: 10px 10px;
-        background-color: aqua;
+    .group {
+        width: 28px;
+        height: 28px;
+        /* background: url(../04-FB仿切練習/img/icon/group.svg); 
+        background-size: cover;*/
+        position: absolute;
+        top: calc(50% - 14px);
+        left: calc(50% - 14px);
     }
 
-    .game{
-        /* width: 40px;
+    .game {
+        width: 28px;
+        height: 28px;
+        /* background: url(../04-FB仿切練習/img/icon/game.svg); 
+        background-size: cover;*/
+        position: absolute;
+        top: calc(50% - 14px);
+        left: calc(50% - 14px);
+    }
+
+    /* 有變icon區塊 */
+    .icons{
+        float: right;
+    }
+
+    .icon{
+        width: 40px;
         height: 40px;
-        background: url(../04-FB仿切練習/img/icon/game.svg); */
-        background-size: cover;
-        width: 153px;
-        height: 50px;
-        color: #afb2b7;
+        border-radius: 50%;
+        background-color: #3a3b3c;
+        position: relative;
         float: left;
-        margin-top: 8px;
-        background-color: aqua;
+        margin-left: 8px;
     }
 
+    .icon:hover{
+        background-color: #4e4f50;
+    }
+    .menu{
+        width: 20px;
+        height: 20px;
+        /* float: left; */
+        position: absolute;
+        top: calc(50% - 10px);
+        left: calc(50% - 10px);
+    }
 
+    .message{
+        width: 20px;
+        height: 20px;
+        float: left;
+        position: absolute;
+        top: calc(50% - 10px);
+        left: calc(50% - 10px);        
+    }
 
+    .notify{
+        width: 20px;
+        height: 20px;
+        float: left;
+        position: absolute;
+        top: calc(50% - 10px);
+        left: calc(50% - 10px);
+    }
+
+    .myphoto{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        float: left;
+    }
+
+    .banner{
+        width: 1080px;
+        height: 400px;
+        background-image: url(./img/Freja_Seeking_her_Husband.png);
+        background-size: cover;
+        background-position: 30% 5%;
+        background-repeat: no-repeat;
+        margin: auto;
+        border-radius: 0px 0px 8px 8px;
+    }
+
+    main {
+        width: 100%;
+        height: 400px;
+        background-color: #18191a;
+    }
+
+    .banner{
+        position: relative;
+    }
+
+    .create-substiute, .edit-photo{
+        width: 180px;
+        height: 40px;
+        background-color: #4e4f50;
+        border-radius: 10px;
+        margin: auto;
+        opacity: 0.5;
+    }
+
+    .create-substiute:hover, .edit-photo:hover{
+        background-color: #4e4f50;
+        opacity: 0.3;
+    }
+
+    .create-substiute{
+        position: absolute;
+        bottom: 18%;
+        right: 3%;
+        
+        padding: 8px;
+    }
+
+    .edit-photo{
+        position: absolute;
+        bottom: 5%;
+        right: 3%;
+        padding: 8px;
+    }
+
+    .substiute-icon{
+        width: 20px;
+        height: 20px;
+        background-color: gold;
+        float: left;
+        margin-left: 4px;
+    }
+
+    .photo-icon{
+        width: 20px;
+        height: 20px;
+        background-color: gold;
+        float: left;
+        margin-left: 20px;
+    }
+
+    p{
+        color: #fff;
+        font-weight: bolder;
+        font-size: 16px;
+    }
+
+    .substiute-p, .photo-p{
+        float: left;
+        margin-left: 8px;
+    }
+
+    .main-info{
+        width: 1040px;
+        height: 160px;
+        margin: auto;
+        position: relative;
+        border-bottom: #4e4f50 solid 1px;
+    }
+
+    .info-photo{
+        width: 180px;
+        height: 180px;
+        background-image: url(./img/tai-bui-GrcMd1FvucY-unsplash.jpg);
+        background-size: cover;
+        border-radius: 50%;
+        position: relative;
+        position: absolute;
+        border: #3a3b3c solid 4px;
+        top: -20%;
+        float: left;
+    }
+
+    .info-photo-icon{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: blue;
+        position: absolute;
+        bottom: 6%;
+        right:4%;
+        float: left;
+    }
+
+    .info-name{
+        margin: 20px 0px 10px 200px;
+        width: 300px;
+        font-weight: bolder;
+        float: left;
+        clear: left;
+    }
+
+    .name{
+        color: #fff;
+        font-size: 30px;
+    }
+
+    .friend-count{
+        color: #a5a8ad;
+        font-size: 14px;
+        font-weight: bolder;
+        margin: 10px 0px 14px 0;
+    }
+
+    .friend-photos{
+        width: 210px;
+        float: left;
+        margin-left: -6px;
+        
+    }
+
+    .friend-photo{
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #4e4f50;
+        float: left;
+        border: #3a3b3c solid 2px;
+    }
+
+    .photo1{
+        margin-right: -6px;
+        float: right;
+    }
+
+    .photo2{
+        margin-right: -6px;
+        float: right;
+    }
+
+    .photo3{
+        margin-right: -6px;
+        float: right;
+    }
+
+    .photo4{
+        margin-right: -6px;
+        float: right;
+    }
+
+    .photo5{
+        margin-right: -6px;
+        float: right;
+    }
+
+    .photo6{
+        margin-right: -6px;
+        float: right;
+    }
+
+    .photo7{
+        margin-right: -6px;
+        float: right;
+    }
+
+    .photo8{
+        margin-right: -6px;
+        float: right;
+    }
+
+    /* 中間右側編輯區塊 */
+    .edit{
+        float: right;
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        margin-bottom: 30px;
+    }
+
+    .edit > button, .sub-left > button, .other {
+        border-radius: 8px;
+        border: 0px;
+    }
+
+    .limitied-news, .profile{
+        float: left;
+        font-weight: bolder;
+        color: #fff;
+    }
+
+    .limitied-news{
+        width: 150px;
+        height: 40px;
+        background-color: #2374e1;
+        padding: 0px 12px;
+    }
+
+    .limitied-news:hover{
+        background-color: #3982e4;
+    }
+
+    .limitied-news > img{
+        width: 16px;
+        height: 16px;
+        margin-top: 4px;
+        float: left;
+    }
+
+    .limitied-news-p{
+        float: right;
+        font-size: 15px;
+    }
+
+    .profile{
+        width: 140px;
+        height: 40px;
+        background-color: #3a3b3c;
+        margin: 0px 8px;
+    }
+
+    .profile-p{
+        font-size: 15px;
+    }
+
+    .profile:hover, .add-other-friend:hover, .other:hover{
+        background-color: #4e4f50;
+    }
+
+    .add-other-friend, .other{
+        width: 50px;
+        height: 40px;
+        background-color: #3a3b3c;
+        float: left;
+    }
+
+    .add-other-friend > img, .other > img{
+        width: 16px;
+        height: 16px;
+        margin-top: 4px;
+        background-color: #3a3b3c;
+    }
+
+    /* info 區塊底部副導覽列 */
+    .sub-nav{
+        width: 1040px;
+        height: 58px;
+        margin: auto;
+        background-color: #1b1a19;
+    }
+
+    .sub-left{
+        float: left;
+        padding: 4px 0;
+    }
+
+    .sub-right{
+        float: right;
+        padding-top: 10px;
+    }
+
+    .sub-left > button{
+        width: 65px;
+        height: 50px;
+        color: #afb2b7;
+        background-color: #1b1a19;
+        font-weight: bolder;
+        float: left;
+        font-size: 15px;
+    }
+
+    .sub-left > button:hover{
+        width: 65px;
+        height: 50px;
+        background-color: #3a3b3c;
+        float: left;
+        padding: 4px 0;
+    }
+
+    .posted{
+        color: #2374e1 !important;
+        border-bottom: #2374e1 solid 4px !important;
+        border-radius: 0px !important;
+    }
+    
+    .short-file{
+        width: 90px !important;
+        height: 60px;
+    }
+
+    .more{
+        width: 85px !important;
+        height: 60px;
+        padding: 0 16px;
+    }
+
+    .more:hover{
+        padding: 0 16px !important;
+    }
+
+    .more > img{
+        margin-top: 4px;
+    }
+
+    .more-p{
+        color: #afb2b7;
+        font-weight: bolder;
+        float: left;
+    }
 </style>
+
 <body>
     <nav>
         <div class="logo-search">
@@ -164,41 +535,116 @@
             </div>
         </div>
         <div class="links">
-            <div class="link">
-                <div >
-                    <a href="http://" class=" index"></a>
+            <a href="http://" title="首頁">
+                <div class="link">
+                    <img src="../04-FB仿切練習/img/icon/index.svg" alt="首頁" srcset="" class="index" title="首頁">
                 </div>
+            </a>
+            <div class="link">
+                <a href="http://"><img src="../04-FB仿切練習/img/icon/video.svg" alt="video" srcset="" class="video"
+                        title="video"></a>
             </div>
             <div class="link">
-                <div class="video">
-                    <a href="http://"></a>
-                </div>
+                <a href="http://"><img src="../04-FB仿切練習/img/icon/makeplace.svg" alt="makeplace" srcset=""
+                        class="makeplace" title="makeplace"></a>
             </div>
             <div class="link">
-                <div class="store">
-                    <a href="http://"></a>
-                </div>
+                <a href="http://"><img src="../04-FB仿切練習/img/icon/group.svg" alt="group" srcset="" class="group"
+                        title="社團"></a>
             </div>
             <div class="link">
-                <div class="group">
-                    <a href="http://"></a>
-                </div>
-            </div>
-            <div class="link">
-                <div class="game">
-                    <a href="http://"></a>
-                </div>
+                <a href="http://"><img src="../04-FB仿切練習/img/icon/game.svg" alt="game" srcset="" class="game"
+                        title="game"></a>
             </div>
         </div>
-
         <div class="icons">
-            <div class="icon"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
+            <div class="icon">
+                <a href="http://"><img src="../04-FB仿切練習/img/icon/menu.svg" alt="功能表" srcset=""
+                        class="menu" title="功能表"></a>
+            </div>
+            <div class="icon">
+                <a href="http://"><img src="../04-FB仿切練習/img/icon/message.svg" alt="message" srcset=""
+                        class="message" title="message"></a>
+            </div>
+            <div class="icon">
+                <a href="http://"><img src="../04-FB仿切練習/img/icon/notify.svg" alt="notify" srcset=""
+                        class="notify" title="notify"></a>
+            </div>
+            <div class="icon">
+                <a href="http://"><img src="../04-FB仿切練習/img/OurLadyofChina.jpg" alt="myphoto" srcset=""
+                        class="myphoto" title="myphoto"></a>
+            </div>
         </div>
-</nav>
+    </nav>
     
+    <div class="info">
+        <div class="banner">
+            <div class="substiute">
+                <div class="create-substiute">
+                    <div class="substiute-icon"></div>
+                    <p class="substiute-p"> 使用虛擬替身建立</p>
+                </div>
+                <div class="edit-photo">
+                    <div class="photo-icon"></div>
+                    <p class="photo-p">編輯封面相片</p>
+                </div>
+            </div>
+            <div class="edit-img"></div>
+        </div>
+        <div class="main-info">
+            <div class="info-photo">
+                <div class="info-photo-icon"></div>
+            </div>
+            <div class="info-name">
+                <div class="name">Manjusri</div>
+                <div class="friend-count">999 位朋友</div>
+                <div class="friend-photos">
+                    <div class="friend-photo photo1"></div>
+                    <div class="friend-photo photo2"></div>
+                    <div class="friend-photo photo3"></div>
+                    <div class="friend-photo photo4"></div>
+                    <div class="friend-photo photo5"></div>
+                    <div class="friend-photo photo6"></div>
+                    <div class="friend-photo photo7"></div>
+                    <div class="friend-photo photo8"></div>
+                </div>
+            </div>
+            <div class="edit">
+                <button class="limitied-news">
+                    <img src="../04-FB仿切練習/img/icon/limitied-news.svg" alt="limitied-news" srcset="" title="新增到限時動態s">
+                    <p class="limitied-news-p">新增到限時動態</p>
+                </button>
+                <button class="profile">
+                    <p class="profile-p">編輯個人檔案</p>
+                </button>
+                <button class="add-other-friend" >
+                    <img src="../04-FB仿切練習/img/icon/add-other-friend.svg" alt="add-other-friend" srcset="" title="可能認識的朋友">
+                </button>
+            </div>
+        </div>
+        <div class="sub-nav">
+            <div class="sub-links">
+                <div class="sub-left">
+                    <button class="posted">貼文</button>
+                    <button class="about">關於</button>
+                    <button class="friends">朋友</button>
+                    <button class="image">相片</button>
+                    <button class="file">影片</button>
+                    <button class="short-file">連續短片</button>
+                    <button class="more">
+                        <p class="more-p">更多</p>
+                        <img src="../04-FB仿切練習/img/icon/more.svg" alt="more" srcset="" title="更多">
+                    </button>
+                </div>
+                <div class="sub-right">
+                    <button class="other">
+                        <img src="../04-FB仿切練習/img/icon/tree-dot.svg" alt="other" srcset="" title="other">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main></main>
 </body>
+
 </html>
