@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            background-color: darksalmon;
+            margin-bottom: 20px;
+        }
+
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+
+        .box:nth-child(2){
+            margin: 0 30px;
+        }
+
+        .container1{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            background-color: darkcyan;
+            margin-bottom: 20px;
+        }
+
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: darkorange;
+        }
+
+        .container2{
+            width: 200px;
+            height: 700px;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+            background-color: lightslategray;
+            margin-bottom: 20px;
+        }
+
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+
+        .box2:nth-child(2){
+            margin: 30px 0px;
+        }
+
+        div{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <div class="container1">
+        <div class="box1">1</div>
+        <div class="box1">2</div>
+        <div class="box1">3</div>
+    </div>
+
+    <div class="container2">
+        <div class="box2">1</div>
+        <div class="box2">2</div>
+        <div class="box2">3</div>
+    </div>
+    
+</body>
+</html>

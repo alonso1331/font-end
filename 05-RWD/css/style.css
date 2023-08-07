@@ -39,12 +39,13 @@ nav{
 }
 
 .links a:hover{
-    color: tomato;
-    background-color: blueviolet;
+    color: red;
+    /* background-color: blueviolet; */
+    transform: scale(1.2);
 }
 
 .link a:active{
-    color: red;
+    color: tomato;
 }
 
 .links a:visited{

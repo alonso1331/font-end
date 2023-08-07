@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    height: 0px;
+}
+
+nav{
+    width: 1600px;
+    height: 56px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .links{
+    width: 600px;
+    height: 100%;
+}
+
+nav .links .logo{
+    width: 216px;
+    height: 46px;
+    background-image: url('../img/logo.png');
+    background-position: ;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav .functions{
+    width: 400px;
+    height: 100%;
+    border: 1px solid greenyellow
+}
+
+
+
