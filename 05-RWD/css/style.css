@@ -6,22 +6,23 @@
 }
 
 nav{
-    width: 20%;
-    height: 100vh;
-    padding: 30px;
+    /* width: 105px; */
+    width: 25%;
+    height: 1080px;
+    padding: 20px 30px;
     background-color: cadetblue;
     float: left;
 }
 
 .logo{
     margin: auto;
-    width: 150px;
-    height: 150px;
+    width: 45px;
+    height: 45px;
     background-color: darkblue;
 }
 
 .links{
-    padding: 30px 0px;
+    margin-top: 15px;
 }
 
 .links a:nth-child(2){
@@ -51,24 +52,25 @@ nav{
 }
 
 main{
-    width: 80%;
-    height: 100vh;
+    /* width: 1414px; */
+    width: 75%;
+    height: 1080px;
     background-color: blanchedalmond;
-    float: right;
+    float: left;
     position: relative;
 }
 
 main .container{
     width: 800px;
-    height: 55vh;
-    margin: auto;
-    background-color: #e63b3b;
-    
+    height: 600px;
+    position: absolute;
+    top: calc(50% - 300px);
+    left: calc(50% - 400px);
 }
 
 .X{
     width: 33%;
-    height: 55vh;
+    height: 600px;
     background-image: url(../img/jamon.jpg);
     background-size: cover;
     background-position: 50%;
@@ -78,7 +80,7 @@ main .container{
 
 .Y{
     width: 34%;
-    height: 55vh;
+    height: 600px;
     background-image: url(../img/granada.jpg);
     background-size: cover;
     background-position: 56%;
@@ -88,7 +90,7 @@ main .container{
 
 .Z{
     width: 33%;
-    height: 55vh;
+    height: 600px;
     background-image: url(../img/spanish-plaza.jpg);
     background-size: cover;
     background-position: 56%;
@@ -98,20 +100,22 @@ main .container{
 
 .X:hover, .Y:hover , .Z:hover{
     transform: scale(1.2);
+    transition: 2s;
 }
 
 @media (max-width:1281px) {
+
     main .container{
-        width: 80%;
-        height: 50%;
+        width: 500px;
+        height: 600px;
         position: absolute;
-        top: 10%;
-        left: 10%;
+        top: calc(50% - 300px);
+        left: calc(50% - 250px);
     }
     
     .X{
         width: 100%;
-        height: 28vh;
+        height: 300px;
         background-image: url(../img/jamon.jpg);
         background-size: cover;
         background-position: 50%;
@@ -121,7 +125,7 @@ main .container{
     
     .Y{
         width: 50%;
-        height: 27vh;
+        height: 300px;
         background-image: url(../img/granada.jpg);
         background-size: cover;
         background-position: 56%;
@@ -131,7 +135,7 @@ main .container{
     
     .Z{
         width: 50%;
-        height: 27vh;
+        height: 300px;
         background-image: url(../img/spanish-plaza.jpg);
         background-size: cover;
         background-position: 56%;
@@ -140,17 +144,13 @@ main .container{
     }
 }
 
-/* @media (max-width:769px) {
-    body{
-        width: 768px;
-        height: 1024px;
-    }
+@media (max-width:769px) {
 
     nav{
         width: 100%;
         height: 60px;
         position: fixed;
-        padding: 10px 20px;
+        padding: 10px 30px;
         z-index: 2;
     }
 
@@ -166,6 +166,7 @@ main .container{
         height: 30px;
         float: right;
         padding: 0px;
+        margin: 0px;
     }
 
     .links a{
@@ -176,20 +177,22 @@ main .container{
     }
 
     .links a:nth-child(2){
-        margin: 0px 10px;
+        margin: 0px 5px;
     }
 
     main{
-        width: 100%;
+        width: 768px;
         height: 964px;
         float: right;
         margin-top: 50px;
-        padding: 0px 20px;
     }
 
     main .container{
-        width: 80%;
-        height: 50%;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        padding: 60px 0px;
     }
     
     .X{
@@ -221,9 +224,9 @@ main .container{
         background-repeat: no-repeat;
         float: left;
     }
-} */
+}
 
-@media (max-width:377px) {
+@media (max-width:376px) {
     nav{
         width: 100%;
         height: 80px;
@@ -240,6 +243,7 @@ main .container{
     nav .logo{
         width: 56px;
         height: 56px;
+        margin-top: 0px;
         position: absolute;
         background-color: darkblue;
         top: calc(50% - 28px);
@@ -250,10 +254,11 @@ main .container{
         width: 42px;
         height: 52px;
         background-color: #575757;
+        float: left;
     }
 
     nav .links:hover{
-        width: 150px;
+        width: 84px;
         height: 140px;
         padding-top: 20px;
     }
@@ -262,22 +267,23 @@ main .container{
     nav .links:hover a{
         display: block;
         margin: auto;
-        width: 100px;
+        padding: 0px;
+        width: 80px;
         height: 20px;
         text-align: center;
         margin-bottom: 20px;
-        font-size: 18px;
+        font-size: 16px;
         text-decoration: none;
         border-radius: 20px;
     }
 
-    nav a{
+    nav .links a{
         display: none;
     }
 
     nav a:hover{
         transform: scale(1.4);
-        background-color: gold;
+        /* background-color: gold; */
     }
 
     nav a:visited{
@@ -286,29 +292,30 @@ main .container{
 
     main{
         width: 100%;
+        height: calc(100% - 60px);
     }
 
     main .container{
         width: 100%;
-        padding: 0px 20px;
+        padding: 0px;
     }
 
     main .container div{
         width: 100%;
-        height: 196px;
+        height: 205.6px;
     }
 
     .X{
         background-image: url(../img/jamon.jpg);
         background-size: cover;
-        background-position: 10% 90%;
+        background-position: 40% 45%;
         background-repeat: no-repeat;
     }
 
     .Y{
         background-image: url(../img/granada.jpg);
         background-size: cover;
-        background-position: 10% 100%;
+        background-position: 50% 60%;
         background-repeat: no-repeat;
     }
 
