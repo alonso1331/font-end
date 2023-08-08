@@ -1,37 +1,203 @@
 *{
     box-sizing: border-box;
     margin: 0px;
-    height: 0px;
+    padding: 0px;
+}
+
+body{
+    height: 2000px;
+    font-family: "Segoe UI",SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 nav{
-    width: 1600px;
-    height: 56px;
+    width: 100vw;
+    height: 62px;
     margin: auto;
-
     display: flex;
     justify-content: space-between;
 }
 
 nav .links{
-    width: 600px;
+    width: 595px;
     height: 100%;
+    padding-left: 85px;
+
+    font-size: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 nav .links .logo{
-    width: 216px;
-    height: 46px;
-    background-image: url('../img/logo.png');
-    background-position: ;
-    background-size: cover;
+    width: 115px;
+    height: 28px;
+    margin-right: 10px;
+    background-image: url("../img/logo.png");
+    background-position: center;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 
-nav .functions{
-    width: 400px;
-    height: 100%;
-    border: 1px solid greenyellow
+nav .link{
+    display: flex;
+    align-items: center;
+    /* margin-right: 20px; */
 }
 
+nav .functions{
+    width: 355px;
+    height: 100%;
+    margin-right: 94px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+}
+
+nav .functions .function{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .functions .down{
+    width: 14px;
+    height: 10px;
+    background-image: url("../img/down.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 11px;
+    margin-left: 1px;
+    margin-right: -10px;
+}
+
+nav .functions .search{
+    width: 18px;
+    height: 18px;
+    background-image: url("../img/search.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 2px;
+    margin-right: 10px;
+}
+
+nav .functions .cart{
+    width: 18px;
+    height: 18px;
+    background-image: url("../img/cart.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+nav .functions .login{
+    width: 35px;
+    height: 35px;
+    background-image: url("../img/login.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 10px;
+}
+
+nav .functions .shopping span{
+    margin-right: 5px;
+}
+
+footer{
+    width: 100vw;
+    height: 484px;
+    background-color: #f2f2f2;
+    color: #616161;
+    padding: 36px 78px 28px;
+    margin: auto;
+    font-size: 13px;
+}
+
+footer a{
+    color: #616161;
+    text-decoration: none;
+    display: inline-block;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+footer .up{
+    width: 100%;
+    height: 384px;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aqua; */
+}
+
+footer .up .title{
+    display: flex;
+    flex-direction: column;
+}
+
+footer .up .title span:first-child{
+    font-size: 17px;
+    font-weight: bolder;
+    margin-bottom: 14px;
+}
+
+footer .up .title span{
+    margin-bottom: 19px;
+    font-size: 13px;
+}
+
+footer .down{
+    width: 100%;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer .down .left{
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer .down .left .language, 
+footer .down .left .privacy{
+    display: flex;
+    align-items: center;
+}
+
+footer .down .left .language .icon{
+    width: 26px;
+    height: 26px;
+    background-image: url("../img/globe-asia-australia.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 14px;
+}
+
+footer .down .left .privacy .icon{
+    width: 40px;
+    height: 26px;
+    background-image: url("../img/privacy.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+footer .down .right{
+    width: 550px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
