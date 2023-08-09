@@ -29,8 +29,9 @@ nav .series{
 }
 
 nav .logo{
-    width: 110px;
-    height: 24px;
+    width: 108px;
+    height: 23px;
+    margin-top: -4px;
     margin-right: 10px;
     background-image: url("../img/logo.png");
     background-position: center;
@@ -45,19 +46,17 @@ nav .link{
 }
 
 nav .functions{
-    width: 365px;
+    width: 360px;
     height: 100%;
-    margin-right: 94px;
+    margin-right: 95px;
     font-size: 13px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
 }
 
 nav .functions .function{
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -68,20 +67,20 @@ nav .functions .down{
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-top: 11px;
-    margin-left: 1px;
-    margin-right: -10px;
+    margin-top: 12px;
+    margin-left: 2px;
+    margin-right: 16px;
 }
 
 nav .functions .search{
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     background-image: url("../img/search.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-left: 2px;
-    margin-right: 10px;
+    margin-left: 6px;
+    margin-right: 39px;
 }
 
 nav .functions .cart{
@@ -91,25 +90,29 @@ nav .functions .cart{
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    margin-right: 15px;
 }
 
 nav .functions .login{
-    width: 34px;
-    height: 34px;
+    width: 33px;
+    height: 33px;
     background-image: url("../img/login.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-left: 10px;
+    margin-left: 13px;
+}
+
+nav .functions .function:nth-child(4){
+    margin-left: 4px;
 }
 
 nav .functions .shopping span{
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
 /* main 區塊 */
 
-/* carousel區塊 */
 main .carousel{
     width: 99.4%;
     height: 472px;
@@ -128,7 +131,7 @@ main .carousel .description{
 }
 
 main .carousel .description h1{
-    font-weight:600;
+    font-weight: 600;
     font-size: 52px;
     margin-bottom: 24px;
 }
@@ -137,10 +140,6 @@ main .carousel .description p{
     font-weight: 400;
     font-size: 22px;
     margin-bottom: 42px;
-}
-
-main .carousel .description .info{
-
 }
 
 main .carousel .description .info a{
@@ -157,12 +156,8 @@ main .carousel .description .info a:first-child{
     color: #fff;
     margin-right: 25px;
     padding: 13px 16.5px;
-    border-radius: 3px;
+    border-radius: 2px;
 }
-
-/* main .carousel .description .info a:last-child{
-    color: #0067b8;
-} */
 
 main .carousel .description .info a:first-child:hover{
     background-color: #005ca5;
@@ -177,13 +172,269 @@ main .carousel .description .info a:last-child:visited{
     color: #000;
 }
 
+main .carousel .controll{
+    width: 100vw;
+    height: 100px;
+    background-color: #616161;
+}
+
+/* 三個系列介紹 */
+main .three-series{
+    width: 100vw;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0px;
+    
+}
+
+main .three-series a{
+    color: #0067b8;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+main .three-series span:visited{
+    color: #0067b8;
+}
+
+main .three-series .microsoft365,
+main .three-series .surface,
+main .three-series .windows11{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main .three-series .icon-center{
+    display: flex;
+    justify-content: center;
+}
+
+main .three-series .icon-center .icon{
+    margin-bottom: 10px;
+}
+
+main .three-series .microsoft365 .icon{
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/black-cube.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+main .three-series .surface .icon{
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/pad.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main .three-series .windows11 .icon{
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/black-cube.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main .three-series .surface{
+    margin: 0 74px;
+}
 
 
+/* main 區塊 card 共同部分 */
+/* for all 群眾的產品 */
+main .for-all{
+    width: 100vw;
+    height: 350px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 0 63px;
+}
 
+main .for-business{
+    width: 100vw;
+    height: 280px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 0 63px;
+}
+
+main .for-all .card
+, main .for-business .card{
+    width: calc((87vw / 4) - 5px);
+    height: 100%;
+    /* background-color: palegoldenrod; */
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+main .for-all .card .title,
+main .for-business .card .title{
+    margin-bottom: 16px;
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+main .for-all .card:first-child .title{
+    font-weight: 500;
+}
+
+main .for-all .card p,
+main .for-business .card p
+{
+    margin-bottom: 22px;
+}
+
+main .for-all .card a,
+main .for-business .card a{
+    color: #0067b8;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-right: 2px;
+}
+
+main .for-all .card a:hover,
+main .for-business .card a:hover{
+    color: #0067b8;
+    text-decoration: underline;
+}
+
+main .for-all .card a:visited,
+main .for-business .card a:visited{
+    color: #0067b8;
+}
+
+main .for-all .card a span,
+main .for-business .card a span{
+    width: 10px;
+    height: 10px;
+    background-image: url("../img/blue-rigth.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+}
+
+main .for-all .card .hover-link a span:hover,
+main .for-business .card a span:hover{
+    transform: translateX(10px);
+}
+
+main .for-all .card .xbox{
+    margin-bottom: 20px;
+}
+
+main .name{
+    display: block;
+    margin: 86px 0px 20px;
+    font-size: 36px;
+    font-weight: bolder;
+    padding: 0 63px;
+}
+
+/* main 區塊 Edge 介紹 */
+main .edge {
+    width: 100vw;
+    margin: auto;
+    padding: 0 76px;
+    position: relative;
+    z-index: 0;
+}
+
+main .edge picture img{
+    width: 100%;
+}
+
+main .intro{
+    width: 400px;
+    height: 272px;
+    background-color: #fff;
+    padding: 42px;
+    box-shadow: 0px 1px 7px #c7c7c7;
+    position: absolute;
+    top: 28%;
+    left: 10%;
+    cursor: pointer;
+}
+
+main .intro .title{
+    font-weight: 600;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+main .intro p{
+    margin-bottom: 20px;
+}
+
+main .intro a{
+    display: inline-block;
+    width: 94px;
+    height: 40px;
+    background-color: #0067b8;
+    color: #fff;
+    padding-top: 10px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: bolder;
+    text-align: center;
+}
+
+main .intro a:hover{
+    background-color: #005ca5;
+    box-shadow: 0px 1px 7px #c7c7c7;
+}
+
+/* 網外其他微軟相關官方網站 */
+main .media{
+    margin: 80px 0px 100px 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 16px;
+}
+
+main .media a{
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+main .media .fb{
+    background-image: url("../img/fb.png");
+    margin: 0px 17px;
+}
+
+main .media a:first-child{
+    background-image: url("../img/fb.png");
+    margin: 0px 10px;
+}
+
+main .media a:last-child{
+    background-image: url("../img/youtube.png");
+}
 /* footer 區塊 */
 footer{
     width: 100vw;
-    height: 484px;
+    height: 400px;
     background-color: #f2f2f2;
     color: #616161;
     padding: 36px 75px 28px;
@@ -202,7 +453,7 @@ footer a:hover{
 /* footer 上面區塊 */
 footer .up{
     width: 100%;
-    height: 384px;
+    height: 310px;
     display: flex;
 }
 
@@ -275,3 +526,35 @@ footer .down .right{
     margin-right: 38px;
 }
 
+@media (max-width: 1399px)  {
+    
+}
+
+@media (max-width: 1083)  {
+    
+}
+
+@media (max-width: 858)  {
+    
+}
+
+@media (max-width: 539)  {
+    
+}
+
+@media (max-width: 380)  {
+    main .three-series{
+        width: 100vw;
+        height: 380px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 20px 0px;
+        
+    }
+    
+    
+    main .three-series .surface{
+        margin: 0px;
+    }
+}
