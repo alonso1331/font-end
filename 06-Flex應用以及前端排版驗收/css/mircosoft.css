@@ -12,8 +12,10 @@ nav{
     width: 100%;
     height: 56px;
     margin: auto;
+    padding: 0px 80px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 nav .series .link:hover{
@@ -25,12 +27,9 @@ nav .functions .underline span:hover{
 }
 
 nav .series{
-    width: 595px;
+    width: 514px;
     height: 100%;
-    padding-left: 85px;
-
     font-size: 13px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,7 +55,6 @@ nav .link{
 nav .functions{
     width: 360px;
     height: 100%;
-    margin-right: 95px;
     font-size: 13px;
     display: flex;
     align-items: center;
@@ -121,19 +119,18 @@ nav .functions .shopping span{
 /* main 區塊 */
 /* banners */
 main .banners{
-    
+    position: relative;
     padding: 0px 5px;
 }
 
 main .banners .banner picture img{
     width: 100%;
-    position: relative;
 }
 
 main .banners .description{
-    width: 579px;
+    width: 590px;
     height: 263px;
-    padding-top: 94px;
+    padding-top: 120px;
     padding-left: 140px;
     position: absolute;
     top: 0px;
@@ -141,14 +138,15 @@ main .banners .description{
 
 main .banners .description h1{
     font-weight: 600;
-    font-size: 52px;
+    font-size: 46px;
     margin-bottom: 24px;
 }
 
 main .banners .description p{
     font-weight: 400;
-    font-size: 22px;
-    margin-bottom: 42px;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 24px;
 }
 
 main .banners .description .info{
@@ -159,19 +157,19 @@ main .banners .description .info{
 main .banners .description .info a{
     text-decoration: none;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
     position: relative;
 }
 
 main .banners .description .info > a:first-child{
     display: inline-block;
-    width: 170px;
-    height: 56px;
+    width: 158px;
+    height: 50px;
     background-color: #0067b8;
     color: #fff;
-    margin-right: 25px;
+    margin-right: 30px;
     text-align: center;
-    padding: 13px 0px;
+    padding: 10px 0px;
     border-radius: 2px;
 }
 
@@ -203,15 +201,12 @@ main .banners .description .info .hover .right{
     background-repeat: no-repeat;
     margin-top: 6px;
     margin-left: 6px;
+    transition-duration: 1s;
 }
 
 main .banners .description .info .hover:hover .right{
     transform: translateX(10px);
 }
-
-/* main .banner{
-    margin: auto;
-} */
 
 main .banners .control{
     width: 100%;
@@ -230,16 +225,12 @@ main .banners .control div{
 main .banners .control .play-btn,
 main .banners .control .left-btn,
 main .banners .control .right-btn{
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 }
-
-/* main .banners .control .play-btn{
-    background-image: url("../img/play-button.svg");
-} */
 
 main .banners .control .play-btn:hover{
     background-image: url("../img/play-button-black.svg");
@@ -356,7 +347,6 @@ main .three-series .surface{
     margin: 0 58px;
 }
 
-
 /* main 區塊 card 共同部分 */
 /* for all 群眾的產品 */
 main .for-all{
@@ -365,7 +355,7 @@ main .for-all{
     margin: auto;
     display: flex;
     flex-direction: row;
-    margin-bottom: 192px;
+    margin-bottom: 240px;
 }
 
 main .for-business{
@@ -381,21 +371,21 @@ main .for-business .card{
     width: 100%;
     height: 400px;
     margin: auto;
-    margin-right: 30px;
+    margin-right: 32px;
     display: flex;
     flex-direction: column;
 }
 
 main .for-all .card picture img,
 main .for-business .card picture img{
-    width: 100%;
+    width: 316px;
 }
 
 main .for-all .card .title,
 main .for-business .card .title{
     margin-top: 10px; 
     margin-bottom: 16px;
-    font-size: 28px;
+    font-size: 36px;
     font-weight: bolder;
 }
 
@@ -406,7 +396,7 @@ main .for-all .card:first-child .title{
 main .for-all .card p,
 main .for-business .card p
 {
-    margin-bottom: 22px;
+    margin-bottom: 34px;
 }
 
 main .for-all .card a,
@@ -479,49 +469,49 @@ main .edge picture img{
     width: 100%;
 }
 
-main .intro{
-    width: 400px;
-    height: 272px;
+main .edge .intro{
+    width: 410px;
+    height: 428px;
     background-color: #fff;
-    padding: 42px;
+    padding: 56px ;
     box-shadow: 0px 1px 7px #c7c7c7;
     position: absolute;
-    top: 28%;
-    left: 10%;
+    top: 8%;
+    left: 5%;
     cursor: pointer;
 }
 
-main .intro .title{
+main .edge .intro .title{
     font-weight: 600;
-    font-size: 38px;
+    font-size: 46px;
+    margin-bottom: 42px;
+}
+
+main .edge .intro p{
     margin-bottom: 20px;
 }
 
-main .intro p{
-    margin-bottom: 20px;
-}
-
-main .intro a{
+main .edge .intro a{
     display: inline-block;
-    width: 94px;
-    height: 40px;
+    width: 116px;
+    height: 50px;
     background-color: #0067b8;
     color: #fff;
-    padding-top: 10px;
+    padding-top: 12px;
     border-radius: 2px;
     text-decoration: none;
     font-weight: bolder;
     text-align: center;
 }
 
-main .intro a:hover{
+main .edge .intro a:hover{
     background-color: #005ca5;
     box-shadow: 0px 1px 7px #c7c7c7;
 }
 
 /* 網外其他微軟相關官方網站 */
 main .media{
-    margin: 80px 0px 100px 90px;
+    margin: 172px 0px 132px 90px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -570,18 +560,23 @@ footer a:hover{
 
 /* footer 上面區塊 */
 footer .up{
-    width: auto;
+    width: 100%;
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 12px;
+    margin-bottom: 38px;
 }
 
 footer .up .category{
-    width: 16.6%;
+    width: 212px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-right: 18px;
+}
+
+footer .up .category:last-child{
+    margin-right: 0px;
 }
 
 footer .up .category span:first-child{
@@ -648,7 +643,7 @@ footer .down .right{
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-right: 38px;
+    margin-right: 20px;
 }
 
 @media (max-width: 1399px)  {
@@ -773,28 +768,10 @@ footer .down .right{
         margin: 110px 0px 64px 90px;
         font-size: 16px;
     }
-
-    /* main .media a{
-        width: 24px;
-        height: 24px;
-    } */
     
     main .media .fb{
         margin: 0px 14px;
     }
-
-     /*footer .up .category span:first-child{
-        font-size: 12px;
-        margin-bottom: 6px;
-    }
-    
-    footer .up .category span{
-        font-size: 8px;
-        margin-bottom: 6px;
-        font-weight:lighter
-    } */
-
-
 }
 
 @media (max-width: 1083px)  {
@@ -854,6 +831,14 @@ footer .down .right{
         padding: 0px 10px;
     }
 
+    main .for-all{
+        margin-bottom: 405px;
+    }
+
+    main .for-business{
+        margin-bottom: 270px;
+    }
+
     main .for-all, 
     main .for-business{
         flex-wrap: wrap;
@@ -863,47 +848,87 @@ footer .down .right{
     main .for-all .card, 
     main .for-business .card{
         width: 490px;
-        height: 450px;
+        height: 530px;
         margin-right: 30px;
     }
 
     main .for-all .card picture img,
     main .for-business .card picture img{
-        width: 520px;
+        width: 500px;
     }
 
     main .for-all .card .title,
     main .for-business .card .title{
-        margin-top: 8px;
-        margin-bottom: 6px;
+        font-size: 28px;
+        margin-top: 10px;
+        margin-bottom: 8px;
     }
     
     main .for-all .card p,
     main .for-business .card p{
-        margin-bottom: 26px;
+        margin-bottom: 32px;
+        line-height: 1.5;
+    }
+
+    main .for-all .card p, main .for-all .card a,
+    main .for-business .card P,
+    main .for-business .card a{
+        font-size: 20px;
+    }
+
+    /* edge 區塊 */
+    main .edge {
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 334px;
+        position: relative;
+        z-index: 0;
     }
     
+    main .edge .intro{
+        width: 1006px;
+        height: 224px;
+        background-color: #fff;
+        /* padding-top: 44px;
+        padding-left: 40px; */
+        margin: 10px;
+        top: 94%;
+        box-shadow: 0px 1px 7px #c7c7c7;
+    }
 
+    main .name{
+        margin-bottom: 14px;
+        font-size: 30px;
+    }
+
+    main .media{
+        margin: 110px 0px 130px 30px;
+        font-size: 20px;
+    }
+    
+    main .media .fb{
+        margin: 0px 21px;
+    }
+    
     /* footer 區塊 */
     footer{
-        padding: 36px 24px 28px;
+        padding: 36px 54px 28px;
     }
     
     /* footer 下面區塊 */
     footer .down .left{
-        width: 180px;
-        
+        width: 230px;
     }
 
     footer .down .left .privacy{
-        margin-top: 8px;
+        margin-top: 0px;
     }
 
     footer .down .right{
-        width: 100%;
-        justify-content: flex-end;
-        margin-top: 20px;
-        margin-right: 26px;
+        width: 630px;
+        /* justify-content: flex-end; */
+        margin-top: 0px;
+        margin-right: 6px;
     }
 
     footer .down .right a{
