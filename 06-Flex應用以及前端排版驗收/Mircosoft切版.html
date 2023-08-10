@@ -18,15 +18,15 @@
             <div class="link">支援</div>
         </div>
         <div class="functions">
-            <div class="function">
+            <div class="function underline">
                 <span>所有 Microsoft</span>
                 <div class="icon down"></div>
             </div>
-            <div class="function">
+            <div class="function underline">
                 <span>搜尋</span>
-                <div class="icon search"></div>
+                <div class="icon search underline"></div>
             </div>
-            <div class="function shopping">
+            <div class="function shopping underline">
                 <span>購物車</span>
                 <div class="icon cart"></div>
             </div>
@@ -38,17 +38,38 @@
     </nav>
 
     <main>
+        <!-- banners 區塊 -->
         <div class="banners">
+            <div class="banner">
+                <picture>
+                    <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP5-1920x600" media="(min-width: 1400px)">
+                    <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP4-1399x600" media="(min-width: 1084px)">
+                    <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP3-1083x600" media="(min-width: 860px)">
+                    <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" media="(min-width: 540px)">
+                    <img id="img-highlight-uidc387" src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" class="card-img w-100" alt="Microsoft 365 應用程式套件 (如 Teams、Word、Outlook 等) 的圖示。">
+                </picture>
+            </div>
             <div class="description">
                 <h1>Microsoft 365</h1>
                 <p>使用 Microsoft 365 應用程式實現創意想法、提高線上和離線安全，並專注於最重要的事。</p>
                 <div class="info">
                     <a href="">適合 1 人使用</a>
-                    <a href="">最多可供 6 人使用</a>
+                    <div class="hover">
+                        <a href="">最多可供 6 人使用</a>
+                        <div class="right"></div>
+                    </div>
                 </div>
             </div>
-            <div class="controll"></div>
+            <div class="control">
+                <img src="./img/play-button.svg" alt="" class="play-btn">
+                <div class="left-btn"></div>
+                <div class="dot-1st"></div>
+                <div class="dot-2nd"></div>
+                <div class="right-btn"></div>
+            </div>
         </div>
+
+        <!-- 產品項目區塊 -->
         <div class="products">
             <!-- 三個產品小icon -->
             <div class="three-series">
@@ -82,8 +103,10 @@
                     </picture>
                     <div class="title">Xbox Series X</div>
                     <p>有史以來最快、最強大的 Xbox。</p>
-                    <a href="">選購 Xbox Series X <span></span>
-                    </a>
+                    <div class="hover">
+                        <a href="">選購 Xbox Series X</a>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="card">
                     <picture>
@@ -95,7 +118,10 @@
                     </picture>
                     <div class="title">隆重推出新版 Bing</div>
                     <p>問真正的問題。 聊天和創作。 從您的 AI 網路副駕駛獲得更好的答案。</p>
-                    <a href="">了解新版 Bing<span></span></a>
+                    <div class="hover">
+                        <a href="">了解新版 Bing</a>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="card">
                     <picture>
@@ -107,8 +133,14 @@
                     </picture>
                     <div class="title">加入只要 NT$30</div>
                     <p>加入 Xbox Game Pass Ultimate 或 PC Game Pass 只要 NT$30，解鎖數百款精彩遊戲和更多驚喜。 此優惠僅適用於新訂閱者。</p>
-                    <a href="" class="xbox">加入 Xbox Game Pass<span></span></a>
-                    <a href="">加入 PC Game Pass<span></span></a>
+                    <div class="hover">
+                        <a href="" class="xbox">加入 Xbox Game Pass</a>
+                        <span></span>
+                    </div>
+                    <div class="hover">
+                        <a href="">加入 PC Game Pass</a>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="card">
                     <picture>
@@ -120,7 +152,10 @@
                     </picture>
                     <div class="title">專為今天和明天的生活而設計</div>
                     <p>新一代遊戲、 您的目標、 親朋好友。 Windows 11 是為了讓您更貼近所喜愛的一切。</p>
-                    <a href="">查看您的電腦是否準備就緒<span></span></a>
+                    <div class="hover">
+                        <a href="">查看您的電腦是否準備就緒</a>
+                        <span></span>
+                    </div>
                 </div>
             </div>
 
@@ -153,8 +188,9 @@
                     </picture>
                     <div class="title"> 適用於商務的 Surface</div>
                     <p>無論從事哪種工作，都有一款有助於成功的 Surface。 </p>
-                    <div class="hover-link">
-                        <a href="">立即選購<span></span></a>
+                    <div class="hover">
+                        <a href="">立即選購</a>
+                        <span></span>
                     </div>
                     
                 </div>
@@ -168,7 +204,10 @@
                     </picture>
                     <div class="title">免費試用 Microsoft 365</div>
                     <p>透過一個月免費試用的 Microsoft 365 商務標準版，跨裝置取得 Microsoft Teams、安全雲端儲存空間和進階應用程式。</p>
-                    <a href="">開始免費試用<span></span></a>
+                    <div class="hover">
+                        <a href="">開始免費試用</a>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="card">
                     <picture>
@@ -180,7 +219,10 @@
                     </picture>
                     <div class="title">加入 AI 時代</div>
                     <p>以 Microsoft 最新 AI 解決方案創作、溝通和編碼。</p>
-                    <a href="" class="xbox">探索 AI 解決方<span></span></a>
+                    <div class="hover">
+                        <a href="" class="xbox">探索 AI 解決方</a>
+                        <span></span>
+                    </div>
                 </div>
                 <div class="card">
                     <picture>
@@ -192,7 +234,10 @@
                     </picture>
                     <div class="title">商務用 Windows 11</div>
                     <p>專為混合式辦公而設計。 為員工帶來實用性。 為 IT 帶來一致性。 為所有人帶來安全性。</p>
-                    <a href="">深入了解<span></span></a>
+                    <div class="hover">
+                        <a href="">深入了解</a>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -284,5 +329,11 @@
             </div>
         </div>
     </footer>
+    <!-- <script>
+        let img = document.getElementsByClassName('play-btn')
+        img.addEventListener('click', function(){
+            this.src = "./img/pause-circle.svg";
+        });
+    </script> -->
 </body>
 </html>
