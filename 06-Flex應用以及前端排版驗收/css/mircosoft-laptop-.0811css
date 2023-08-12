@@ -17,12 +17,6 @@ nav{
     cursor: pointer; 
 }
 
-@media (max-width: 1083px)  {
-    nav{
-        height: 70px;
-    }
-}
-
 nav .series .link:hover{
     border-bottom: #000 solid 2px;
 }
@@ -40,18 +34,6 @@ nav .series{
     align-items: center;
     justify-content: space-between;
 }
-@media (max-width: 1399px) {
-    nav .series{
-        padding-left: 80px;
-    }
-}
-
-@media (max-width: 1083px) {
-    nav .series{
-        width: 580px;
-        padding-left: 34px;
-    }
-}
 
 nav .logo{
     width: 108px;
@@ -64,22 +46,10 @@ nav .logo{
     background-repeat: no-repeat;
 }
 
-@media (max-width: 1083px) {
-    nav .logo{
-        margin-right: 26px;
-    }
-}
-
 nav .link{
     display: flex;
     align-items: center;
     margin-right: 20px;
-}
-
-@media (max-width: 1083px) {
-    nav .link{
-        margin-right: 24px;
-    }
 }
 
 nav .functions{
@@ -92,12 +62,18 @@ nav .functions{
     padding-right: 84px;
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 1399px)  {
     nav .functions{
-        padding-right: 76px;
+        justify-content: flex-end;
     }
-}
     
+    nav .functions .function:nth-child(2) span,
+    nav .functions .function:nth-child(3) span,
+    nav .functions .function:nth-child(4) span{
+        display: none;
+    }   
+}
+
 nav .functions .function{
     display: flex;
     align-items: center;
@@ -116,9 +92,9 @@ nav .functions .down{
 }
 
 nav .functions .search{
-    width: 19px;
-    height: 19px;
-    background-image: url("../img/search.png");
+    width: 16px;
+    height: 16px;
+    background-image: url("../img/search.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -150,54 +126,6 @@ nav .functions .function:nth-child(4){
     margin-left: 4px;
 }
 
-@media (max-width: 1399px)  {
-    nav .functions .down{
-        margin-right: 16px;
-    }
-
-    nav .functions .search{
-        margin-left: 10px;
-        margin-right: 18px;
-    }
-
-    nav .functions .cart{
-        margin-right: 10px;
-    }
-
-    nav .functions .login{
-        margin-left: 5px;
-    }
-
-    nav .functions .function:nth-child(2) span,
-    nav .functions .function:nth-child(3) span,
-    nav .functions .function:nth-child(4) span{
-        display: none;
-    }   
-}
-
-@media (max-width: 1083px)  {
-    nav .functions{
-        padding-right: 34px;
-    }
-
-    nav .functions .down{
-        margin-right: 16px;
-    }
-
-    nav .functions .search{
-        margin-left: 10px;
-        margin-right: 22px;
-    }
-
-    nav .functions .cart{
-        margin-right: 8px;
-    }
-
-    nav .functions .login{
-        margin-left: 5px;
-    }
-}
-
 nav .functions .shopping span{
     margin-right: 6px;
 }
@@ -227,7 +155,7 @@ main .banners .description{
     width: 470px;
     height: 263px;
     position: absolute;
-    top: 28%;
+    top: 26%;
     left: 8.5%;
 }
 
@@ -235,31 +163,16 @@ main .banners .description{
     main .banners .description{
         width: 560px;
         height: 110px;
-        padding-top: 0px;
-        padding-left: 0px;
-        top: 36.7%;
-        left: 124px
-    }
-}
-
-@media (max-width: 1083px)  {
-    main .banners .description{
-        width: 98%;
-        height: 224px;
-        background-color: #fff;
-        padding-top: 44px;
-        padding-left: 40px;
-        margin: 10px;
-        top: 64%;
-        left: 0%;
-        box-shadow: 0px 1px 7px #c7c7c7;
+        padding-top: 94px;
+        padding-left: 140px;
+        top: 19%;
     }
 }
 
 main .banners .description h1{
     font-weight: 600;
     font-size: 37px;
-    margin-bottom: 17px;
+    margin-bottom: 18px;
 }
 
 @media (max-width: 1399px)  {
@@ -269,24 +182,11 @@ main .banners .description h1{
     }
 }
 
-@media (max-width: 1083px)  {
-    main .banners .description h1{
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-}
-
 main .banners .description p{
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
-    margin-bottom: 25px;
-}
-
-@media (max-width: 1083px)  {
-    main .banners .description p{
-        margin-bottom: 26px;
-    }
+    margin-bottom: 26px;
 }
 
 main .banners .description .info{
@@ -301,24 +201,35 @@ main .banners .description .info a{
     position: relative;
 }
 
+@media (max-width: 1399px)  {
+    main .banners .description .info a{
+        font-size: 22px;
+    }
+
+    /* 檢查一下 */
+    /* main .banners .description .info a{
+        font-size: 16px;
+    } */
+}
+
 main .banners .description .info > a:first-child{
     display: inline-block;
     width: 122px;
-    height: 39px;
+    height: 38px;
     background-color: #0067b8;
     color: #fff;
     margin-right: 28px;
     text-align: center;
-    line-height: 39px;
+    line-height: 38px;
     border-radius: 2px;
 }
 
 @media (max-width: 1399px)  {
     main .banners .description .info > a:first-child{
         width: 120px;
-        height: 39px;
+        height: 40px;
         margin-right: 30px;
-        line-height: 40px;
+        padding: 8px 0px;
     }
 }
 
@@ -326,14 +237,6 @@ main .banners .description .info > a:hover{
     background-color: #005ca5;
     box-shadow: 0px 1px 7px #c7c7c7;
 }
-
-main .banners .description .info > a span:active{
-    background-color: #005ca5;
-    box-shadow: 0px 1px 7px #c7c7c7;
-    padding: 3px;
-    border: 3px dashed #fff;
-}
-
 
 main .banners .description .info .hover a:visited{
     color: #000;
@@ -350,13 +253,14 @@ main .banners .description .info .hover a:hover{
 
 
 main .banners .description .info .hover .right{
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     background-image: url("../img/right-chevron.svg");
     background-position: 65%;
     background-size: cover;
     background-repeat: no-repeat;
-    margin-left: 3px;
+    margin-top: 6px;
+    margin-left: 2px;
     transition-duration: 1s;
 }
 
@@ -381,12 +285,6 @@ main .banners .control{
     margin-top: 20px;
 }
 
-@media (max-width: 1083px)  {
-    main .banners .control{
-        margin-top: 195px;
-    }
-}
-
 main .banners .control .play-btn,
 main .banners .control .left-btn,
 main .banners .control .right-btn{
@@ -397,20 +295,12 @@ main .banners .control .right-btn{
     background-repeat: no-repeat;
 }
 
-main .banners .control .play-btn:active{
-    border: 3px dashed #000;
-}
-
 main .banners .control .play-btn:hover{
     background-image: url("../img/play-button-black.svg");
 }
 
 main .banners .control .left-btn{
     background-image: url("../img/left.png");
-}
-
-main .banners .control .left-btn:active{
-    border: 3px dashed #000;
 }
 
 main .banners .control .left-btn:hover{
@@ -437,31 +327,15 @@ main .banners .control .right-btn{
     background-image: url("../img/right.png");
 }
 
-main .banners .control .right-btn:active{
-    border: 3px dashed #000;
-}
-
 main .banners .control .right-btn:hover{
     transform: translateX(8px);
-    transition-duration: 1s;
+    transition-duration: 1s; 
 }
 
 /* 產品區塊統一padding */
 main .products{
     width: 100%;
-    padding: 0px 5%;
-}
-
-@media (max-width: 1399px) {
-    main .products{
-        padding: 0px 70px;
-    }
-}
-
-@media (max-width: 1083px) {
-    main .products{
-        padding: 0px 10px;
-    }
+    padding: 0px 76px;
 }
 
 /* 三個系列介紹 */
@@ -476,7 +350,7 @@ main .three-series{
 
 main .three-series a{
     color: #0067b8;
-    font-size: 16px;
+    font-size:16px;
     font-weight: 600;
 }
 
@@ -498,7 +372,7 @@ main .three-series .icon-center{
 }
 
 main .three-series .icon-center .icon{
-    margin-bottom: 9px;
+    margin-bottom: 10px;
 }
 
 main .three-series .microsoft365 .icon{
@@ -531,13 +405,13 @@ main .three-series .windows11 .icon{
 }
 
 main .three-series .surface{
-    margin: 0 48px;
+    margin: 0 46px;
 }
 
 /* main 區塊 card 共同部分 */
 /* for all 群眾的產品 */
 main .for-all{
-    /* width: 100%; */
+    width: 100%;
     height: 426px;
     margin: auto;
     margin: 80px 0px;
@@ -545,15 +419,9 @@ main .for-all{
     flex-direction: row;
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 1399px)  {
     main .for-all{
-        margin-bottom: 80px;
-    }
-}
-
-@media (max-width: 1083px) {
-    main .for-all{
-        margin-bottom: 405px;
+        margin-bottom: 146px;
     }
 }
 
@@ -565,76 +433,26 @@ main .for-business{
     flex-direction: row;
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 1399px)  {
     main .for-business {
         height: 280px;
     }
 }
 
-@media (max-width: 1083px) {
-    main .for-business{
-        margin-bottom: 270px;
-    }
-}
-
-@media (max-width: 1083px) {
-    main .for-all, 
-    main .for-business{
-        /* flex-wrap: wrap; */
-        /* height: 800px; */
-    }
-}
-
 main .for-all .card, 
 main .for-business .card{
-    /* width: 322px; */
-    /* width: 100%; */
+    width: 322px;
     height: 426px;
     margin: auto;
     margin-right: 24px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-}
-
-@media (max-width: 1399px) {
-    main .for-all .card, 
-    main .for-business .card{
-        /* width: 296px; */
-        width: 100%;
-    }
-}
-
-@media (max-width: 1083px) {
-    main .for-all .card, 
-    main .for-business .card{
-        /* width: 508px; */
-        /* width: 100%; */
-        height: 470px;
-    }
 }
 
 main .for-all .card picture img,
 main .for-business .card picture img{
-    width: 100%;
+    width: 322px;
 }
-
-@media (max-width: 1399px) {
-    main .for-all .card picture img,
-    main .for-business .card picture img{
-        /* width: 296px; */
-        width: 100%;
-    }
-}
-
-@media (max-width: 1083px)  {
-    main .for-all .card picture img,
-    main .for-business .card picture img{
-        width: 450px;
-        /* width: 100%; */
-    }
-}
-
 
 main .for-all .card:last-child, 
 main .for-business .card:last-child{
@@ -643,9 +461,9 @@ main .for-business .card:last-child{
 
 main .for-all .card .title,
 main .for-business .card .title{
-    margin-top: 10px; 
+    margin-top: 8px; 
     margin-bottom: 16px;
-    font-size: 29px;
+    font-size: 28px;
     font-weight: bolder;
 }
 
@@ -658,42 +476,19 @@ main .for-business .card .title{
     }
 }
 
-@media (max-width: 1083px)  {
-    main .for-all .card .title,
-    main .for-business .card .title{
-        font-size: 20px;
-        margin-top: 10px;
-        margin-bottom: 6px;
-    }
-}
-
 main .for-all .card:first-child .title{
     font-weight: 500;
 }
 
 main .for-all .card p,
 main .for-business .card p{
-    margin-bottom: 26px;
+    margin-bottom: 24px;
 }
 
 @media (max-width: 1399px)  {
     main .for-all .card p,
     main .for-business .card p{
         margin-bottom: 28px;
-    }
-
-    main .for-all .card p, main .for-all .card a,
-    main .for-business .card P,
-    main .for-business .card a{
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 1083px)  {
-    main .for-all .card p,
-    main .for-business .card p{
-        margin-bottom: 22px;
-        line-height: 1.5;
     }
 
     main .for-all .card p, main .for-all .card a,
@@ -740,8 +535,7 @@ main .for-business .card .hover span{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    margin-left: 4px;
-    transition-duration: 1s;
+    margin-left: 10px;
 }
 
 main .for-all .card .hover:hover span,
@@ -749,29 +543,20 @@ main .for-business .card .hover:hover span{
     transform: translateX(10px);
 }
 
-main .for-all .card .xbox,
-main .for-all .card .xbox +span{
+main .for-all .card .xbox{
     margin-bottom: 20px;
 }
 
 main .name{
     display: block;
-    margin-bottom: 21px;
+    margin-bottom: 18px;
     font-size: 36px;
     font-weight: bolder;
 }
 
 @media (max-width: 1399px)  {
     main .name{
-        margin-top: 80px;
         margin-bottom: 16px;
-        font-size: 30px;
-    }
-}
-
-@media (max-width: 1083px)  {
-    main .name{
-        margin-bottom: 14px;
         font-size: 30px;
     }
 }
@@ -781,24 +566,14 @@ main .edge {
     width: 100%;
     height: 513.38px;
     margin: auto;
-    margin-bottom: 92px;
+    margin-bottom: 90px;
     position: relative;
     z-index: 0;
 }
 
 @media (max-width: 1399px)  {
     main .edge {
-        margin-bottom: 180px;
-    }
-}
-
-@media (max-width: 1083px)  {
-    main .edge {
-        width: 100%;
-        height: 100%;
-        margin: 0px;
-        margin-bottom: 334px;
-        position: relative;
+        margin-bottom: 82px;
     }
 }
 
@@ -819,43 +594,25 @@ main .edge .intro{
 }
 
 @media (max-width: 1399px)  {
-    main .edge .intro{
+    main .intro{
         width: 380px;
         height: 280px;
         padding: 46px 48px;
-        top: 30.6%;
+        top: 22%;
         left: 5%;
-    }
-}
-
-@media (max-width: 1083px)  {
-    main .edge .intro{
-        width: 98%;
-        height: 224px;
-        margin: auto;
-        top: 94%;
-        left: 1%;
-        box-shadow: 0px 1px 7px #c7c7c7;
     }
 }
 
 main .edge .intro .title{
     font-weight: 600;
-    font-size: 37px;
+    font-size: 38px;
     margin-bottom: 18px;
 }
 
 @media (max-width: 1399px)  {
-    main .edge .intro .title{
+    main .intro .title{
         font-size: 30px;
-        margin-bottom: 12px;
-    }
-}
-
-@media (max-width: 1083px)  {
-    main .edge .intro .title{
-        font-size: 24px;
-        margin-bottom: 12px;
+        margin-bottom: 20px;
     }
 }
 
@@ -882,14 +639,9 @@ main .edge .intro a:hover{
     box-shadow: 0px 1px 7px #c7c7c7;
 }
 
-main .edge .intro a span:active{
-    padding: 4px;
-    border: 2px dashed #fff;
-}
-
 /* 網外其他微軟相關官方網站 */
 main .media{
-    margin: 54px 0px 112px 90px;
+    margin: 36px 0px 112px 90px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -898,15 +650,8 @@ main .media{
 
 @media (max-width: 1399px)  {
     main .media{
-        margin: 86px 0px 116px 82px;
+        margin: 110px 0px 64px 90px;
         font-size: 16px;
-    }
-}
-
-@media (max-width: 1083px)  {
-    main .media{
-        margin: 110px 0px 130px 30px;
-        font-size: 20px;
     }
 }
 
@@ -929,12 +674,6 @@ main .media .fb{
     }
 }
 
-@media (max-width: 1083px)  {
-    main .media .fb{
-        margin: 0px 21px;
-    }
-}
-
 main .media:first-child{
     background-image: url("../img/fb.png");
 }
@@ -946,17 +685,11 @@ main .media a:last-child{
 /* footer 區塊 */
 footer{
     width: 100%;
-    height: 388px;
+    height: 400px;
     background-color: #f2f2f2;
     color: #616161;
     padding: 36px 75px 28px;
     font-size: 11px;
-}
-
-@media (max-width: 1083px)  {
-    footer{
-        padding: 36px 54px 28px;
-    }
 }
 
 footer a{
@@ -983,12 +716,6 @@ footer .up .category{
     flex-direction: column;
     flex-wrap: wrap;
     margin-right: 18px;
-}
-
-@media (max-width: 1399px)  {
-    footer .up .category{
-        margin-right: 0.7%;
-    }
 }
 
 footer .up .category:last-child{
@@ -1023,24 +750,11 @@ footer .down .left{
     flex-wrap: wrap;
 }
 
-@media (max-width: 1083px)  {
-    footer .down .left{
-        width: 230px;
-    }
-}
-
 footer .down .left .language, 
 footer .down .left .privacy{
     display: flex;
     align-items: center;
 }
-
-@media (max-width: 1083px)  {
-    footer .down .left .privacy{
-        margin-top: 0px;
-    }
-}
-
 footer .down .left .language{
     margin-right: 24px;
 }
@@ -1075,9 +789,166 @@ footer .down .right{
     margin-right: 24px;
 }
 
+
 @media (max-width: 1083px)  {
+    nav .series{
+        width: 572px;
+        padding-left: 65px;
+    }
+
+    nav .functions{
+        margin-right: 44px;
+    }
+
+    nav .functions .down{
+        margin-right: 16px;
+    }
+    
+    nav .functions .search{
+        margin-left: 10px;
+        margin-right: 22px;
+    }
+    
+    nav .functions .cart{
+        margin-right: 8px;
+    }
+    
+    nav .functions .login{
+        margin-left: 5px;
+    }
+
+    main .banners .description{
+        width: 1042px;
+        height: 224px;
+        background-color: #fff;
+        padding-top: 44px;
+        padding-left: 40px;
+        margin: 10px;
+        top: 64%;
+        left: 0%;
+        box-shadow: 0px 1px 7px #c7c7c7;
+    }
+
+    main .banners .description h1{
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    main .banners .description p{
+        margin-bottom: 26px;
+    }
+
+    /* main 區塊 */
+    /* 控制按鈕 */
+    main .banners .control{
+        margin-top: 195px;
+    }
+
+    main .products{
+        padding: 0px 10px;
+    }
+
+    main .for-all{
+        margin-bottom: 405px;
+    }
+
+    main .for-business{
+        margin-bottom: 270px;
+    }
+
+    main .for-all, 
+    main .for-business{
+        flex-wrap: wrap;
+        height: 800px;
+    }
+
+    main .for-all .card, 
+    main .for-business .card{
+        width: 490px;
+        height: 530px;
+        margin-right: 30px;
+    }
+
+    main .for-all .card picture img,
+    main .for-business .card picture img{
+        width: 500px;
+    }
+
+    main .for-all .card .title,
+    main .for-business .card .title{
+        font-size: 28px;
+        margin-top: 10px;
+        margin-bottom: 8px;
+    }
+    
+    main .for-all .card p,
+    main .for-business .card p{
+        margin-bottom: 32px;
+        line-height: 1.5;
+    }
+
+    main .for-all .card p, main .for-all .card a,
+    main .for-business .card P,
+    main .for-business .card a{
+        font-size: 20px;
+    }
+
+    /* edge 區塊 */
+    main .edge {
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 334px;
+        position: relative;
+    }
+    
+    main .edge .intro{
+        width: 1030px;
+        height: 224px;
+        /* background-color: #fff; */
+        /* margin: 10px; */
+        /* padding-left: 0px; */
+        margin: auto;
+        top: 102%;
+        left: 12px;
+        box-shadow: 0px 1px 7px #c7c7c7;
+    }
+
+    main .edge .intro .title{
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    main .name{
+        margin-bottom: 14px;
+        font-size: 30px;
+    }
+
+    main .media{
+        margin: 110px 0px 130px 30px;
+        font-size: 20px;
+    }
+    
+    main .media .fb{
+        margin: 0px 21px;
+    }
+    
+    /* footer 區塊 */
+    footer{
+        padding: 36px 54px 28px;
+    }
+    
+    /* footer 下面區塊 */
+    footer .down .left{
+        width: 230px;
+    }
+
+    footer .down .left .privacy{
+        margin-top: 0px;
+    }
+
     footer .down .right{
         width: 630px;
+        /* justify-content: flex-end; */
         margin-top: 0px;
         margin-right: 6px;
     }
@@ -1085,9 +956,8 @@ footer .down .right{
     footer .down .right a{
         margin-left: 26px;
     }
+    
 }
-
-
 
 @media (max-width: 858px)  {
     
@@ -1105,7 +975,9 @@ footer .down .right{
         justify-content: center;
         flex-wrap: wrap;
         margin: 20px 0px;
+        
     }
+    
     
     main .three-series .surface{
         margin: 0px;
