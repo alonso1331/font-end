@@ -15,11 +15,18 @@ nav{
     display: flex;
     justify-content: space-between;
     cursor: pointer; 
+    position: relative;
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     nav{
         height: 70px;
+    }
+}
+
+@media (max-width: 858px) {
+    nav{
+        height: 54px;
     }
 }
 
@@ -40,6 +47,7 @@ nav .series{
     align-items: center;
     justify-content: space-between;
 }
+
 @media (max-width: 1399px) {
     nav .series{
         padding-left: 80px;
@@ -50,6 +58,14 @@ nav .series{
     nav .series{
         width: 580px;
         padding-left: 34px;
+    }
+}
+
+@media (max-width: 858px) {
+    nav .series{
+        width: 100%;
+        height: 100%;
+        padding-left: 0px;
     }
 }
 
@@ -70,6 +86,16 @@ nav .logo{
     }
 }
 
+@media (max-width: 858px) {
+    nav .logo{
+        margin-right: 0px;
+        position: absolute;
+        top: calc(50% - 11.5px);
+        left: calc(50% - 54px);
+        /* top: calc(50% - 108px / 2); */
+    }
+}
+
 nav .link{
     display: flex;
     align-items: center;
@@ -79,6 +105,12 @@ nav .link{
 @media (max-width: 1083px) {
     nav .link{
         margin-right: 24px;
+    }
+}
+
+@media (max-width: 858px) {
+    nav .series .link{
+        display: none;
     }
 }
 
@@ -195,6 +227,13 @@ nav .functions .function:nth-child(4){
 
     nav .functions .login{
         margin-left: 5px;
+    }
+}
+
+@media (max-width: 858px) {
+    nav .functions .function:first-child div,
+    nav .functions .function:first-child span{
+        display: none;
     }
 }
 
@@ -460,7 +499,7 @@ main .products{
 
 @media (max-width: 1083px) {
     main .products{
-        padding: 0px 10px;
+        padding: 0px 12px;
     }
 }
 
@@ -553,7 +592,7 @@ main .for-all{
 
 @media (max-width: 1083px) {
     main .for-all{
-        margin-bottom: 405px;
+        margin-bottom: 100px;
     }
 }
 
@@ -573,34 +612,43 @@ main .for-business{
 
 @media (max-width: 1083px) {
     main .for-business{
-        margin-bottom: 270px;
+        margin-bottom: 0px;
     }
 }
 
 @media (max-width: 1083px) {
     main .for-all, 
     main .for-business{
-        /* flex-wrap: wrap; */
-        /* height: 800px; */
+        flex-wrap: wrap;
+        width: 100%;
+        height: 960px;
     }
 }
+
+/* @media (max-width: 1083px) {
+    main .for-all .group,
+    main .for-business .group{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+} */
 
 main .for-all .card, 
 main .for-business .card{
     /* width: 322px; */
-    /* width: 100%; */
+    width: 100%;
     height: 426px;
     margin: auto;
     margin-right: 24px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     flex-direction: column;
 }
 
 @media (max-width: 1399px) {
     main .for-all .card, 
     main .for-business .card{
-        /* width: 296px; */
         width: 100%;
     }
 }
@@ -608,9 +656,10 @@ main .for-business .card{
 @media (max-width: 1083px) {
     main .for-all .card, 
     main .for-business .card{
-        /* width: 508px; */
-        /* width: 100%; */
+        width: 50%;
         height: 470px;
+        margin: 0px;
+        /* margin-right: 21px; */
     }
 }
 
@@ -622,7 +671,6 @@ main .for-business .card picture img{
 @media (max-width: 1399px) {
     main .for-all .card picture img,
     main .for-business .card picture img{
-        /* width: 296px; */
         width: 100%;
     }
 }
@@ -630,11 +678,10 @@ main .for-business .card picture img{
 @media (max-width: 1083px)  {
     main .for-all .card picture img,
     main .for-business .card picture img{
-        width: 450px;
-        /* width: 100%; */
+        flex-wrap: wrap;
+        width: 100%;
     }
 }
-
 
 main .for-all .card:last-child, 
 main .for-business .card:last-child{
@@ -676,7 +723,7 @@ main .for-business .card p{
     margin-bottom: 26px;
 }
 
-@media (max-width: 1399px)  {
+@media (max-width: 1399px) {
     main .for-all .card p,
     main .for-business .card p{
         margin-bottom: 28px;
@@ -689,7 +736,7 @@ main .for-business .card p{
     }
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     main .for-all .card p,
     main .for-business .card p{
         margin-bottom: 22px;
@@ -723,7 +770,7 @@ main .for-business .card a:hover{
 main .for-all .card a:visited,
 main .for-business .card a:visited{
     color: #0067b8;
-}
+}p
 
 main .for-all .card .hover,
 main .for-business .card .hover{
@@ -797,7 +844,7 @@ main .edge {
         width: 100%;
         height: 100%;
         margin: 0px;
-        margin-bottom: 334px;
+        margin-bottom: 247px;
         position: relative;
     }
 }
@@ -833,7 +880,7 @@ main .edge .intro{
         width: 98%;
         height: 224px;
         margin: auto;
-        top: 94%;
+        top: 91%;
         left: 1%;
         box-shadow: 0px 1px 7px #c7c7c7;
     }
@@ -899,14 +946,12 @@ main .media{
 @media (max-width: 1399px)  {
     main .media{
         margin: 86px 0px 116px 82px;
-        font-size: 16px;
     }
 }
 
 @media (max-width: 1083px)  {
     main .media{
-        margin: 110px 0px 130px 30px;
-        font-size: 20px;
+        margin: 0px 0px 110px 30px;
     }
 }
 
@@ -929,11 +974,11 @@ main .media .fb{
     }
 }
 
-@media (max-width: 1083px)  {
+/* @media (max-width: 1083px)  {
     main .media .fb{
-        margin: 0px 21px;
+        margin: 0px 14px;
     }
-}
+} */
 
 main .media:first-child{
     background-image: url("../img/fb.png");
@@ -946,7 +991,8 @@ main .media a:last-child{
 /* footer 區塊 */
 footer{
     width: 100%;
-    height: 388px;
+    height: 100%;
+    /* height: 388px; */
     background-color: #f2f2f2;
     color: #616161;
     padding: 36px 75px 28px;
@@ -955,7 +1001,9 @@ footer{
 
 @media (max-width: 1083px)  {
     footer{
-        padding: 36px 54px 28px;
+        /* height: 724px; */
+        height: 100%;
+        padding: 36px 24px 28px;
     }
 }
 
@@ -977,6 +1025,12 @@ footer .up{
     margin-bottom: 26px;
 }
 
+/* @media (max-width: 1083px)  {
+    footer .up {
+        height: 590px;
+    }
+} */
+
 footer .up .category{
     width: 212px;
     display: flex;
@@ -988,6 +1042,13 @@ footer .up .category{
 @media (max-width: 1399px)  {
     footer .up .category{
         margin-right: 0.7%;
+    }
+}
+
+@media (max-width: 1083px)  {
+    footer .up .category{
+        margin-right: 132px;
+        margin-bottom: 30px;
     }
 }
 
@@ -1009,11 +1070,12 @@ footer .up .category span{
 /* footer 下面區塊 */
 footer .down{
     width: 100%;
-    height: 26px;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    color: #616161;
 }
 
 footer .down .left{
@@ -1026,6 +1088,7 @@ footer .down .left{
 @media (max-width: 1083px)  {
     footer .down .left{
         width: 230px;
+        display: block;
     }
 }
 
@@ -1037,7 +1100,7 @@ footer .down .left .privacy{
 
 @media (max-width: 1083px)  {
     footer .down .left .privacy{
-        margin-top: 0px;
+        margin-top: 10px;
     }
 }
 
@@ -1069,17 +1132,18 @@ footer .down .right{
     width: 524px;
     display: flex;
     justify-content: flex-end;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     flex-wrap: wrap;
     margin-right: 24px;
+    color: #616161;
 }
 
 @media (max-width: 1083px)  {
     footer .down .right{
-        width: 630px;
+        width: 100%;
         margin-top: 0px;
-        margin-right: 6px;
+        margin-right: 27px;
     }
 
     footer .down .right a{
@@ -1089,9 +1153,6 @@ footer .down .right{
 
 
 
-@media (max-width: 858px)  {
-    
-}
 
 @media (max-width: 539px)  {
     
