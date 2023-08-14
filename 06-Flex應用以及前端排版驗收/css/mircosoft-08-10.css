@@ -1,0 +1,963 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: "Segoe UI",SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+nav{
+    width: 100%;
+    height: 56px;
+    margin: auto;
+    padding: 0px 80px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+nav .series .link:hover{
+    border-bottom: #000 solid 2px;
+}
+
+nav .functions .underline span:hover{
+    border-bottom: #000 solid 2px;
+}
+
+nav .series{
+    width: 514px;
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo{
+    width: 108px;
+    height: 23px;
+    margin-top: -4px;
+    margin-right: 10px;
+    background-image: url("../img/logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+nav .link{
+    display: flex;
+    align-items: center;
+    /* margin-right: 20px; */
+}
+
+nav .functions{
+    width: 360px;
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+nav .functions .function{
+    display: flex;
+    align-items: center;
+}
+
+nav .functions .down{
+    width: 14px;
+    height: 10px;
+    background-image: url("../img/down.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 12px;
+    margin-left: 2px;
+    margin-right: 16px;
+}
+
+nav .functions .search{
+    width: 16px;
+    height: 16px;
+    background-image: url("../img/search.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 6px;
+    margin-right: 39px;
+}
+
+nav .functions .cart{
+    width: 18px;
+    height: 18px;
+    background-image: url("../img/cart.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 15px;
+}
+
+nav .functions .login{
+    width: 33px;
+    height: 33px;
+    background-image: url("../img/login.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 13px;
+}
+
+nav .functions .function:nth-child(4){
+    margin-left: 4px;
+}
+
+nav .functions .shopping span{
+    margin-right: 6px;
+}
+
+/* main 區塊 */
+/* banners */
+main .banners{
+    position: relative;
+    padding: 0px 5px;
+}
+
+main .banners .banner picture img{
+    width: 100%;
+}
+
+main .banners .description{
+    width: 590px;
+    height: 263px;
+    padding-top: 120px;
+    padding-left: 140px;
+    position: absolute;
+    top: 0px;
+}
+
+main .banners .description h1{
+    font-weight: 600;
+    font-size: 46px;
+    margin-bottom: 24px;
+}
+
+main .banners .description p{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+main .banners .description .info{
+    display: flex;
+    align-items: center;
+}
+
+main .banners .description .info a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+    position: relative;
+}
+
+main .banners .description .info > a:first-child{
+    display: inline-block;
+    width: 158px;
+    height: 50px;
+    background-color: #0067b8;
+    color: #fff;
+    margin-right: 30px;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 2px;
+}
+
+main .banners .description .info > a:hover{
+    background-color: #005ca5;
+    box-shadow: 0px 1px 7px #c7c7c7;
+}
+
+main .banners .description .info .hover a:visited{
+    color: #000;
+}
+
+main .banners .description .info .hover{
+    display: flex;
+    align-items: center;
+}
+
+main .banners .description .info .hover a:hover{
+    text-decoration: underline;
+}
+
+
+main .banners .description .info .hover .right{
+    width: 22px;
+    height: 22px;
+    background-image: url("../img/right-chevron.svg");
+    background-position: 65%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 6px;
+    margin-left: 6px;
+    transition-duration: 1s;
+}
+
+main .banners .description .info .hover:hover .right{
+    transform: translateX(10px);
+}
+
+main .banners .control{
+    width: 100%;
+    height: 70px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+main .banners .control div{
+    margin-left: 32px;
+}
+
+main .banners .control .play-btn,
+main .banners .control .left-btn,
+main .banners .control .right-btn{
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+main .banners .control .play-btn:hover{
+    background-image: url("../img/play-button-black.svg");
+}
+
+main .banners .control .left-btn{
+    background-image: url("../img/left.png");
+}
+
+main .banners .control .left-btn:hover{
+    transform: translateX(-8px);
+    transition-duration: 1s; 
+}
+
+main .banners .control .dot-1st{
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+main .banners .control .dot-2nd{
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border: #000 solid 2px;
+    border-radius: 50%;
+}
+
+main .banners .control .right-btn{
+    background-image: url("../img/right.png");
+}
+
+main .banners .control .right-btn:hover{
+    transform: translateX(8px);
+    transition-duration: 1s; 
+}
+
+/* 產品區塊統一padding */
+main .products{
+    width: 100%;
+    padding: 0px 76px;
+}
+
+/* 三個系列介紹 */
+main .three-series{
+    width: 100%;
+    height: 210px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0px;
+    margin: auto;
+    
+}
+
+main .three-series a{
+    color: #0067b8;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+main .three-series span:visited{
+    color: #0067b8;
+}
+
+main .three-series .microsoft365,
+main .three-series .surface,
+main .three-series .windows11{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main .three-series .icon-center{
+    display: flex;
+    justify-content: center;
+}
+
+main .three-series .icon-center .icon{
+    margin-bottom: 10px;
+}
+
+main .three-series .microsoft365 .icon{
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/black-cube.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+main .three-series .surface .icon{
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/pad.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main .three-series .windows11 .icon{
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/black-cube.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main .three-series .surface{
+    margin: 0 58px;
+}
+
+/* main 區塊 card 共同部分 */
+/* for all 群眾的產品 */
+main .for-all{
+    width: 100%;
+    height: 350px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 240px;
+}
+
+main .for-business{
+    width: 100%;
+    height: 380px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+main .for-all .card, 
+main .for-business .card{
+    width: 100%;
+    height: 400px;
+    margin: auto;
+    margin-right: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+main .for-all .card picture img,
+main .for-business .card picture img{
+    width: 316px;
+}
+
+main .for-all .card .title,
+main .for-business .card .title{
+    margin-top: 10px; 
+    margin-bottom: 16px;
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+main .for-all .card:first-child .title{
+    font-weight: 500;
+}
+
+main .for-all .card p,
+main .for-business .card p
+{
+    margin-bottom: 34px;
+}
+
+main .for-all .card a,
+main .for-business .card a{
+    color: #0067b8;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-right: 2px;
+}
+
+main .for-all .card a:hover,
+main .for-business .card a:hover{
+    color: #0067b8;
+    text-decoration: underline;
+}
+
+main .for-all .card a:visited,
+main .for-business .card a:visited{
+    color: #0067b8;
+}
+
+main .for-all .card .hover,
+main .for-business .card .hover{
+    display: flex;
+    align-items: center;
+}
+
+main .for-all .card .hover span,
+main .for-business .card .hover span{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-image: url("../img/blue-rigth.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+}
+
+main .for-all .card .hover:hover span,
+main .for-business .card .hover:hover span{
+    transform: translateX(10px);
+}
+
+main .for-all .card .xbox{
+    margin-bottom: 20px;
+}
+
+main .name{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+/* main 區塊 Edge 介紹 */
+main .edge {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 130px;
+    position: relative;
+    z-index: 0;
+}
+
+main .edge picture img{
+    width: 100%;
+}
+
+main .edge .intro{
+    width: 410px;
+    height: 428px;
+    background-color: #fff;
+    padding: 56px ;
+    box-shadow: 0px 1px 7px #c7c7c7;
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    cursor: pointer;
+}
+
+main .edge .intro .title{
+    font-weight: 600;
+    font-size: 46px;
+    margin-bottom: 42px;
+}
+
+main .edge .intro p{
+    margin-bottom: 20px;
+}
+
+main .edge .intro a{
+    display: inline-block;
+    width: 116px;
+    height: 50px;
+    background-color: #0067b8;
+    color: #fff;
+    padding-top: 12px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-weight: bolder;
+    text-align: center;
+}
+
+main .edge .intro a:hover{
+    background-color: #005ca5;
+    box-shadow: 0px 1px 7px #c7c7c7;
+}
+
+/* 網外其他微軟相關官方網站 */
+main .media{
+    margin: 172px 0px 132px 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+}
+
+main .media a{
+    width: 32px;
+    height: 32px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+main .media .fb{
+    background-image: url("../img/fb.png");
+    margin: 0px 22px;
+}
+
+main .media:first-child{
+    background-image: url("../img/fb.png");
+}
+
+main .media a:last-child{
+    background-image: url("../img/youtube.png");
+}
+
+/* footer 區塊 */
+footer{
+    width: 100%;
+    height: 400px;
+    background-color: #f2f2f2;
+    color: #616161;
+    padding: 36px 75px 28px;
+    font-size: 11px;
+}
+
+footer a{
+    color: #616161;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+/* footer 上面區塊 */
+footer .up{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 38px;
+}
+
+footer .up .category{
+    width: 212px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: 18px;
+}
+
+footer .up .category:last-child{
+    margin-right: 0px;
+}
+
+footer .up .category span:first-child{
+    font-size: 15px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+footer .up .category span{
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+/* footer 下面區塊 */
+footer .down{
+    width: 100%;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer .down .left{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .down .left .language, 
+footer .down .left .privacy{
+    display: flex;
+    align-items: center;
+}
+footer .down .left .language{
+    margin-right: 24px;
+}
+
+footer .down .left .language .icon{
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/globe-asia-australia.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+}
+
+footer .down .left .privacy .icon{
+    width: 38px;
+    height: 26px;
+    background-image: url("../img/privacy.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+}
+
+footer .down .right{
+    width: 524px;
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: 20px;
+}
+
+@media (max-width: 1399px)  {
+    
+    nav .functions{
+        justify-content: flex-end;
+    }
+    
+    nav .functions .function:nth-child(2) span,
+    nav .functions .function:nth-child(3) span,
+    nav .functions .function:nth-child(4) span{
+        display: none;
+    }
+
+    main .banners .banner picture img{
+        width: 100%;
+        height: 538px;
+    }
+    
+    main .banners .description{
+        width: 560px;
+        height: 110px;
+        padding-top: 94px;
+        padding-left: 140px;
+        top: 19%;
+    }
+    
+    main .banners .description h1{
+        font-size: 28px;
+        margin-bottom: 14px;
+    }
+    
+    main .banners .description p{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 26px;
+    }
+
+    main .banners .description .info a{
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 22px;
+        position: relative;
+    }
+
+    main .banners .description .info a{
+        font-size: 16px;
+    }
+    
+    main .banners .description .info > a:first-child{
+        width: 120px;
+        height: 40px;
+        margin-right: 30px;
+        padding: 8px 0px;
+    }
+
+    main .banners .description .info a{
+        font-size: 16px;
+    }
+
+    main .for-all{
+        margin-bottom: 146px;
+    }
+
+    main .for-all .card .title,
+    main .for-business .card .title{
+        margin-bottom: 10px;
+        font-size: 24px;
+        font-weight: bolder;
+    }
+
+    main .for-all .card p, main .for-all .card a,
+    main .for-business .card P,
+    main .for-business .card a{
+        font-size: 16px;
+    }
+
+    main .for-all .card p,
+    main .for-business .card p{
+        margin-bottom: 28px;
+    }
+
+    main .banners .description .info .hover .right{
+        width: 18px;
+        height: 18px;
+    }
+
+    main .edge {
+        margin-bottom: 82px;
+    }
+
+    main .intro{
+        width: 380px;
+        height: 280px;
+        padding: 46px 48px;
+        top: 22%;
+        left: 5%;
+    }
+
+    main .intro .title{
+        font-weight: 600;
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    
+    main .intro p{
+        margin-bottom: 24px;
+    }
+
+    main .for-business {
+        width: 100%;
+        height: 280px;
+    }
+
+    main .name{
+        margin-bottom: 16px;
+        font-size: 30px;
+    }
+
+    main .media{
+        margin: 110px 0px 64px 90px;
+        font-size: 16px;
+    }
+    
+    main .media .fb{
+        margin: 0px 14px;
+    }
+}
+
+@media (max-width: 1083px)  {
+    nav .series{
+        width: 572px;
+        padding-left: 65px;
+    }
+
+    nav .functions{
+        margin-right: 44px;
+    }
+
+    nav .functions .down{
+        margin-right: 16px;
+    }
+    
+    nav .functions .search{
+        margin-left: 10px;
+        margin-right: 22px;
+    }
+    
+    nav .functions .cart{
+        margin-right: 8px;
+    }
+    
+    nav .functions .login{
+        margin-left: 5px;
+    }
+
+    main .banners .description{
+        width: 1006px;
+        height: 224px;
+        background-color: #fff;
+        padding-top: 44px;
+        padding-left: 40px;
+        margin: 10px;
+        top: 114%;
+        box-shadow: 0px 1px 7px #c7c7c7;
+    }
+
+    main .banners .description h1{
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    main .banners .description p{
+        margin-bottom: 26px;
+    }
+
+    /* main 區塊 */
+    /* 控制按鈕 */
+    main .banners .control{
+        margin-top: 180px;
+    }
+
+    main .products{
+        padding: 0px 10px;
+    }
+
+    main .for-all{
+        margin-bottom: 405px;
+    }
+
+    main .for-business{
+        margin-bottom: 270px;
+    }
+
+    main .for-all, 
+    main .for-business{
+        flex-wrap: wrap;
+        height: 800px;
+    }
+
+    main .for-all .card, 
+    main .for-business .card{
+        width: 490px;
+        height: 530px;
+        margin-right: 30px;
+    }
+
+    main .for-all .card picture img,
+    main .for-business .card picture img{
+        width: 500px;
+    }
+
+    main .for-all .card .title,
+    main .for-business .card .title{
+        font-size: 28px;
+        margin-top: 10px;
+        margin-bottom: 8px;
+    }
+    
+    main .for-all .card p,
+    main .for-business .card p{
+        margin-bottom: 32px;
+        line-height: 1.5;
+    }
+
+    main .for-all .card p, main .for-all .card a,
+    main .for-business .card P,
+    main .for-business .card a{
+        font-size: 20px;
+    }
+
+    /* edge 區塊 */
+    main .edge {
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 334px;
+        position: relative;
+        z-index: 0;
+    }
+    
+    main .edge .intro{
+        width: 1006px;
+        height: 224px;
+        background-color: #fff;
+        /* padding-top: 44px;
+        padding-left: 40px; */
+        margin: 10px;
+        top: 94%;
+        box-shadow: 0px 1px 7px #c7c7c7;
+    }
+
+    main .name{
+        margin-bottom: 14px;
+        font-size: 30px;
+    }
+
+    main .media{
+        margin: 110px 0px 130px 30px;
+        font-size: 20px;
+    }
+    
+    main .media .fb{
+        margin: 0px 21px;
+    }
+    
+    /* footer 區塊 */
+    footer{
+        padding: 36px 54px 28px;
+    }
+    
+    /* footer 下面區塊 */
+    footer .down .left{
+        width: 230px;
+    }
+
+    footer .down .left .privacy{
+        margin-top: 0px;
+    }
+
+    footer .down .right{
+        width: 630px;
+        /* justify-content: flex-end; */
+        margin-top: 0px;
+        margin-right: 6px;
+    }
+
+    footer .down .right a{
+        margin-left: 26px;
+    }
+    
+}
+
+@media (max-width: 858px)  {
+    
+}
+
+@media (max-width: 539px)  {
+    
+}
+
+@media (max-width: 380)  {
+    main .three-series{
+        width: 100%;
+        height: 380px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 20px 0px;
+        
+    }
+    
+    
+    main .three-series .surface{
+        margin: 0px;
+    }
+}

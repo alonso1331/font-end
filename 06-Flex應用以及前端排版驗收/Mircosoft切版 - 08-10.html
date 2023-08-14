@@ -3,37 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mircosoft切版</title>
-    <link rel="stylesheet" href="./css/mircosoft-laptop.css">
+    <title>Microsoft切版</title>
+    <link rel="stylesheet" href="./css/mircosoft-08-10.css">
 </head>
 <body>
     <nav>
         <div class="series">
-            <div class="logo" id="logo"><a href="#logo"></a></div>    
+            <div class="logo"></div>    
             <div class="link">Microsoft 365</div>
             <div class="link">Teams</div>
             <div class="link">Windows</div>
             <div class="link">Surface</div>
             <div class="link">Xbox</div>
             <div class="link">支援</div>
-            <div class="menu">
-                <a href="">Microsoft 365</a>
-                <a href="">Teams</a>
-                <a href="">Windows</a>
-                <a href="">Surface</a>
-                <a href="">Xbox</a>
-                <a href="">支援</a>
-                <a href="">軟體</a>
-                <a href="">個人電腦和設備</a>
-                <a href="">娛樂</a>
-                <a href="">商業適用</a>
-                <a href="">開發人員與IT</a>
-                <a href="">其他</a>
-                <a href="">檢視網站地圖</a>
-            </div>
         </div>
         <div class="functions">
-            <div class="function underline all">
+            <div class="function underline">
                 <span>所有 Microsoft</span>
                 <div class="icon down"></div>
             </div>
@@ -63,17 +48,15 @@
                     <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" media="(min-width: 540px)">
                     <img id="img-highlight-uidc387" src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" class="card-img w-100" alt="Microsoft 365 應用程式套件 (如 Teams、Word、Outlook 等) 的圖示。">
                 </picture>
-                <div class="description">
-                    <h1>Microsoft 365</h1>
-                    <p>使用 Microsoft 365 應用程式實現創意想法、提高線上和離線安全，並專注於最重要的事。</p>
-                    <div class="info">
-                        <a href="">
-                            <span>適合 1 人使用</span>
-                        </a>
-                        <div class="hover">
-                            <a href="">最多可供 6 人使用</a>
-                            <div class="right"></div>
-                        </div>
+            </div>
+            <div class="description">
+                <h1>Microsoft 365</h1>
+                <p>使用 Microsoft 365 應用程式實現創意想法、提高線上和離線安全，並專注於最重要的事。</p>
+                <div class="info">
+                    <a href="">適合 1 人使用</a>
+                    <div class="hover">
+                        <a href="">最多可供 6 人使用</a>
+                        <div class="right"></div>
                     </div>
                 </div>
             </div>
@@ -109,8 +92,6 @@
                     <a href="">取得 Windows 11</a>
                 </div>
             </div>
-
-            <!-- for all 群眾的產品 -->
             <div class="for-all">
                 <div class="card">
                     <picture>
@@ -152,8 +133,8 @@
                     </picture>
                     <div class="title">加入只要 NT$30</div>
                     <p>加入 Xbox Game Pass Ultimate 或 PC Game Pass 只要 NT$30，解鎖數百款精彩遊戲和更多驚喜。 此優惠僅適用於新訂閱者。</p>
-                    <div class="hover">
-                        <a href="" class="xbox">加入 Xbox Game Pass</a>
+                    <div class="hover" class="xbox">
+                        <a href="">加入 Xbox Game Pass Ultimate</a>
                         <span></span>
                     </div>
                     <div class="hover">
@@ -190,9 +171,7 @@
                 <div class="intro">
                     <div class="title">Microsoft Edge</div>
                     <p> 在您瀏覽時提供世界級的效能，以及更多的隱私、更充足的生產力與更高的價值</p>
-                    <a href="http://" rel="noopener noreferrer">
-                        <span>立即下載</span>
-                    </a>
+                    <a href="http://" target="_blank" rel="noopener noreferrer">立即下載</a>
                 </div>
             </div>
             
@@ -213,6 +192,7 @@
                         <a href="">立即選購</a>
                         <span></span>
                     </div>
+                    
                 </div>
                 <div class="card">
                     <picture>
@@ -258,7 +238,7 @@
                         <a href="">深入了解</a>
                         <span></span>
                     </div>
-                </div>           
+                </div>
             </div>
         </div>
         <div class="media">
@@ -349,32 +329,11 @@
             </div>
         </div>
     </footer>
-    <!-- 回到首頁 -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><span>↑　回到首頁</span></button>
-    
-    <!-- <div class="backToTop">
-        <a href="#top"><img src="./img/blue-rigth.png" alt="" /></a>
-    </div> -->
-
-    <script>
-        let mybtn = document.getElementById('myBtn');
-
-        window.onscroll = function(){scrollFunction()};
-        
-        function scrollFunction(){
-            // console.log(document.getElementById.scrollTop);
-            console.log(document.documentElement.scrollTop);
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
-                mybtn.style.display = 'block';
-            }else {
-                mybtn.style.display = 'none';
-            }
-        }
-
-        function topFunction(){
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
+    <!-- <script>
+        let img = document.getElementsByClassName('play-btn')
+        img.addEventListener('click', function(){
+            this.src = "./img/pause-circle.svg";
+        });
+    </script> -->
 </body>
 </html>

@@ -340,19 +340,6 @@ main .banners .banner picture img{
     height: 100%;
 }
 
-/* @media (max-width: 1399px) {
-    main .banners .banner picture img{
-        width: 100%;
-        height: 100%;
-    }
-}
-
-@media (max-width: 858px) {
-    main .banners .banner picture img{
-        height: 100%;
-    }
-} */
-
 main .banners .description{
     width: 470px;
     height: 263px;
@@ -921,14 +908,17 @@ main .for-business .card{
     }
     main .for-all .card:nth-child(odd),
     main .for-business .card:nth-child(odd){
-        padding-right: 0px;
+        padding: 0px;
     }
 
     main .for-all .card:nth-child(even),
     main .for-business .card:nth-child(even){
-        padding-left: 0x;
+        padding: 0x;
+        padding-left: 0px;
     }
 }
+
+
 
 main .for-all .card picture img,
 main .for-business .card picture img{
@@ -1102,9 +1092,18 @@ main .edge {
     height: 513.38px;
     margin: auto;
     margin-bottom: 92px;
-    position: relative;
     z-index: 0;
 }
+
+main .edge .banner{
+    position: relative;
+}
+
+main .edge .banner picture img{
+    width: 100%;
+    height: 100%;
+}
+
 
 @media (max-width: 1399px) {
     main .edge {
@@ -1118,7 +1117,6 @@ main .edge {
         height: 100%;
         margin: 0px;
         margin-bottom: 247px;
-        position: relative;
     }
 }
 
@@ -1155,8 +1153,7 @@ main .edge .intro{
         width: 380px;
         height: 280px;
         padding: 46px 48px;
-        top: 30.6%;
-        left: 5%;
+        top: calc(50% - 140px);
     }
 }
 
