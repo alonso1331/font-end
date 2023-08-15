@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mircosoft切版</title>
     <link rel="stylesheet" href="./css/mircosoft-laptop.css">
+<<<<<<< Updated upstream:06-Flex應用以及前端排版驗收/Mircosoft切版 - 0810筆電.html
     <link rel="SHORTCUT ICON" href="./icon.ico" type="image/x-icon">
+=======
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+>>>>>>> Stashed changes:06-Flex應用以及前端排版驗收/Mircosoft切版 - 08105筆電.html
 </head>
 <body>
     <nav>
@@ -354,12 +358,11 @@
     </footer>
     <!-- 回到首頁 -->
     <button onclick="topFunction()" id="myBtn" title="Go to top"><span>↑　回到首頁</span></button>
-    
-    <!-- <div class="backToTop">
-        <a href="#top"><img src="./img/blue-rigth.png" alt="" /></a>
-    </div> -->
 
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
+        // 回到首頁
         let mybtn = document.getElementById('myBtn');
 
         window.onscroll = function(){scrollFunction()};
@@ -369,7 +372,7 @@
             console.log(document.documentElement.scrollTop);
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
                 mybtn.style.display = 'block';
-            }else {
+            } else {
                 mybtn.style.display = 'none';
             }
         }
@@ -378,6 +381,18 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+
+        // menu toggle
+        function menu() {
+            let menu = document.getElementsByClassName('menu');
+
+            if (menu.style.display === 'block'){
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
     </script>
 </body>
 </html>
