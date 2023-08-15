@@ -35,7 +35,8 @@ nav .series .link:hover{
     border-bottom: #000 solid 2px;
 }
 
-nav .menu{
+nav .menu,
+nav .menu img{
     display: none;
 }
 
@@ -54,7 +55,7 @@ nav .menu{
         margin-right: 5px;
     }
 
-    nav .menu a{
+    nav .menu #links a{
         display: none;
     }
 
@@ -63,13 +64,20 @@ nav .menu{
         display: block;
         height: auto;
         position: absolute;
-        top: 100%;
+        top: 0%;
         left: 0%;
         z-index: 2;
         border-bottom: 2px solid #000;
     }
 
-    nav .menu:hover a{
+    nav .menu:hover img{
+        margin: 10px;
+        width: 28px;
+        height: 28px;
+        display: block;
+    }
+
+    nav .menu:hover #links a{
         display: block;
         width: 100%;
         height: 40px;
@@ -80,7 +88,7 @@ nav .menu{
         background-color: #D9D9D9;
     }
 
-    nav .menu a{
+    nav .menu #links a{
         display: none;
         color: #000;
         border-bottom: 2px solid #E6E6E6;
@@ -335,7 +343,7 @@ main .banners .banner{
     position: relative;
 }
 
-main .banners .banner picture img{
+/* main .banners .banner picture img{
     width: 100%;
     height: 100%;
 }
@@ -473,6 +481,18 @@ main .banners .description .info > a:first-child{
     border-radius: 2px;
 }
 
+main .swiper .description .info > a:first-child{
+    display: inline-block;
+    width: 122px;
+    height: 39px;
+    background-color: #0067b8;
+    color: #fff;
+    margin-right: 28px;
+    text-align: center;
+    line-height: 39px;
+    border-radius: 2px;
+}
+
 @media (max-width: 1399px) {
     main .banners .description .info > a:first-child{
         width: 120px;
@@ -491,7 +511,7 @@ main .banners .description .info > a span:active{
     background-color: #005ca5;
     box-shadow: 0px 1px 7px #c7c7c7;
     padding: 3px;
-    border: 3px dashed #fff;
+    border: 3px dotted #fff;
 }
 
 main .banners .description .info .hover a:visited{
@@ -518,7 +538,6 @@ main .banners .description .info .hover{
 main .banners .description .info .hover a:hover{
     text-decoration: underline;
 }
-
 
 main .banners .description .info .hover .right{
     width: 20px;
@@ -548,11 +567,309 @@ main .banners .description .info .hover .right{
 
 main .banners .description .info .hover:hover .right{
     transform: translateX(10px);
+} */
+
+.swiper {
+    width: 100%;
+    height: 100%;
 }
 
-main .banners .control{
+.swiper-slide {
+    /* text-align: center; */
+    /* font-size: 18px; */
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper picture{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+main .description{
+    width: 470px;
+    height: 263px;
+    position: absolute;
+    top: 28%;
+    left: 8.5%;
+}
+
+main .description-right{
+    width: 470px;
+    height: 263px;
+    position: absolute;
+    top: 28%;
+    right: 8.5%;
+}
+
+@media (max-width: 1399px) {
+    main .description{
+        width: 560px;
+        height: 110px;
+        padding-top: 0px;
+        padding-left: 0px;
+        top: 36.7%;
+        left: 124px;
+    }
+
+    main .description-right{
+        width: 560px;
+        height: 110px;
+        padding-top: 0px;
+        padding-left: 0px;
+        top: 36.7%;
+        right: 124px;
+    }
+}
+
+@media (max-width: 1083px) {
+    main .description,
+    main .description-right{
+        width: 98%;
+        height: 224px;
+        background-color: #fff;
+        padding-top: 44px;
+        padding-left: 40px;
+        margin: -2% 10px;
+        top: 90%;
+        left: 0%;
+        box-shadow: 0px 1px 7px #c7c7c7;
+        /* position: sticky; */
+        z-index: 11;
+    }
+}
+
+@media (max-width: 860px) {
+    main .description,
+    main .description-right{
+        width: 100%;
+        height: 168px;
+        padding-top: 24px;
+        padding-left: 28px;
+        margin: 0px;
+        top: 90%;
+        left: 0%;
+        box-shadow: 0px 1px 7px #c7c7c7;
+    }
+}
+
+@media (max-width: 679px) {
+    main .description,
+    main .description-right{
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media (max-width: 540px) {
+    main .description,
+    main .description-right{
+        height: 200px;
+        top: 98%;
+        margin: 0px;
+    }
+}
+
+@media (max-width: 380px) {
+    main .description,
+    main .description-right{
+        height: 220px;
+        top: 98%;
+        margin: 0px;
+    }
+}
+
+main .description h1,
+main .description-right h1{
+    font-weight: 600;
+    font-size: 37px;
+    margin-bottom: 17px;
+}
+
+@media (max-width: 1399px) {
+    main .description h1,
+    main .description-right h1{
+        font-size: 28px;
+        margin-bottom: 14px;
+    }
+}
+
+@media (max-width: 1083px) {
+    main .description h1,
+    main .description-right h1{
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+}
+
+main .description p,
+main .description-right p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 1083px) {
+    main .description p,
+    main .description-right p{
+        margin-bottom: 26px;
+    }
+}
+
+@media (max-width: 858px) {
+    main .description p,
+    main .description-right p{
+        margin-bottom: 22px;
+    }
+}
+
+
+main .description .info,
+main .description-right .info{
+    display: flex;
+    align-items: center;
+}
+
+main .description .info a,
+main .description-right .info a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+}
+
+main .description .info > a:first-child,
+main .description-right .info > a:first-child{
+    display: inline-block;
+    width: 122px;
+    height: 39px;
+    background-color: #0067b8;
+    color: #fff;
+    margin-right: 28px;
+    text-align: center;
+    line-height: 39px;
+    border-radius: 2px;
+}
+
+main .description-right .info > a:first-child{
+    width: 82px;
+    height: 39px;
+}
+
+@media (max-width: 1399px) {
+    main .description .info > a:first-child,
+    main .description-right .info > a:first-child{
+        width: 120px;
+        height: 39px;
+        margin-right: 30px;
+        line-height: 40px;
+    }
+}
+
+main .description .info > a:hover,
+main .description-right .info > a:hover{
+    background-color: #005ca5;
+    box-shadow: 0px 1px 7px #c7c7c7;
+}
+
+main .description .info > a span:active,
+main .description-right .info > a span:active{
+    background-color: #005ca5;
+    box-shadow: 0px 1px 7px #c7c7c7;
+    padding: 4px;
+    border: 3px dotted #fff;
+}
+
+main .description-right .info > a span:active{
+    padding: 4px;
+}
+
+main .description .info .hover a:visited,
+main .description-right .info .hover a:visited
+{
+    color: #000;
+}
+
+@media (max-width: 858px) {
+    main .description .info .hover a:visited,
+    main .description-right .info .hover a:visited
+    {
+        color: #0067b8;
+    }
+}
+
+main .description .info .hover,
+main .description-right .info .hover{
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 858px) {
+    main .description .info .hover a,
+    main .description-right .info .hover a{
+        color: #0067b8;
+    }
+}
+
+main .description .info .hover a:hover,
+main .description-right .info .hover a:hover{
+    text-decoration: underline;
+}
+
+main .description .info .hover .right,
+main .description-right .info .hover .right{
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/right-chevron.svg");
+    background-position: 65%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 3px;
+    transition-duration: 1s;
+}
+
+@media (max-width: 1399px)  {
+    main .description .info .hover .right,
+    main .description-right .info .hover .right{
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 858px) {
+    main .description .info .hover .right,
+    main .description-right .info .hover .right{
+        width: 12px;
+        height: 12px;
+        background-image: url("../img/blue-rigth.png");
+    }
+}
+
+main .description .info .hover:hover .right,
+main .description-right .info .hover:hover .right{
+    transform: translateX(10px);
+}
+
+/* control 區塊 */
+main .control{
     width: 200px;
-    margin: auto;
+    margin: 80px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -561,78 +878,104 @@ main .banners .control{
 }
 
 @media (max-width: 1083px)  {
-    main .banners .control{
+    main .control{
         margin-top: 195px;
     }
 }
 
 @media (max-width: 540px)  {
-    main .banners .control{
+    main .control{
         margin-top: 204px;
     }
 }
 
 @media (max-width: 380px) {
-    main .banners .control{
+    main .control{
         margin-top: 234px;
     }
 }
 
-main .banners .control .play-btn,
-main .banners .control .left-btn,
-main .banners .control .right-btn{
+main .control .play-btn,
+main .control .left-btn,
+main .control .right-btn{
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    padding: 4px;
+}
+
+main .control .play-btn img,
+main .control .left-btn span,
+main .control .right-btn span{
     width: 22px;
     height: 22px;
+    display: inline-block;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-main .banners .control .play-btn:active{
-    border: 3px dashed #000;
+main .control .play-btn:active{
+    border: 3px dotted #000;
+    padding: 4px;
 }
 
-main .banners .control .play-btn:hover{
+main .control .play-btn img:hover{
     background-image: url("../img/play-button-black.svg");
 }
 
-main .banners .control .left-btn{
+main .control .left-btn span{
     background-image: url("../img/left.png");
 }
 
-main .banners .control .left-btn:active{
+/* main .banners .control .left-btn span:active{
     border: 3px dashed #000;
+    padding: 4px;
+} */
+
+main .control .left-btn:active{
+    border: 3px dotted #000;
+    padding: 4px;
+    transform: translateX(-8px);
 }
 
-main .banners .control .left-btn:hover{
-    transform: translateX(-8px);
+main .control .left-btn span:hover{
+    transform: translateX(-7px);
     transition-duration: 1s; 
 }
 
-main .banners .control .dot-1st{
+main .control .dot-1st{
     width: 12px;
     height: 12px;
     background-color: #000;
     border-radius: 50%;
+    margin-bottom: 3px;
 }
 
-main .banners .control .dot-2nd{
+main .control .dot-2nd{
     width: 12px;
     height: 12px;
     background-color: #fff;
     border: #000 solid 2px;
     border-radius: 50%;
+    margin-bottom: 3px;
 }
 
-main .banners .control .right-btn{
+main .control .right-btn span{
     background-image: url("../img/right.png");
 }
 
-main .banners .control .right-btn:active{
+/* main .banners .control .right-btn span:active{
     border: 3px dashed #000;
+} */
+
+main .control .right-btn:active{
+    border: 3px dotted #000;
+    padding: 4px;
+    transform: translateX(8px);
 }
 
-main .banners .control .right-btn:hover{
+main .control .right-btn span:hover{
     transform: translateX(8px);
     transition-duration: 1s;
 }
@@ -1223,7 +1566,7 @@ main .edge .intro a:hover{
 
 main .edge .intro a span:active{
     padding: 4px;
-    border: 2px dashed #fff;
+    border: 2px dotted #fff;
 }
 
 /* 網外其他微軟相關官方網站 */
@@ -1322,7 +1665,7 @@ footer .up .category{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-right: 18px;
+    column-gap: 14px;
 }
 
 @media (max-width: 1399px) {
@@ -1495,5 +1838,5 @@ footer .down .right{
 
 #myBtn:hover:active span{
     padding: 5px 9px;
-    border: #000 dotted 3px;
+    border: 3px dotted #000;
 }

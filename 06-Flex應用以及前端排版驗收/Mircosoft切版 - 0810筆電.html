@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mircosoft切版</title>
     <link rel="stylesheet" href="./css/mircosoft-laptop.css">
-<<<<<<< Updated upstream:06-Flex應用以及前端排版驗收/Mircosoft切版 - 0810筆電.html
     <link rel="SHORTCUT ICON" href="./icon.ico" type="image/x-icon">
-=======
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
->>>>>>> Stashed changes:06-Flex應用以及前端排版驗收/Mircosoft切版 - 08105筆電.html
 </head>
 <body>
     <nav>
@@ -22,19 +19,22 @@
             <div class="link">Xbox</div>
             <div class="link">支援</div>
             <div class="menu">
-                <a href="">Microsoft 365</a>
-                <a href="">Teams</a>
-                <a href="">Windows</a>
-                <a href="">Surface</a>
-                <a href="">Xbox</a>
-                <a href="">支援</a>
-                <a href="">軟體</a>
-                <a href="">個人電腦和設備</a>
-                <a href="">娛樂</a>
-                <a href="">商業適用</a>
-                <a href="">開發人員與IT</a>
-                <a href="">其他</a>
-                <a href="">檢視網站地圖</a>
+                <img class="cross" src="./img/cross.svg" alt="">
+                <div id="links">
+                    <a href="">Microsoft 365</a>
+                    <a href="">Teams</a>
+                    <a href="">Windows</a>
+                    <a href="">Surface</a>
+                    <a href="">Xbox</a>
+                    <a href="">支援</a>
+                    <a href="">軟體</a>
+                    <a href="">個人電腦和設備</a>
+                    <a href="">娛樂</a>
+                    <a href="">商業適用</a>
+                    <a href="">開發人員與IT</a>
+                    <a href="">其他</a>
+                    <a href="">檢視網站地圖</a>
+                </div>
             </div>
         </div>
         <div class="functions">
@@ -59,7 +59,7 @@
 
     <main>
         <!-- banners 區塊 -->
-        <div class="banners">
+        <!-- <div class="banners">
             <div class="banner">
                 <picture>
                     <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP5-1920x600" media="(min-width: 1400px)">
@@ -81,14 +81,67 @@
                         </div>
                     </div>
                 </div>
+            </div> 
+        </div> -->
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <picture>
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP5-1920x600" media="(min-width: 1400px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP4-1399x600" media="(min-width: 1084px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP3-1083x600" media="(min-width: 860px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" media="(min-width: 540px)">
+                        <img id="img-highlight-uidc387" src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" class="card-img w-100" alt="Microsoft 365 應用程式套件 (如 Teams、Word、Outlook 等) 的圖示。">
+                        <div class="description">
+                            <h1>Microsoft 365</h1>
+                            <p>使用 Microsoft 365 應用程式實現創意想法、提高線上和離線安全，並專注於最重要的事。</p>
+                            <div class="info">
+                                <a href="">
+                                    <span>適合 1 人使用</span>
+                                </a>
+                                <div class="hover">
+                                    <a href="">最多可供 6 人使用</a>
+                                    <div class="right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </picture>
+                </div>
+                
+                <!-- 第二張banner -->
+                <div class="swiper-slide">
+                    <picture>
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-Surface-Pro-9-M1-Family-02-1:VP5-1920x600" media="(min-width: 1400px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-Surface-Pro-9-M1-Family-02-1:VP4-1399x600" media="(min-width: 1084px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-Surface-Pro-9-M1-Family-02-1:VP3-1083x600" media="(min-width: 860px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-Surface-Pro-9-M1-Family-02-1:VP2-859x540" media="(min-width: 540px)">
+                        <img id="img-highlight-uidc387" src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-Surface-Pro-9-M1-Family-02-1:VP2-859x540" class="card-img w-100" alt="多種顏色的 Surface Pro 9 裝置。">
+                        <div class="description-right">
+                            <h1>Surface Pro 9</h1>
+                            <p>平板電腦的彈性和筆記型電腦的效能 — 全都在一台攜帶超方便的裝置</p>
+                            <div class="info">
+                                <a href="">
+                                    <span>深入了解</span>
+                                </a>
+                            </div>
+                        </div>
+                    </picture>
+                </div>
             </div>
-            <div class="control">
-                <img src="./img/play-button.svg" alt="" class="play-btn">
-                <div class="left-btn"></div>
-                <div class="dot-1st"></div>
-                <div class="dot-2nd"></div>
-                <div class="right-btn"></div>
-            </div>
+            
+        </div>
+
+        <div class="control">
+            <div class="play-btn"><img src="./img/play-button.svg" alt=""></div>
+            <div class="left-btn"><span></span></div>
+            <div class="dot-1st"></div>
+            <div class="dot-2nd"></div>
+            <div class="right-btn"><span></span></div>
         </div>
 
         <!-- 產品項目區塊 -->
@@ -368,8 +421,6 @@
         window.onscroll = function(){scrollFunction()};
         
         function scrollFunction(){
-            // console.log(document.getElementById.scrollTop);
-            console.log(document.documentElement.scrollTop);
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
                 mybtn.style.display = 'block';
             } else {
@@ -383,16 +434,27 @@
         }
 
         // menu toggle
-        function menu() {
-            let menu = document.getElementsByClassName('menu');
+        // let cross = document.querySelector('.cross');
+        // let links = document.getElementById('links');
 
-            if (menu.style.display === 'block'){
-                menu.style.display = 'none';
-            } else {
-                menu.style.display = 'block';
-            }
-        }
-
+        // cross.onclick = function(){
+        //     cross.style.display = 'none';
+        // }
+        
+        // swiper.js
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
     </script>
 </body>
 </html>
