@@ -15,7 +15,6 @@ nav{
     margin: auto;
     display: flex;
     justify-content: space-between;
-    cursor: pointer; 
     position: relative;
 }
 
@@ -36,7 +35,8 @@ nav .series .link:hover{
 }
 
 nav .menu,
-nav .menu img{
+nav .menu img,
+nav .dropdown div{
     display: none;
 }
 
@@ -60,15 +60,49 @@ nav .menu img{
     }
 
     nav .menu:hover{
-        width: 100vw;
         display: block;
+        width: 100%;
         height: auto;
         position: absolute;
         top: 0%;
         left: 0%;
         z-index: 2;
         border-bottom: 2px solid #000;
+        background-image: unset;
     }
+
+    nav .menu .dropdown{
+        position: relative;
+    }
+
+    nav .menu .dropdown:hover{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    nav .menu .dropdown:active{
+        border: 2px dotted #000;
+        padding: 4px;
+    }
+
+    nav .menu .dropdown::after{
+        content: "˅";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+    }
+
+    /* nav .menu .dropdown:hover .dropdown::after{
+        content: "˄";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -10px;
+        right: 10px;
+    } */
 
     nav .menu:hover img{
         margin: 10px;
@@ -77,7 +111,9 @@ nav .menu img{
         display: block;
     }
 
-    nav .menu:hover #links a{
+    /* hover 區塊會跑出細項 */
+    nav .menu:hover #links a,
+    nav .dropdown:hover div{
         display: block;
         width: 100%;
         height: 40px;
@@ -86,10 +122,12 @@ nav .menu img{
         text-decoration: none;
         font-size: 16px;
         background-color: #D9D9D9;
+        color: #000;
+        border-bottom: 2px solid #E6E6E6;
     }
 
-    nav .menu #links a{
-        display: none;
+    nav .menu #links a,
+    nav .menu .dropdown div{
         color: #000;
         border-bottom: 2px solid #E6E6E6;
     }
@@ -97,21 +135,44 @@ nav .menu img{
     nav .menu:active{
         border: 2px dotted #000;
     }
+    
+    nav .menu #links .dropdown:hover{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    nav .dropdown:hover .sub-link:last-child{
+        border-bottom: 0px;
+    }
+
+    /* nav .dropdown:hover a{
+        display: block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 40px;
+        text-decoration: none;
+        font-size: 16px;
+        background-color: #D9D9D9;
+        color: #000;
+        border-bottom: 2px solid #E6E6E6;
+    } */
 }
 
-
 nav .functions .underline span:hover{
-    border-bottom: #000 solid 2px;
+    border-bottom: #000 solid 0px;
 }
 
 nav .series{
-    width: 614px;
+    width: auto;
     height: 100%;
-    padding-left: 85px;
+    padding-left: 162px;
     font-size: 13px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer; 
 }
 
 @media (max-width: 1399px) {
@@ -132,14 +193,15 @@ nav .series{
         width: 100%;
         height: 100%;
         padding-left: 0px;
+        margin-top: -5px;
     }
 }
 
 nav .logo{
     width: 108px;
-    height: 23px;
-    margin-top: -4px;
-    margin-right: 30px;
+    height: 24px;
+    margin-top: -5px;
+    margin-right: 34px;
     background-image: url("../img/logo.png");
     background-position: center;
     background-size: contain;
@@ -162,14 +224,15 @@ nav .logo{
     }
 }
 
-nav .link{
+nav .series .link{
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 29.5px;
+    margin-top: -2px;
 }
 
 @media (max-width: 1083px) {
-    nav .link{
+    nav .series .link{
         /* margin-right: 24px; */
         margin-right: 1%;
     }
@@ -182,13 +245,14 @@ nav .link{
 }
 
 nav .functions{
-    width: 460px;
+    width: auto;
     height: 100%;
     font-size: 13px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-right: 84px;
+    padding-right: 159px;
+    cursor: pointer; 
 }
 
 @media (max-width: 1399px) {
@@ -202,6 +266,10 @@ nav .functions .function{
     align-items: center;
 }
 
+nav .function .all span{
+    margin-top: -1px;
+}
+
 nav .functions .down{
     width: 14px;
     height: 10px;
@@ -211,7 +279,7 @@ nav .functions .down{
     background-size: contain;
     margin-top: 12px;
     margin-left: 2px;
-    margin-right: 16px;
+    margin-right: 20px;
 }
 
 nav .functions .search{
@@ -221,8 +289,9 @@ nav .functions .search{
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-left: 6px;
-    margin-right: 39px;
+    margin-right: 3px;
+    margin-left: 5px;
+    margin-right: 48px;
 }
 
 nav .functions .cart{
@@ -232,21 +301,35 @@ nav .functions .cart{
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-right: 15px;
+    margin-right: 12px;
 }
 
 nav .functions .login{
-    width: 33px;
-    height: 33px;
+    width: 32px;
+    height: 32px;
     background-image: url("../img/login.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: 13px;
+    margin-top: 2px
 }
 
 nav .functions .function:nth-child(4){
     margin-left: 4px;
+}
+
+nav .functions .function:first-child span{
+    margin-top: -1px;
+}
+
+nav .functions .function:nth-child(2) span,
+nav .functions .function:nth-child(4){
+    margin-top: -4px;
+}
+
+nav .functions .function:nth-child(3){
+    margin-top: -5px;
 }
 
 @media (max-width: 1399px)  {
@@ -322,7 +405,95 @@ nav .functions .function:nth-child(4){
 }
 
 nav .functions .shopping span{
-    margin-right: 6px;
+    margin-right: 4px;
+}
+
+/* active後的效果 */
+nav .series .logo:active,
+nav .series .link:active,
+nav .functions .function:active{
+    border:  0px dotted #000;
+    text-decoration: underline 2px;
+    padding: 12px 10px;
+}
+
+/* 所有 Microsoft 區塊連結 */
+nav .function .underline .all{
+    position: relative;
+}
+
+.all-links{
+    width: 1230px;
+    height: 455.5px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    color: #616161;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, .05);
+    position: absolute;
+    top: 57%;
+    right: 12.5%;
+    z-index: 20;
+    display: none;
+}
+
+.all:hover .all-links{
+    display: block;
+}
+
+.all:hover{
+    background-color: #f2f2f2;
+    width: 120.14px;
+    height: 57px;
+    border: 0px;
+}
+
+.links-list{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.links-list .list li{
+    list-style: none;
+}
+
+.links-list .list{
+    width: 195px;
+    height: 413.5px;
+}
+
+.links-list .list span{
+    display: inline-block;
+    font-weight: bolder;
+    color: #000;
+    padding: 18px 0px 18px 24px;
+}
+
+.links-list .list ul{
+    padding: 12px 0px 12px 24px;
+    cursor: pointer;
+}
+
+.links-list .list ul:hover{
+    text-decoration: underline 2px;
+}
+
+.links-list .list ul:active{
+    border: 2px dotted #000;
+}
+
+
+.map{
+    width: auto;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    background-color: #e6e6e6;
+    border-bottom: #000 solid 2px;
 }
 
 /* main 區塊 */
@@ -569,10 +740,30 @@ main .banners .description .info .hover:hover .right{
     transform: translateX(10px);
 } */
 
+:root {
+    --swiper-theme-color: #000 !important;
+}
+
 .swiper {
     width: 100%;
     height: 100%;
+    padding: 0px 5px;
 }
+
+.swiper-pagination-bullets{
+    padding-left: 41px;
+}
+
+/* 點的大小 */
+.swiper-pagination-bullet{
+    padding: 6px;
+}
+
+/* 點的外距 */
+.swiper-pagination-bullets 
+.swiper-pagination-bullet{
+    margin: auto 15px !important;
+} 
 
 .swiper-slide {
     /* text-align: center; */
@@ -587,6 +778,7 @@ main .banners .description .info .hover:hover .right{
     display: block;
     width: 100%;
     height: 100%;
+    padding: 0px 5px;
     object-fit: cover;
 }
 
@@ -595,31 +787,71 @@ main .banners .description .info .hover:hover .right{
     margin-right: auto;
 }
 
+/* .swiper-button-prev{
+    transform: translateX(-300%);
+}
+
+.swiper-button-next{
+    transform: translateX(300%);
+} */
+
+.swiper-button-prev,
+.swiper-button-next,
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    position: absolute;
+    top: 726%;
+    color: #000;
+    font-size: 16px !important;
+}
+
+.swiper-button-prev:after{
+    left: 3308%;
+}
+
+.swiper-button-next:after{
+    right: 3144%;
+}
+
 .swiper picture{
     width: 100%;
     height: 100%;
     position: relative;
 }
 
+.swiper-control{
+    position: relative;
+    width: 100%;
+    height: 51px;
+    margin-bottom: 77px;
+}
+
+.play-btn{
+    position: absolute;
+    top: 40%;
+    left: 44.6%;
+}
+
 main .description{
-    width: 470px;
+    width: 593px;
     height: 263px;
     position: absolute;
-    top: 28%;
-    left: 8.5%;
+    top: 34%;
+    left: 10%;
+    padding: 4px 9px;
 }
 
 main .description-right{
-    width: 470px;
+    width: 490px;
     height: 263px;
     position: absolute;
-    top: 28%;
-    right: 8.5%;
+    top: 36.6%;
+    right: 14.74%;
 }
 
 @media (max-width: 1399px) {
     main .description{
-        width: 560px;
+        width: 582px;
         height: 110px;
         padding-top: 0px;
         padding-left: 0px;
@@ -698,7 +930,7 @@ main .description h1,
 main .description-right h1{
     font-weight: 600;
     font-size: 37px;
-    margin-bottom: 17px;
+    margin-bottom: 18px;
 }
 
 @media (max-width: 1399px) {
@@ -722,7 +954,7 @@ main .description-right p{
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 }
 
 @media (max-width: 1083px) {
@@ -757,8 +989,8 @@ main .description-right .info a{
 main .description .info > a:first-child,
 main .description-right .info > a:first-child{
     display: inline-block;
-    width: 122px;
-    height: 39px;
+    width: 123px;
+    height: 40px;
     background-color: #0067b8;
     color: #fff;
     margin-right: 28px;
@@ -768,8 +1000,9 @@ main .description-right .info > a:first-child{
 }
 
 main .description-right .info > a:first-child{
-    width: 82px;
-    height: 39px;
+    width: 92px;
+    height: 40px;
+    text-align: center;
 }
 
 @media (max-width: 1399px) {
@@ -818,6 +1051,11 @@ main .description .info .hover,
 main .description-right .info .hover{
     display: flex;
     align-items: center;
+}
+
+main .description .info .hover a{
+    margin-left: 1px;
+    margin-top: -1px;
 }
 
 @media (max-width: 858px) {
@@ -896,6 +1134,7 @@ main .control{
 }
 
 main .control .play-btn,
+.play-btn,
 main .control .left-btn,
 main .control .right-btn{
     width: 36px;
@@ -905,22 +1144,25 @@ main .control .right-btn{
 }
 
 main .control .play-btn img,
+.play-btn img,
 main .control .left-btn span,
 main .control .right-btn span{
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     display: inline-block;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-main .control .play-btn:active{
+main .control .play-btn:active,
+.play-btn:active{
     border: 3px dotted #000;
     padding: 4px;
 }
 
-main .control .play-btn img:hover{
+main .control .play-btn img:hover,
+.play-btn img:hover{
     background-image: url("../img/play-button-black.svg");
 }
 
@@ -983,7 +1225,7 @@ main .control .right-btn span:hover{
 /* 產品區塊統一padding */
 main .products{
     width: 100%;
-    padding: 0px 5%;
+    padding: 0px 151px;
 }
 
 @media (max-width: 1399px) {
@@ -1031,7 +1273,6 @@ main .three-series .surface,
 main .three-series .windows11{
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 @media (max-width: 417px) {
@@ -1126,9 +1367,9 @@ main .three-series .windows11 .icon{
 /* for all 群眾的產品 */
 main .for-all{
     /* width: 100%; */
-    height: 426px;
+    height: 437px;
     margin: auto;
-    margin: 80px 0px;
+    margin: 75px 0px 113px;
     display: flex;
     flex-direction: row;
 }
@@ -1290,7 +1531,7 @@ main .for-business .card:last-child{
 main .for-all .card .title,
 main .for-business .card .title{
     margin-top: 10px; 
-    margin-bottom: 16px;
+    margin-bottom: 15px;
     font-size: 29px;
     font-weight: bolder;
 }
@@ -1319,7 +1560,8 @@ main .for-all .card:first-child .title{
 
 main .for-all .card p,
 main .for-business .card p{
-    margin-bottom: 26px;
+    margin-bottom: 25px;
+    line-height: 1.5;
 }
 
 @media (max-width: 1399px) {
@@ -1402,8 +1644,8 @@ main .for-all .card .xbox +span{
 
 main .name{
     display: block;
-    margin-bottom: 21px;
-    font-size: 36px;
+    margin-bottom: 18px;
+    font-size: 37px;
     font-weight: bolder;
 }
 
@@ -1432,9 +1674,8 @@ main .name{
 /* main 區塊 Edge 介紹 */
 main .edge {
     width: 100%;
-    height: 513.38px;
     margin: auto;
-    margin-bottom: 92px;
+    margin-bottom: 88px;
     z-index: 0;
 }
 
@@ -1445,6 +1686,7 @@ main .edge .banner{
 main .edge .banner picture img{
     width: 100%;
     height: 100%;
+    padding: 0px 2px;
 }
 
 
@@ -1480,13 +1722,13 @@ main .edge picture img{
 }
 
 main .edge .intro{
-    width: 410px;
-    height: 270px;
+    width: 479px;
+    height: 273px;
     background-color: #fff;
-    padding: 46px;
-    box-shadow: 0px 1px 7px #c7c7c7;
+    padding: 46px 46px 46px 48px;
+    box-shadow: 0px 1px 5px #c7c7c7;
     position: absolute;
-    top: 23%;
+    top: 27.2%;
     left: 5%;
     cursor: pointer;
 }
@@ -1548,7 +1790,7 @@ main .edge .intro p{
 
 main .edge .intro a{
     display: inline-block;
-    width: 90px;
+    width: 92px;
     height: 40px;
     background-color: #0067b8;
     color: #fff;
@@ -1571,7 +1813,7 @@ main .edge .intro a span:active{
 
 /* 網外其他微軟相關官方網站 */
 main .media{
-    margin: 54px 0px 112px 90px;
+    margin: 53px 0px 112px 163px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1600,7 +1842,8 @@ main .media a{
 
 main .media .fb{
     background-image: url("../img/fb.png");
-    margin: 0px 22px;
+    margin-left: 16px;
+    margin-right: 17px;
 }
 
 @media (max-width: 1399px)  {
@@ -1624,7 +1867,7 @@ footer{
     /* height: 388px; */
     background-color: #f2f2f2;
     color: #616161;
-    padding: 36px 75px 28px;
+    padding: 36px 151px 18px;
     font-size: 11px;
 }
 
@@ -1651,7 +1894,7 @@ footer .up{
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 26px;
+    margin-bottom: 21px;
 }
 
 @media (max-width: 858px) {
@@ -1661,11 +1904,49 @@ footer .up{
 }
 
 footer .up .category{
-    width: 16%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    column-gap: 14px;
+    /* column-gap: 14px; */
+    width: 266.66px;
+    height: auto;
+    line-height: 1.4;
+}
+
+footer .up .category:nth-child(2) span:first-child{
+    font-weight: 500;
+}
+
+
+footer .up div:nth-child(3n + 1){
+    padding-right: 12px;
+}
+
+footer .up div:nth-child(2),
+footer .up div:nth-child(3),
+footer .up div:nth-child(5),
+footer .up div:nth-child(6){
+    padding: 0px 12px;
+}
+
+footer .up .category span{
+    display: inline-block;
+    cursor: pointer;
+    letter-spacing: -0.5px 
+}
+
+footer .up .category span:hover{
+    text-decoration: underline;
+}
+
+footer .up .category span:first-child{
+    cursor: default;
+    text-decoration: none;
+}
+
+footer .up .category span:active{
+    border: 1px dotted #000;
+    padding: 4px;
 }
 
 @media (max-width: 1399px) {
@@ -1746,6 +2027,7 @@ footer .down .left .language,
 footer .down .left .privacy{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 @media (max-width: 1083px)  {
@@ -1758,6 +2040,10 @@ footer .down .left .language{
     margin-right: 24px;
 }
 
+footer .down .left .language a{
+    margin-top: -4px;
+}
+
 footer .down .left .language .icon{
     width: 20px;
     height: 20px;
@@ -1765,28 +2051,43 @@ footer .down .left .language .icon{
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 8px;
+    margin-right: 10px;
 }
 
 footer .down .left .privacy .icon{
-    width: 38px;
-    height: 26px;
+    width: 36px;
+    height: 24px;
     background-image: url("../img/privacy.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 8px;
+    margin-right: 7px;
+}
+
+/* footer .down .left .privacy a{
+    margin-top: 2px;
+} */
+
+footer .down .left .language:active,
+footer .down .left .privacy:active,
+footer .down .right a:active{
+    border: 1px dotted #000;
+    padding: 4px;
 }
 
 footer .down .right{
-    width: 524px;
+    width: auto;
     display: flex;
     justify-content: flex-end;
-    /* justify-content: space-between; */
     align-items: center;
     flex-wrap: wrap;
-    margin-right: 24px;
+    margin-right: 25px;
+    margin-top: -3px;
     color: #616161;
+}
+
+footer .down .right a{
+    margin-left: 27px;
 }
 
 @media (max-width: 1083px) {
@@ -1824,7 +2125,7 @@ footer .down .right{
     font-weight: bolder;
     margin-right: 10px;
     position: fixed;
-    bottom: 15px;
+    bottom: 50px;
     right: 0px;
     z-index: 99;
     cursor: pointer;
