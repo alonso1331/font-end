@@ -78,10 +78,10 @@
             </div>
         </div>
         <div class="functions">
-            <div class="function underline all">
+            <div class="function underline all" onclick="myFunction()">
                 <span>所有 Microsoft</span>
                 <div class="icon down"></div>
-                <div class="all-links">
+                <div class="all-links" id="myDropdown">
                     <div class="links-list">
                         <div class="list">
                             <span>軟體</span>
@@ -153,7 +153,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="function underline">
                 <span>搜尋</span>
                 <div class="icon search underline"></div>
@@ -209,20 +208,20 @@
                         <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP3-1083x600" media="(min-width: 860px)">
                         <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" media="(min-width: 540px)">
                         <img id="img-highlight-uidc387" src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" class="card-img w-100" alt="Microsoft 365 應用程式套件 (如 Teams、Word、Outlook 等) 的圖示。">
-                        <div class="description">
-                            <h1>Microsoft 365</h1>
-                            <p>使用 Microsoft 365 應用程式實現創意想法、提高線上和離線安全，並專注於最重要的事。</p>
-                            <div class="info">
-                                <a href="">
-                                    <span>適合 1 人使用</span>
-                                </a>
-                                <div class="hover">
-                                    <a href="">最多可供 6 人使用</a>
-                                    <div class="right"></div>
-                                </div>
+                    </picture>
+                    <div class="description">
+                        <h1>Microsoft 365</h1>
+                        <p>使用 Microsoft 365 應用程式實現創意想法、提高線上和離線安全，並專注於最重要的事。</p>
+                        <div class="info">
+                            <a href="">
+                                <span>適合 1 人使用</span>
+                            </a>
+                            <div class="hover">
+                                <a href="">最多可供 6 人使用</a>
+                                <div class="right"></div>
                             </div>
                         </div>
-                    </picture>
+                    </div>
                 </div>
                 
                 <!-- 第二張banner -->
@@ -286,6 +285,40 @@
             <div class="for-all">
                 <div class="card">
                     <picture>
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-5-M1-Platinum-01-1?wid=380&amp;hei=213&amp;fit=crop" media="(min-width: 1400px)">
+                        <source srcset=" https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-5-M1-Platinum-01-1?wid=297&amp;hei=167&amp;fit=crop" media="(min-width: 1084px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-5-M1-Platinum-01-1?wid=517&amp;hei=293&amp;fit=crop" media="(min-width: 860px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-5-M1-Platinum-01-1?wid=406&amp;hei=230&amp;fit=crop" media="(min-width: 540px)">
+                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-5-M1-Platinum-01-1?wid=406&amp;hei=230&amp;fit=crop" loading="lazy" class="card-img" alt="Surface Laptop 5 的角度畫面。">
+                    </picture>
+                    <div class="title">Surface Laptop 5</div>
+                    <p>配備細緻的風格和由第 12 代 Intel® Core 支援的多工速度，以及 Windows 11。</p>
+                    <!-- <div class="hover">
+                        <a href="" class="xbox">深入了解</a>
+                        <span></span>
+                    </div> -->
+                    <div class="hover">
+                        <a href="">深入了解</a>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="card">
+                    <picture>
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-Go-2-01-M01?wid=380&amp;hei=213&amp;fit=crop" media="(min-width: 1400px)">
+                        <source srcset=" https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-Go-2-01-M01?wid=297&amp;hei=167&amp;fit=crop" media="(min-width: 1084px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-Go-2-01-M01?wid=517&amp;hei=293&amp;fit=crop" media="(min-width: 860px)">
+                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-Go-2-01-M01?wid=406&amp;hei=230&amp;fit=crop" media="(min-width: 540px)">
+                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-Go-2-01-M01?wid=406&amp;hei=230&amp;fit=crop" loading="lazy" class="card-img" alt="Surface Laptop Go 2 的特寫角度畫面。">
+                    </picture>
+                    <div class="title">Surface Laptop Go 2</div>
+                    <p>外型時尚的筆記型電腦配備 12.4 吋觸控螢幕、絕佳的打字體驗，以及改良的 HD 相機。</p>
+                    <div class="hover">
+                        <a href="">深入了解</a>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="card">
+                    <picture>
                         <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XSX-CP-Xbox-Series-X?wid=380&amp;hei=213&amp;fit=crop" media="(min-width: 1400px)">
                         <source srcset=" https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XSX-CP-Xbox-Series-X?wid=297&amp;hei=167&amp;fit=crop" media="(min-width: 1084px)">
                         <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XSX-CP-Xbox-Series-X?wid=517&amp;hei=293&amp;fit=crop" media="(min-width: 860px)">
@@ -311,40 +344,6 @@
                     <p>問真正的問題。 聊天和創作。 從您的 AI 網路副駕駛獲得更好的答案。</p>
                     <div class="hover">
                         <a href="">了解新版 Bing</a>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <picture>
-                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XGP-Game-Pass-Ultimate-Characters-06102010-1?wid=380&amp;hei=213&amp;fit=crop" media="(min-width: 1400px)">
-                        <source srcset=" https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XGP-Game-Pass-Ultimate-Characters-06102010-1?wid=297&amp;hei=167&amp;fit=crop" media="(min-width: 1084px)">
-                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XGP-Game-Pass-Ultimate-Characters-06102010-1?wid=517&amp;hei=293&amp;fit=crop" media="(min-width: 860px)">
-                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XGP-Game-Pass-Ultimate-Characters-06102010-1?wid=406&amp;hei=230&amp;fit=crop" media="(min-width: 540px)">
-                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XGP-Game-Pass-Ultimate-Characters-06102010-1?wid=406&amp;hei=230&amp;fit=crop" loading="lazy" class="card-img" alt="Xbox Game Pass Ultimate 標誌，背景中有各種電子遊戲角色。">
-                    </picture>
-                    <div class="title">加入只要 NT$30</div>
-                    <p>加入 Xbox Game Pass Ultimate 或 PC Game Pass 只要 NT$30，解鎖數百款精彩遊戲和更多驚喜。 此優惠僅適用於新訂閱者。</p>
-                    <div class="hover">
-                        <a href="" class="xbox">加入 Xbox Game Pass</a>
-                        <span></span>
-                    </div>
-                    <div class="hover">
-                        <a href="">加入 PC Game Pass</a>
-                        <span></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <picture>
-                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-CP-Windows11-GlobalLaunch?wid=380&amp;hei=213&amp;fit=crop" media="(min-width: 1400px)">
-                        <source srcset=" https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-CP-Windows11-GlobalLaunch?wid=297&amp;hei=167&amp;fit=crop" media="(min-width: 1084px)">
-                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-CP-Windows11-GlobalLaunch?wid=517&amp;hei=293&amp;fit=crop" media="(min-width: 860px)">
-                        <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-CP-Windows11-GlobalLaunch?wid=406&amp;hei=230&amp;fit=crop" media="(min-width: 540px)">
-                        <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-CP-Windows11-GlobalLaunch?wid=406&amp;hei=230&amp;fit=crop" loading="lazy" class="card-img" alt="筆記型電腦上的 Windows 11。">
-                    </picture>
-                    <div class="title">專為今天和明天的生活而設計</div>
-                    <p>新一代遊戲、 您的目標、 親朋好友。 Windows 11 是為了讓您更貼近所喜愛的一切。</p>
-                    <div class="hover">
-                        <a href="">查看您的電腦是否準備就緒</a>
                         <span></span>
                     </div>
                 </div>
@@ -547,6 +546,23 @@
         //         console.log(allLinks);
         //     });
         // }
+
+        function myFunction(){
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event){
+            if (!event.target.matches('.all')){
+                let all = document.getElementsByClassName('all-links');
+                let i;
+                for (i = 0; i < all.length; i++){
+                    let openAll = all[i];
+                    if (openAll.classList.contains('show')){
+                        openAll.classList.remove('show')
+                    }
+                }
+            }
+        }
         
         // 回到首頁
         let mybtn = document.getElementById('myBtn');
