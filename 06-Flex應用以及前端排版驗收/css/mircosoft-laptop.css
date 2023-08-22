@@ -18,13 +18,26 @@ nav{
     position: relative;
 }
 
-@media (max-width: 1083px) {
+/* @media (max-width: 1083px) {
     nav{
         height: 56px;
     }
-}
+} */
 
 @media (max-width: 859px) {
+    nav{
+        height: 52.5px;
+        border-bottom: #c7c7c7 solid 1px;
+    }
+}
+
+@media (max-width: 539px) {
+    nav{
+        height: 53px;
+    }
+}
+
+@media (max-width: 367px) {
     nav{
         height: 54px;
     }
@@ -54,8 +67,8 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
         background-repeat: no-repeat;
         position: absolute;
         top: 23%;
-        left: 2%;
-        margin-right: 5px;
+        left: 1.5%;
+        margin-right: 0px;
     }
 
     nav .menu #links a{
@@ -163,6 +176,12 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
     } */
 }
 
+@media (max-width: 539px) {
+    nav .menu{
+        left: 2.5%;
+    }
+}
+
 nav .functions .underline span:hover{
     border-bottom: #000 solid 0px;
 }
@@ -187,15 +206,13 @@ nav .series{
 
 @media (max-width: 1083px) {
     nav .series{
-        width: 580px;
+        /* width: 580px; */
         padding-left: 34px;
     }
 }
 
 @media (max-width: 859px) {
     nav .series{
-        width: 100%;
-        height: 100%;
         padding-left: 0px;
         margin-top: -5px;
     }
@@ -222,8 +239,8 @@ nav .logo{
     nav .logo{
         margin-right: 0px;
         position: absolute;
-        top: calc(50% - 11.5px);
-        left: calc(50% - 54px);
+        top: calc(50% - 11px);
+        left: calc(50% - 55px);
     }
 }
 
@@ -248,7 +265,7 @@ nav .series .link{
     }
 }
 
-@media (max-width: 858px) {
+@media (max-width: 859px) {
     nav .series .link{
         display: none;
     }
@@ -330,6 +347,12 @@ nav .functions .function:nth-child(4){
     margin-left: 4px;
 }
 
+@media (max-width: 859px) {
+    nav .functions .function:nth-child(4){
+        margin-left: 6px;
+    }
+}
+
 nav .functions .function:first-child span{
     margin-top: -1px;
 }
@@ -343,7 +366,7 @@ nav .functions .function:nth-child(3){
     margin-top: -5px;
 }
 
-@media (max-width: 1399px)  {
+@media (max-width: 1399px) {
     nav .functions .down{
         margin-right: 16px;
     }
@@ -368,7 +391,7 @@ nav .functions .function:nth-child(3){
     }   
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     nav .functions{
         padding-right: 32px;
     }
@@ -400,7 +423,7 @@ nav .functions .function:nth-child(3){
     }
 
     nav .functions .search{
-        margin-left: 8px;
+        margin-left: -3px;
         margin-right: 0px;
         position: absolute;
         top: calc(50% - 9px);
@@ -408,13 +431,31 @@ nav .functions .function:nth-child(3){
     }
     
     nav .functions{
-        padding-right: 19px;
+        padding-right: 17px;
     }
 
     nav .functions .login {
         margin-left: 14px;
     }
 
+}
+
+@media (max-width: 539px) {
+    nav .functions .search{
+        margin-left: 23px;
+        margin-top: 0px;
+    }
+
+    nav .functions .login {
+        margin-left: 15px;
+        margin-top: 4px;
+    }
+}
+
+@media (max-width: 367px) {
+    nav .functions .search{
+        margin-left: 37px;
+    }
 }
 
 nav .functions .shopping span{
@@ -824,6 +865,15 @@ main .banners .description .info .hover:hover .right{
     font-size: 16px !important;
 }
 
+@media (max-width: 1399px) {
+    .swiper-button-prev,
+    .swiper-button-next,
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+        top: 729%;
+    }
+}
+
 @media (max-width: 1083px) {
     .swiper-button-prev,
     .swiper-button-next,
@@ -833,12 +883,49 @@ main .banners .description .info .hover:hover .right{
     }
 }
 
+@media (max-width: 859px) {
+    .swiper-button-prev,
+    .swiper-button-next,
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+        top: 849%;
+    }
+}
+
+@media (max-width: 539px) {
+    .swiper-button-prev,
+    .swiper-button-next,
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+        top: 650%;
+    }
+}
+
+@media (max-width: 367px) {
+    .swiper-button-prev,
+    .swiper-button-next,
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+        top: 597%;
+    }
+}
+
 .swiper-button-prev:after{
     left: 3308%;
 }
 
 .swiper-button-next:after{
     right: 3144%;
+}
+
+@media (max-width: 1399px) {
+    .swiper-button-prev:after{
+        left: 2375%;
+    }
+    
+    .swiper-button-next:after{
+        right: 2212%;
+    }
 }
 
 @media (max-width: 1083px) {
@@ -851,12 +938,44 @@ main .banners .description .info .hover:hover .right{
     }
 }
 
+@media (max-width: 859px) {
+    .swiper-button-prev:after{
+        left: 1375%;
+    }
+    
+    .swiper-button-next:after{
+        right: 1218%;
+    }
+}
+
+@media (max-width: 539px) {
+    .swiper-button-prev:after{
+        left: 780%;
+    }
+    
+    .swiper-button-next:after{
+        right: 624%;
+    }
+}
+
+@media (max-width: 367px) {
+    .swiper-button-prev:after{
+        left: 452%;
+    }
+    
+    .swiper-button-next:after{
+        right: 308%;
+    }
+}
+
 .swiper picture{
     width: 100%;
     height: 100%;
     position: relative;
 }
 
+
+/* height影響bullet高度 */
 .swiper-control{
     position: relative;
     width: 100%;
@@ -871,16 +990,55 @@ main .banners .description .info .hover:hover .right{
     }
 }
 
+@media (max-width: 859px) {
+    .swiper-control{
+        height: 51px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 539px) {
+    .swiper-control{
+        margin-bottom: 29px;
+    }
+}
+
 .play-btn{
     position: absolute;
     top: 40%;
     left: 44.6%;
 }
 
+@media (max-width: 1399px) {
+    .play-btn{
+        top: 37%;
+        left: 42.6%;
+    }
+}
+
 @media (max-width: 1083px) {
     .play-btn{
         top: 68%;
         left: 40.3%;
+    }
+}
+
+@media (max-width: 859px) {
+    .play-btn{
+        top: 39%;
+        left: 38%;
+    }
+}
+
+@media (max-width: 539px) {
+    .play-btn{
+        left: 31%;
+    }
+}
+
+@media (max-width: 367px) {
+    .play-btn{
+        left: 21%;
     }
 }
 
@@ -895,11 +1053,11 @@ main .description{
 }
 
 main .description-right{
-    width: 490px;
+    width: 26%;
     height: 263px;
     position: absolute;
     top: 36.6%;
-    right: 14.74%;
+    right: 14.5%;
 }
 
 @media (max-width: 1399px) {
@@ -913,12 +1071,10 @@ main .description-right{
     }
 
     main .description-right{
-        width: 560px;
+        width: 30%;
         height: 110px;
-        padding-top: 0px;
-        padding-left: 0px;
         top: 36.7%;
-        right: 124px;
+        right: 9%;
     }
 }
 
@@ -939,13 +1095,13 @@ main .description-right{
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 859px) {
     main .description,
     main .description-right{
         width: 100%;
         height: 168px;
-        padding-top: 24px;
-        padding-left: 28px;
+        padding-top: 22px;
+        padding-left: 29px;
         margin: 0px;
         top: 90%;
         left: 0%;
@@ -958,14 +1114,18 @@ main .description-right{
     main .description-right{
         width: 100%;
         height: 200px;
+        padding-right: 19px;
     }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 539px) {
     main .description,
     main .description-right{
-        height: 200px;
+        padding-left: 24px;
+        width: 98%;
+        height: 192px;
         top: 98%;
+        left: 1%;
         margin: 0px;
     }
 }
@@ -976,6 +1136,13 @@ main .description-right{
         height: 220px;
         top: 98%;
         margin: 0px;
+    }
+}
+
+@media (max-width: 367px) {
+    main .description{
+        padding-right: 22px;
+        height: 256.8px;
     }
 }
 
@@ -1002,6 +1169,20 @@ main .description-right h1{
     }
 }
 
+@media (max-width: 539px) {
+    main .description h1,
+    main .description-right h1{
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 367px) {
+    main .description h1,
+    main .description-right h1{
+        margin-bottom: 11px;
+    }
+}
+
 main .description p,
 main .description-right p{
     font-weight: 400;
@@ -1017,10 +1198,17 @@ main .description-right p{
     }
 }
 
-@media (max-width: 858px) {
+@media (max-width: 859px) {
     main .description p,
     main .description-right p{
         margin-bottom: 22px;
+    }
+}
+
+@media (max-width: 539px) {
+    main .description p,
+    main .description-right p{
+        margin-bottom: 24px;
     }
 }
 
@@ -1045,10 +1233,14 @@ main .description-right .info > a:first-child{
     height: 40px;
     background-color: #0067b8;
     color: #fff;
-    margin-right: 28px;
+    margin-right: 35px;
     text-align: center;
     line-height: 39px;
     border-radius: 2px;
+}
+
+main .description .info > a:first-child{
+    margin-right: 29px;
 }
 
 main .description-right .info > a:first-child{
@@ -1062,6 +1254,21 @@ main .description-right .info > a:first-child{
     main .description-right .info > a:first-child{
         width: 123px;
         height: 40px;
+    }
+}
+
+@media (max-width: 367px) {
+    main .description .info {
+        display: block;
+        
+    }
+
+    main .description .info > a{
+        margin-bottom: 18px;
+    }
+
+    main .description .info .hover > a{
+        margin-left: 5px;
     }
 }
 
@@ -1114,7 +1321,6 @@ main .description-right .info .hover{
 }
 
 main .description .info .hover a{
-    margin-left: 1px;
     margin-top: -1px;
 }
 
@@ -1148,7 +1354,7 @@ main .description-right .info .hover .right{
     transition-duration: 1s;
 }
 
-@media (max-width: 1399px)  {
+@media (max-width: 1399px) {
     main .description .info .hover .right,
     main .description-right .info .hover .right{
         width: 18px;
@@ -1156,7 +1362,7 @@ main .description-right .info .hover .right{
     }
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     main .description .info .hover .right,
     main .description-right .info .hover .right{
         width: 12px;
@@ -1191,13 +1397,13 @@ main .control{
     margin-top: 20px;
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     main .control{
         margin-top: 195px;
     }
 }
 
-@media (max-width: 540px)  {
+@media (max-width: 540px) {
     main .control{
         margin-top: 204px;
     }
@@ -1304,7 +1510,7 @@ main .products{
     padding: 0px 151px;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1399px) {
     main .products{
         padding: 0px 70px;
     }
@@ -1326,11 +1532,21 @@ main .three-series{
     margin: auto;
 }
 
+@media (max-width: 415px) {
+    main .three-series{
+        height: 190px;
+    }
+}
+
 @media (max-width: 380px) {
     main .three-series{
-        width: 100%;
-        height: 210px;
         margin: 20px 0px;
+    }
+}
+
+@media (max-width: 367px) {
+    main .three-series{
+        height: 175px;
     }
 }
 
@@ -1351,6 +1567,18 @@ main .three-series .windows11{
     flex-direction: column;
 }
 
+@media (max-width: 539px) {
+    main .three-series .microsoft365{
+        margin-left: 48px;
+    }
+}
+
+@media (max-width: 464px) {
+    main .three-series .microsoft365{
+        margin: 0px 48px;
+    }
+}
+
 @media (max-width: 417px) {
     main .three-series .microsoft365{
         width: 100%;
@@ -1367,32 +1595,39 @@ main .three-series .surface{
     margin: 0 48px;
 }
 
+@media (max-width: 464px) {
+    main .three-series .surface{
+        margin-top: 34px;
+        margin-right: 24px;
+        margin-left: 24px;
+    }
+}
+
 @media (max-width: 417px) {
     main .three-series .surface{
         margin-right: 48px;
         margin-top: 30px;
-        margin-left: 20px;
+        margin-left: 48px;
     }
 }
 
-@media (max-width: 368px) {
+@media (max-width: 367px) {
     main .three-series .surface{
-        /* margin-right: 0px;
-        margin-top: 0px; */
+        margin: 34px auto 4px;
         width: 100%;
-        margin: 30px auto;
         text-align: center;
     }
 }
 
 @media (max-width: 539px) {
     main .three-series .windows11{
-        margin-top: 30px;
+        margin-top: 34px;
         margin-right: 24px;
+        margin-left: 24px;
     }
 }
 
-@media (max-width: 368px) {
+@media (max-width: 367px) {
     main .three-series .windows11{
         width: 100%;
         margin: auto;
@@ -1443,9 +1678,9 @@ main .three-series .windows11 .icon{
 /* for all 群眾的產品 */
 main .for-all{
     /* width: 100%; */
-    height: 437px;
+    height: auto;
     margin: auto;
-    margin: 75px 0px 113px;
+    margin: 80px 0px 113px;
     display: flex;
     flex-direction: row;
 }
@@ -1462,15 +1697,16 @@ main .for-all{
     }
 }
 
-@media (max-width: 858px) {
+@media (max-width: 859px) {
     main .for-all{
-        margin: 40px 0px;
+        /* margin: 40px 0px; */
+        margin-top: 32px;
     }
 }
 
 @media (max-width: 539px) {
     main .for-all{
-        margin-top: 130px;
+        margin-top: 136px;
         margin-bottom: 60px;
     }
 }
@@ -1509,14 +1745,43 @@ main .for-business{
     main .for-business{
         width: 100%;
         height: 890px;
+        margin-bottom: 93px;
     }
 }
 
-@media (max-width: 540px) {
-    main .for-all, 
+@media (max-width: 859px) {
+    main .for-all{
+        height: 760px;
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 859px) {
+    main .for-business{
+        height: 760px;
+        margin-bottom: 77px;
+    }
+}
+
+@media (max-width: 539px) {
+    main .for-all{
+        width: 100%;
+        /* height: 1900px; */
+        height: auto;
+    }
+
+    main .for-all{
+        margin-bottom: 6px;
+    }
+
     main .for-business{
         width: 100%;
-        height: 1900px;
+        /* height: 1600px; */
+        height: auto;
+    }
+
+    main .for-business{
+        margin-bottom: 0px;
     }
 }
 
@@ -1524,7 +1789,7 @@ main .for-all .card,
 main .for-business .card{
     /* width: 322px; */
     width: 100%;
-    height: 426px;
+    height: 369px;
     margin: auto;
     margin-right: 24px;
     display: flex;
@@ -1557,14 +1822,26 @@ main .for-business .card{
     main .for-business .card:nth-child(even){
         padding-left: 12px;
     }
-
 }
 
-@media (max-width: 540px) {
+@media (max-width: 859px) {
+    main .for-all .card{
+        height: 430px;
+    }
+}
+
+@media (max-width: 859px) {
+    main .for-business .card{
+        height: 407px;
+    }
+}
+
+@media (max-width: 539px) {
     main .for-all .card, 
     main .for-business .card{
         width: 100%;
         height: auto;
+        margin-bottom: 58px;
     }
     main .for-all .card:nth-child(odd),
     main .for-business .card:nth-child(odd){
@@ -1573,12 +1850,16 @@ main .for-business .card{
 
     main .for-all .card:nth-child(even),
     main .for-business .card:nth-child(even){
-        padding: 0x;
+        padding: 0px;
         padding-left: 0px;
     }
 }
 
-
+@media (max-width: 367px) {
+    main .for-all .card{
+        height: 224px;
+    }
+}
 
 main .for-all .card picture img,
 main .for-business .card picture img{
@@ -1592,7 +1873,7 @@ main .for-business .card picture img{
     }
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     main .for-all .card picture img,
     main .for-business .card picture img{
         width: 100%;
@@ -1612,7 +1893,7 @@ main .for-business .card .title{
     font-weight: bolder;
 }
 
-@media (max-width: 1399px)  {
+@media (max-width: 1399px) {
     main .for-all .card .title,
     main .for-business .card .title{
         margin-bottom: 11px;
@@ -1621,7 +1902,7 @@ main .for-business .card .title{
     }
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     main .for-all .card .title,
     main .for-business .card .title{
         font-size: 21px;
@@ -1645,7 +1926,7 @@ main .for-business .card p{
 @media (max-width: 1399px) {
     main .for-all .card p,
     main .for-business .card p{
-        margin-bottom: 26px;
+        margin-bottom: 25px;
     }
 
     main .for-all .card p, main .for-all .card a,
@@ -1727,14 +2008,14 @@ main .name{
     font-weight: bolder;
 }
 
-@media (max-width: 1399px)  {
+@media (max-width: 1399px) {
     main .name{
-        margin-bottom: 16px;
+        margin-bottom: 15px;
         font-size: 29px;
     }
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     main .name{
         margin-top: 268px;
         margin-bottom: 11px;
@@ -1742,9 +2023,10 @@ main .name{
     }
 }
 
-@media (max-width: 858px) {
+@media (max-width: 859px) {
     main .name{
-        margin-bottom: 12px;
+        margin-top: 248px;
+        margin-bottom: 11px;
         font-size: 24px;
     }
 }
@@ -1770,7 +2052,7 @@ main .edge .banner picture img{
 
 @media (max-width: 1399px) {
     main .edge {
-        margin-bottom: 89px;
+        margin-bottom: 90px;
     }
 }
 
@@ -1795,6 +2077,12 @@ main .edge .banner picture img{
     }
 }
 
+@media (max-width: 539px) {
+    main .edge {
+        margin-bottom: 266px;
+    }
+}
+
 main .edge picture img{
     width: 100%;
 }
@@ -1811,7 +2099,7 @@ main .edge .intro{
     cursor: pointer;
 }
 
-@media (max-width: 1399px)  {
+@media (max-width: 1399px) {
     main .edge .intro{
         width: 380px;
         height: 280px;
@@ -1820,7 +2108,7 @@ main .edge .intro{
     }
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     main .edge .intro{
         width: 98%;
         height: 224px;
@@ -1834,7 +2122,7 @@ main .edge .intro{
 @media (max-width: 860px) {
     main .edge .intro{
         width: 100%;
-        padding: 46px 20px;
+        padding: 46px 14px;
         top: 91%;
         left: 0%;
         box-shadow: 0px 0px 0px #fff;
@@ -1847,14 +2135,14 @@ main .edge .intro .title{
     margin-bottom: 18px;
 }
 
-@media (max-width: 1399px)  {
+@media (max-width: 1399px) {
     main .edge .intro .title{
         font-size: 30px;
         margin-bottom: 12px;
     }
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     main .edge .intro .title{
         font-size: 24px;
         margin-bottom: 12px;
@@ -1898,15 +2186,21 @@ main .media{
     font-size: 16px;
 }
 
-@media (max-width: 1400px)  {
+@media (max-width: 1399px) {
     main .media{
-        margin: 86px 0px 114px 82px;
+        margin: 95px 0px 113px 82px;
     }
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     main .media{
-        margin: 70px 0px 110px 24px;
+        margin: 70px 0px 113px 24px;
+    }
+}
+
+@media (max-width: 539px) {
+    main .media{
+        margin: 1% 0px 4% 24px;
     }
 }
 
@@ -1924,9 +2218,10 @@ main .media .fb{
     margin-right: 17px;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1399px) {
     main .media .fb{
         margin: 0px 16px;
+        margin-top: 1px;
     }
 }
 
@@ -1952,18 +2247,31 @@ footer{
     color: #616161;
     padding: 36px 151px 18px;
     font-size: 11px;
+    clear: right; /* #myBtn停在footer上面，不會向下掉 */
 }
 
-@media (max-width: 1400px)  {
+@media (max-width: 1399px) {
     footer{
         padding: 36px 5% 18px;
     }
 }
 
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     footer{
         padding: 34px 24px 23px;
+    }
+}
+
+@media (max-width: 859px) {
+    footer{
+        padding: 34px 24px 24px;
+    }
+}
+
+@media (max-width: 539px) {
+    footer{
+        padding: 34px 24px 20px;
     }
 }
 
@@ -1985,7 +2293,7 @@ footer .up{
     margin-bottom: 21px;
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     footer .up{
         margin-bottom: -2px;
     }
@@ -2002,38 +2310,31 @@ footer .up .category{
     flex-direction: column;
     flex-wrap: wrap;
     /* column-gap: 14px; */
-    width: 266.66px;
+    /* width: 266.66px; */
+    width: 16.6%;
     height: auto;
     line-height: 1.4;
 }
 
 @media (max-width: 1399px) {
     footer .up .category{
-        width: 206.66px;
-        margin-right: 0.7%;
+        /* width: 206.66px; */
+        width: 16.6%;
     }
 }
 
-@media (max-width: 1084px) {
+@media (max-width: 1083px) {
     footer .up .category{
-        margin-right: 120px;
+        width: 33.3%;
         margin-bottom: 27px;
     }
 }
 
-/* @media (max-width: 858px) {
+/* @media (max-width: 859px) {
     footer .up .category{
-        width: 25%;
-        margin-right: 30px;
+        margin-right: 0%;
     }
 } */
-
-@media (max-width: 858px) {
-    footer .up .category{
-        width: 28%;
-        margin-right: 20px;
-    }
-}
 
 @media (max-width: 539px) {
     footer .up .category{
@@ -2046,10 +2347,9 @@ footer .up .category:nth-child(2) span:first-child{
     font-weight: 500;
 }
 
-
-footer .up div:nth-child(3n + 1){
+/* footer .up div:nth-child(3n + 1){
     padding-right: 12px;
-}
+} */
 
 footer .up div:nth-child(2),
 footer .up div:nth-child(3),
@@ -2058,10 +2358,19 @@ footer .up div:nth-child(6){
     padding: 0px 12px;
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 859px) {
     footer .up div:nth-child(3),
     footer .up div:nth-child(6){
-        margin-left: 12px;
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 539px) {
+    footer .up div:nth-child(2),
+    footer .up div:nth-child(3),
+    footer .up div:nth-child(5),
+    footer .up div:nth-child(6){
+        padding: 0px;
     }
 }
 
@@ -2126,6 +2435,12 @@ footer .down .left{
     }
 }
 
+@media (max-width: 539px) {
+    footer .down .left{
+        margin-bottom: 20px;
+    }
+}
+
 footer .down .left .language, 
 footer .down .left .privacy{
     display: flex;
@@ -2133,7 +2448,7 @@ footer .down .left .privacy{
     cursor: pointer;
 }
 
-@media (max-width: 1083px)  {
+@media (max-width: 1083px) {
     footer .down .left .privacy{
         margin-top: 10px;
     }
@@ -2205,6 +2520,13 @@ footer .down .right a{
     }
 }
 
+@media (max-width: 859px) {
+    footer .down .right{
+        margin-right: 25px;
+    }
+}
+
+
 @media (max-width: 767px) {
     footer .down .right{
         justify-content: flex-start;
@@ -2213,26 +2535,27 @@ footer .down .right a{
     footer .down .right a{
         margin-top: 10px;
         margin-left: 0px;
-        margin-right: 12px;
+        margin-right: 13px;
     }
 }
 
 #myBtn {
-    width: 120px;
+    width: 117px;
     height: 40px;
     border: 0px;
     border-radius: 3px;
     background-color: #D9D9D9;
     font-size: 16px;
-    line-height: 40px;
+    line-height: 41px;
     font-weight: bolder;
-    margin-right: 10px;
-    position: fixed;
-    bottom: 50px;
-    right: 0px;
+    margin-right: 12px;
+    margin-bottom: 60px;
+    position: sticky;
+    bottom: 12px; /* 會讓#mybtn固定在畫面的右下角位置，一定要設定 */
     z-index: 99;
     cursor: pointer;
     display: none;
+    float: right; /* 向右浮 */
 }
 
 #myBtn:hover{
