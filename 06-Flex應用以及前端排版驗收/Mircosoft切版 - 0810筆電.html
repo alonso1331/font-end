@@ -79,8 +79,11 @@
         </div>
         <div class="functions">
             <div class="function underline all" onclick="myFunction()">
-                <span>所有 Microsoft</span>
-                <div class="icon down"></div>
+                <input type="checkbox" id="ham-menu-switch" hidden>
+                <label for="ham-menu-switch" class="ham-menu">
+                    <span>所有 Microsoft</span>
+                    <div class="icon down"></div>
+                </label>
                 <div class="all-links" id="myDropdown">
                     <div class="links-list">
                         <div class="list">
@@ -529,22 +532,22 @@
     <!-- js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
-        function myFunction(){
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
+        // function myFunction(){
+        //     document.getElementById("myDropdown").classList.toggle("show");
+        // }
 
-        window.onclick = function(event){
-            if (!event.target.matches('.all')){
-                let all = document.getElementsByClassName('all-links');
-                let i;
-                for (i = 0; i < all.length; i++){
-                    let openAll = all[i];
-                    if (openAll.classList.contains('show')){
-                        openAll.classList.remove('show')
-                    }
-                }
-            }
-        }
+        // window.onclick = function(event){
+        //     if (!event.target.matches('.all')){
+        //         let all = document.getElementsByClassName('all-links');
+        //         let i;
+        //         for (i = 0; i < all.length; i++){
+        //             let openAll = all[i];
+        //             if (openAll.classList.contains('show')){
+        //                 openAll.classList.remove('show')
+        //             }
+        //         }
+        //     }
+        // }
         
         // 回到首頁
         let mybtn = document.getElementById('myBtn');

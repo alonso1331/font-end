@@ -294,7 +294,7 @@ nav .functions .function{
     align-items: center;
 }
 
-nav .function .all span{
+nav .function .all label span{
     margin-top: -1px;
 }
 
@@ -499,6 +499,23 @@ nav .function .underline .all{
     transition: 0.2s ease-out;
 } */
 
+label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ham-menu {
+    display: block;
+    width: 122px;
+    height: 40px;
+}
+
+/* 按鈕按下後 兄弟層的 .all-links出現 */
+#ham-menu-switch:checked ~ .all-links{
+    display: block;
+}
+
 /* js用 */
 .show{
     display: block;
@@ -545,7 +562,6 @@ nav .function .underline .all{
 .links-list .list ul:active{
     border: 2px dotted #000;
 }
-
 
 .map{
     width: auto;
@@ -808,7 +824,14 @@ main .banners .description .info .hover:hover .right{
     width: 100%;
     height: 100%;
     padding: 0px 5px;
+    margin: auto;
 }
+
+/* .swiper {
+    margin-left: auto;
+    margin-right: auto;
+} */
+
 
 .swiper-pagination-bullets{
     padding-left: 41px;
@@ -825,16 +848,17 @@ main .banners .description .info .hover:hover .right{
     margin: auto 15px !important;
 } 
 
-.swiper-slide {
+.swiper-slide{
     /* text-align: center; */
     /* font-size: 18px; */
     background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-.swiper-slide img {
+.swiper-slide img{
     display: block;
     width: 100%;
     height: 100%;
@@ -842,23 +866,27 @@ main .banners .description .info .hover:hover .right{
     object-fit: cover;
 }
 
-.swiper {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* .swiper-button-prev{
+    left: 50%;
     transform: translateX(-300%);
 }
 
 .swiper-button-next{
+    right: 50%;
     transform: translateX(300%);
 } */
+
+.swiper-button-next, .swiper-button-prev{
+    top: 97%;
+    /* opacity: 1!important; */
+    color: black;
+    z-index: 12;
+}
 
 .swiper-button-prev,
 .swiper-button-next,
 .swiper-button-prev:after,
-.swiper-button-next:after {
+.swiper-button-next:after{
     position: absolute;
     top: 725%;
     color: #000;
@@ -901,6 +929,15 @@ main .banners .description .info .hover:hover .right{
     }
 }
 
+@media (max-width: 388px) {
+    .swiper-button-prev,
+    .swiper-button-next,
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+        top: 598%;
+    }
+}
+
 @media (max-width: 367px) {
     .swiper-button-prev,
     .swiper-button-next,
@@ -910,13 +947,13 @@ main .banners .description .info .hover:hover .right{
     }
 }
 
-.swiper-button-prev:after{
+/* .swiper-button-prev:after{
     left: 3308%;
 }
 
 .swiper-button-next:after{
     right: 3144%;
-}
+} */
 
 @media (max-width: 1399px) {
     .swiper-button-prev:after{
@@ -955,6 +992,16 @@ main .banners .description .info .hover:hover .right{
     
     .swiper-button-next:after{
         right: 624%;
+    }
+}
+
+@media (max-width: 388px) {
+    .swiper-button-prev:after{
+        left: 520%;
+    }
+    
+    .swiper-button-next:after{
+        right: 370%;
     }
 }
 
@@ -1130,6 +1177,15 @@ main .description-right{
     }
 }
 
+@media (max-width: 388px) {
+    main .description,
+    main .description-right{
+        padding-left: 25px;
+        padding-right: 25px;
+        height: 258px;
+    }
+}
+
 @media (max-width: 380px) {
     main .description,
     main .description-right{
@@ -1176,12 +1232,19 @@ main .description-right h1{
     }
 }
 
-@media (max-width: 367px) {
+@media (max-width: 388px) {
     main .description h1,
     main .description-right h1{
         margin-bottom: 11px;
     }
 }
+
+/* @media (max-width: 367px) {
+    main .description h1,
+    main .description-right h1{
+        margin-bottom: 11px;
+    }
+} */
 
 main .description p,
 main .description-right p{
@@ -1257,20 +1320,29 @@ main .description-right .info > a:first-child{
     }
 }
 
-@media (max-width: 367px) {
+@media (max-width: 388px) {
     main .description .info {
         display: block;
-        
     }
 
     main .description .info > a{
         margin-bottom: 18px;
     }
 
-    main .description .info .hover > a{
+    /* main .description .info .hover > a{
         margin-left: 5px;
-    }
+    } */
 }
+
+/* @media (max-width: 367px) {
+    main .description .info {
+        display: block;
+    }
+
+    main .description .info > a{
+        margin-bottom: 18px;
+    }
+} */
 
 main .description .info > a:hover,
 main .description-right .info > a:hover{
@@ -1306,14 +1378,6 @@ main .description-right .info .hover a:visited
     }
 }
 
-/* @media (max-width: 858px) {
-    main .description .info .hover a:visited,
-    main .description-right .info .hover a:visited
-    {
-        color: #0067b8;
-    }
-} */
-
 main .description .info .hover,
 main .description-right .info .hover{
     display: flex;
@@ -1330,12 +1394,11 @@ main .description .info .hover a{
     }
 }
 
-/* @media (max-width: 858px) {
-    main .description .info .hover a,
-    main .description-right .info .hover a{
-        color: #0067b8;
+@media (max-width: 388px) {
+    main .description .info .hover a{
+        margin-left: 5px;
     }
-} */
+}
 
 main .description .info .hover a:hover,
 main .description-right .info .hover a:hover{
@@ -1370,7 +1433,6 @@ main .description-right .info .hover .right{
         background-image: url("../img/blue-rigth.png");
     }
 }
-
 
 /* @media (max-width: 858px) {
     main .description .info .hover .right,
@@ -1532,6 +1594,12 @@ main .three-series{
     margin: auto;
 }
 
+@media (max-width: 584px) {
+    main .three-series{
+        height: 180px;
+    }
+}
+
 @media (max-width: 415px) {
     main .three-series{
         height: 190px;
@@ -1567,7 +1635,7 @@ main .three-series .windows11{
     flex-direction: column;
 }
 
-@media (max-width: 539px) {
+@media (max-width: 584px) {
     main .three-series .microsoft365{
         margin-left: 48px;
     }
@@ -1619,9 +1687,14 @@ main .three-series .surface{
     }
 }
 
-@media (max-width: 539px) {
+@media (max-width: 584px) {
     main .three-series .windows11{
         margin-top: 34px;
+    }
+}
+
+@media (max-width: 539px) {
+    main .three-series .windows11{
         margin-right: 24px;
         margin-left: 24px;
     }
@@ -1741,11 +1814,16 @@ main .for-business{
 }
 
 @media (max-width: 1083px) {
-    main .for-all, 
-    main .for-business{
+    main .for-all{
         width: 100%;
         height: 890px;
         margin-bottom: 93px;
+    }
+
+    main .for-business{
+        width: 100%;
+        height: 890px;
+        margin-bottom: 0px;
     }
 }
 
@@ -2188,19 +2266,19 @@ main .media{
 
 @media (max-width: 1399px) {
     main .media{
-        margin: 95px 0px 113px 82px;
+        margin: 90px 0px 12px 82px;
     }
 }
 
 @media (max-width: 1083px) {
     main .media{
-        margin: 70px 0px 113px 24px;
+        margin: 70px 0px 12px 24px;
     }
 }
 
 @media (max-width: 539px) {
     main .media{
-        margin: 1% 0px 4% 24px;
+        margin: 1% 0px 12px 24px;
     }
 }
 
