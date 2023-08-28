@@ -11,7 +11,7 @@ body{
 }
 
 nav{
-    width: 100%;
+    width: 90%;
     height: 56px;
     margin: auto;
     display: flex;
@@ -171,12 +171,16 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
 }*/
 
 @media (max-width: 859px) {
+    nav{
+        width: 100%;
+    }
+
     nav .menu{
         display: block;
         height: auto;
         z-index: 2;
         margin-top: 10px;
-        margin-left: 12px;
+        /* margin-left: 12px; */
         padding: 5px;
     }
 
@@ -220,7 +224,7 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
         width: 99.5%;
         position: absolute;
         top: 53px;
-        margin-left: -16px;
+        margin-left: -4px;
     }
 
     nav .menu #links > li,
@@ -351,7 +355,7 @@ nav .series{
     width: auto;
     height: 100%;
     /* padding-left: 162px; */
-    padding-left: 8.5%;
+    /* padding-left: 8.5%; */
     font-size: 13px;
     display: flex;
     align-items: center;
@@ -359,22 +363,21 @@ nav .series{
     cursor: pointer; 
 }
 
-@media (max-width: 1399px) {
+/* @media (max-width: 1399px) {
     nav .series{
         padding-left: 80px;
     }
-}
+} 
 
 @media (max-width: 1083px) {
     nav .series{
-        /* width: 580px; */
         padding-left: 34px;
     }
-}
+}*/
 
 @media (max-width: 859px) {
     nav .series{
-        padding-left: 0px;
+        /* padding-left: 0px; */
         margin-top: -5px;
     }
 }
@@ -390,11 +393,11 @@ nav .logo{
     background-repeat: no-repeat;
 }
 
-@media (max-width: 1399px) {
+/* @media (max-width: 1399px) {
     nav .logo{
         margin-right: 30px;
     }
-}
+} */
 
 @media (max-width: 859px) {
     nav .logo{
@@ -440,15 +443,15 @@ nav .functions{
     justify-content: flex-end;
     align-items: center;
     /* padding-right: 159px; */
-    padding-right: 8.28%;
+    /* padding-right: 8.28%; */
     cursor: pointer; 
 }
 
-@media (max-width: 1399px) {
+/* @media (max-width: 1399px) {
     nav .functions{
         padding-right: 78px;
     }
-}
+} */
     
 nav .functions .function{
     display: flex;
@@ -554,9 +557,9 @@ nav .functions .function:nth-child(3){
 }
 
 @media (max-width: 1083px) {
-    nav .functions{
+    /* nav .functions{
         padding-right: 32px;
-    }
+    } */
 
     nav .functions label .down{
         margin-right: 13px;
@@ -592,12 +595,13 @@ nav .functions .function:nth-child(3){
         left: calc(8% - 9px);
     }
     
-    nav .functions{
+    /* nav .functions{
         padding-right: 17px;
-    }
+    } */
 
     nav .functions .login {
         margin-left: 14px;
+        margin-right: 18px;
     }
 
 }
