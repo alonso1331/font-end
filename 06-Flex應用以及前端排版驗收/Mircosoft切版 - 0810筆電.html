@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="./css/mircosoft-laptop.css">
     <link rel="SHORTCUT ICON" href="./icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <nav>
+    <nav id="top">
         <div class="series">
             <div class="logo" id="logo"><a href="#logo"></a></div>    
             <div class="link">Microsoft 365</div>
@@ -19,68 +20,120 @@
             <div class="link">Xbox</div>
             <div class="link">支援</div>
             <div class="menu">
-                <img class="cross" src="./img/cross.svg" alt="">
-                <div id="links">
-                    <a href="">Microsoft 365</a>
-                    <a href="">Teams</a>
-                    <a href="">Windows</a>
-                    <a href="">Surface</a>
-                    <a href="">Xbox</a>
-                    <a href="">支援</a>
-                    <a href="" class="dropdown">軟體
-                        <div class="sub-link">Windows 應用程式</div>
-                        <div class="sub-link">AI</div>
-                        <div class="sub-link">OneDrive</div>
-                        <div class="sub-link">Outlook</div>
-                        <div class="sub-link">Skype</div>
-                        <div class="sub-link">OneNote</div>
-                        <div class="sub-link">Microsoft Teams</div>
-                    </a>
-                    <a href="" class="dropdown">個人電腦和設備
-                        <div class="sub-link">選購 Xbox</div>
-                        <div class="sub-link">電腦配件</div>
-                    </a>
-                    <a href="" class="dropdown">娛樂
-                        <div class="sub-link">Xbox Game Pass Ultimte</div>
-                        <div class="sub-link">Xbox Live Gold</div>
-                        <div class="sub-link">Xbox 與遊戲</div>
-                        <div class="sub-link">電腦遊戲</div>
-                        <div class="sub-link">Microsoft 遊戲</div>
-                    </a>
-                    <a href="" class="dropdown">商業適用
-                        <div class="sub-link">Windows Cloud</div>
-                        <div class="sub-link">Windows 安全性</div>
-                        <div class="sub-link">Azure</div>
-                        <div class="sub-link">Dynamics 365</div>
-                        <div class="sub-link">商務用 Microsoft 365</div>
-                        <div class="sub-link">Microsoft 產業</div>
-                        <div class="sub-link">Microsoft Power Platform</div>
-                        <div class="sub-link">Windows 365</div>
-                    </a>
-                    <a href="" class="dropdown">開發人員與IT
-                        <div class="sub-link">開發人員中心</div>
-                        <div class="sub-link">文件</div>
-                        <div class="sub-link">Microsoft Learn</div>
-                        <div class="sub-link">Microsoft 技術社群</div>
-                        <div class="sub-link">Azure Marketplace</div>
-                        <div class="sub-link">AppSource</div>
-                        <div class="sub-link">Visual Studio</div>
-                    </a>
-                    <a href="" class="dropdown">其他
-                        <div class="sub-link">Microsoft Rewards</div>
-                        <div class="sub-link">免費下載與安全性</div>
-                        <div class="sub-link">教育</div>
-                        <div class="sub-link">禮品卡</div>
-                        <div class="sub-link">Licensing</div>
-                    </a>
-                    <a href="">檢視網站地圖</a>
-                </div>
+                <input type="checkbox" id="ham-menu-switch" hidden>
+                <label for="ham-menu-switch" class="cross-btn"></label>
+                <ul id="links">
+                    <li>Microsoft 365</li>
+                    <li>Teams</li>
+                    <li>Windows</li>
+                    <li>Surface</li>
+                    <li>Xbox</li>
+                    <li>支援</li>
+                    <input type="checkbox" id="sub-menu-switch-soft" class="sub-switch" hidden>
+                    <label for="sub-menu-switch-soft" class="sub-label">
+                        <li>
+                            <span>軟體</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <i class="fa-solid fa-angle-up"></i>
+
+                        </li>
+                        <ul class="dropdown-sub">
+                            <li class="sub-link first-link">Windows 應用程式</li>
+                            <li class="sub-link">AI</li>
+                            <li class="sub-link">OneDrive</li>
+                            <li class="sub-link">Outlook</li>
+                            <li class="sub-link">Skype</li>
+                            <li class="sub-link">OneNote</li>
+                            <li class="sub-link">Microsoft Teams</li>
+                        </ul>
+                    </label>   
+                    <input type="checkbox" id="sub-menu-switch-person" class="sub-switch" hidden>
+                    <label for="sub-menu-switch-person" class="sub-label">
+                        <li>
+                            <span>個人電腦和設備</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <i class="fa-solid fa-angle-up"></i>
+                        </li>
+                        <ul class="dropdown-sub">
+                            <li class="sub-link first-link">選購 Xbox</li>
+                            <li class="sub-link">電腦配件</li>
+                        </ul>
+                    </label>
+                    <input type="checkbox" id="sub-menu-switch-game" class="sub-switch" hidden>
+                    <label for="sub-menu-switch-game" class="sub-label">
+                        <li>
+                            <span>娛樂</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <i class="fa-solid fa-angle-up"></i>
+                        </li>
+                        <ul class="dropdown-sub">
+                            <li class="sub-link first-link">Xbox Game Pass Ultimte</li>
+                            <li class="sub-link">Xbox Live Gold</li>
+                            <li class="sub-link">Xbox 與遊戲</li>
+                            <li class="sub-link">電腦遊戲</li>
+                            <li class="sub-link">Microsoft 遊戲</li>
+                        </ul>
+                    </label>
+                    <input type="checkbox" id="sub-menu-switch-business" class="sub-switch" hidden>
+                    <label for="sub-menu-switch-business" class="sub-label">
+                        <li>
+                            <span>商業適用</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <i class="fa-solid fa-angle-up"></i>
+                        </li>
+                        <ul class="dropdown-sub">
+                            <li class="sub-link first-link">Windows Cloud</li>
+                            <li class="sub-link">安全性</li>
+                            <li class="sub-link">Windows Cloud</li>
+                            <li class="sub-link">Windows</li>
+                            <li class="sub-link">Azure</li>
+                            <li class="sub-link">Dynamics 365</li>
+                            <li class="sub-link">Microsoft 產業</li>
+                            <li class="sub-link">商務用 Microsoft 365</li>
+                            <li class="sub-link">Microsoft Power Platform</li>
+                            <li class="sub-link">Windows 365</li>
+                        </ul>
+                    </label>
+                    <input type="checkbox" id="sub-menu-switch-IT" class="sub-switch" hidden>
+                    <label for="sub-menu-switch-IT" class="sub-label">
+                        <li>
+                            <span>開發人員與IT</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <i class="fa-solid fa-angle-up"></i>
+                        </li>
+                        <ul class="dropdown-sub">
+                            <li class="sub-link first-link">開發人員中心</li>
+                            <li class="sub-link">文件</li>
+                            <li class="sub-link">Microsoft Learn</li>
+                            <li class="sub-link">Microsoft 技術社群</li>
+                            <li class="sub-link">Azure Marketplace</li>
+                            <li class="sub-link">AppSource</li>
+                            <li class="sub-link">Visual Studio</li>
+                        </ul>
+                    </label>
+                    <input type="checkbox" id="sub-menu-switch-other" class="sub-switch" hidden>
+                    <label for="sub-menu-switch-other" class="sub-label">
+                        <li>
+                            <span>其他</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                            <i class="fa-solid fa-angle-up"></i>
+                        </li>
+                        <ul class="dropdown-sub">
+                            <li class="sub-link first-link">Microsoft Rewards</li>
+                            <li class="sub-link">免費下載與安全性</li>
+                            <li class="sub-link">教育</li>
+                            <li class="sub-link">禮品卡</li>
+                            <li class="sub-link">Licensing</li>
+                        </ul>
+                    </label>
+                    <li class="menu-map">檢視網站地圖</li>
+                </ul>
             </div>
         </div>
         <div class="functions">
             <div class="function underline all" onclick="myFunction()">
-                <input type="checkbox" id="ham-menu-switch" hidden>
-                <label for="ham-menu-switch" class="ham-menu">
+                <input type="checkbox" id="all-menu-switch" hidden>
+                <label for="all-menu-switch">
                     <span>所有 Microsoft</span>
                     <div class="icon down"></div>
                 </label>
@@ -172,37 +225,9 @@
     </nav>
 
     <main>
-        <!-- banners 區塊 -->
-        <!-- <div class="banners">
-            <div class="banner">
-                <picture>
-                    <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP5-1920x600" media="(min-width: 1400px)">
-                    <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP4-1399x600" media="(min-width: 1084px)">
-                    <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP3-1083x600" media="(min-width: 860px)">
-                    <source srcset="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" media="(min-width: 540px)">
-                    <img id="img-highlight-uidc387" src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Highlight-M365-Icon-Bounce-Word-Merch:VP2-859x540" class="card-img w-100" alt="Microsoft 365 應用程式套件 (如 Teams、Word、Outlook 等) 的圖示。">
-                </picture>
-                <div class="description">
-                    <h1>Microsoft 365</h1>
-                    <p>使用 Microsoft 365 應用程式實現創意想法、提高線上和離線安全，並專注於最重要的事。</p>
-                    <div class="info">
-                        <a href="">
-                            <span>適合 1 人使用</span>
-                        </a>
-                        <div class="hover">
-                            <a href="">最多可供 6 人使用</a>
-                            <div class="right"></div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-        </div> -->
-
         <!-- Swiper -->
         <div class="swiper mySwiper">
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <picture>
@@ -247,6 +272,9 @@
                     </picture>
                 </div>
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
             <div class="swiper-control">
                 <div class="play-btn"><img src="./img/play-button.svg" alt=""></div>
             </div>
@@ -437,15 +465,20 @@
                 </div>           
             </div>
         </div>
-        <div class="media">
+        <div class="social-media">
             <p>關注 Microsoft</p>
             <a class="fb" href="https://www.facebook.com/MicrosoftTaiwan/" alt="微軟FB官方網站" title="微軟FB官方網站"></a>
             <a href="https://www.youtube.com/user/MicrosoftTaiwan" alt="微軟YOUTUBE官方網站" title="微軟YOUTUBE官方網站"></a>
         </div>
 
-        <!-- 回到頁首 -->
-        <button onclick="topFunction()" id="myBtn" title="Go to top"><span>↑　回到頁首</span></button>
+        <!-- 回到頁首 onclick-->
+        <!-- <button onclick="topFunction()" id="myBtn" title="Go to top"><span>↑　回到頁首</span></button> -->
     </main>
+
+    <!-- 回到頁首 css-->
+    <button type="button" title="Go to top" id="myBtn">
+        <a href="#top"><span>↑　回到頁首</span></a>
+    </button>
 
     <footer>
         <div class="up">
@@ -530,6 +563,7 @@
     </footer>
 
     <!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
         // function myFunction(){
@@ -550,22 +584,22 @@
         // }
         
         // 回到首頁
-        let mybtn = document.getElementById('myBtn');
+        // let mybtn = document.getElementById('myBtn');
 
-        window.onscroll = function(){scrollFunction()};
+        // window.onscroll = function(){scrollFunction()};
         
-        function scrollFunction(){
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
-                mybtn.style.display = 'block';
-            } else {
-                mybtn.style.display = 'none';
-            }
-        }
+        // function scrollFunction(){
+        //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+        //         mybtn.style.display = 'block';
+        //     } else {
+        //         mybtn.style.display = 'none';
+        //     }
+        // }
 
-        function topFunction(){
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
+        // function topFunction(){
+        //     document.body.scrollTop = 0;
+        //     document.documentElement.scrollTop = 0;
+        // }
 
         // menu toggle
         // let cross = document.querySelector('.cross');

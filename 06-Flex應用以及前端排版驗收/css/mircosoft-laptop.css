@@ -7,6 +7,7 @@
 
 body{
     font-family: "Segoe UI",SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    position: relative;
 }
 
 nav{
@@ -17,12 +18,6 @@ nav{
     justify-content: space-between;
     position: relative;
 }
-
-/* @media (max-width: 1083px) {
-    nav{
-        height: 56px;
-    }
-} */
 
 @media (max-width: 859px) {
     nav{
@@ -47,16 +42,15 @@ nav .series .link:hover{
     border-bottom: #000 solid 2px;
 }
 
-nav .menu,
-nav .menu img,
-nav .dropdown div{
+/* 隱藏漢堡條區塊 */
+nav .menu{
     display: none;
 }
 
-/* 漢堡menu 作法w3shools淺顯易懂
+/* 漢堡menu 作法，w3shools淺顯易懂
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
 
-@media (max-width: 859px) {
+/* @media (max-width: 859px) {
     nav .menu{
         width: 28px;
         height: 28px;
@@ -120,15 +114,15 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
         right: 10px;
     } */
 
-    nav .menu:hover img{
+    /* nav .menu:hover img{
         margin: 10px;
         width: 28px;
         height: 28px;
         display: block;
-    }
+    } */
 
     /* hover 區塊會跑出細項 */
-    nav .menu:hover #links a,
+    /* nav .menu:hover #links a,
     nav .dropdown:hover div{
         display: block;
         width: 100%;
@@ -160,7 +154,7 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
 
     nav .dropdown:hover .sub-link:last-child{
         border-bottom: 0px;
-    }
+    } */
 
     /* nav .dropdown:hover a{
         display: block;
@@ -173,17 +167,184 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
         background-color: #D9D9D9;
         color: #000;
         border-bottom: 2px solid #E6E6E6;
-    } */
+    } 
+}*/
+
+@media (max-width: 859px) {
+    nav .menu{
+        display: block;
+        height: auto;
+        z-index: 2;
+        margin-top: 10px;
+        margin-left: 12px;
+        padding: 5px;
+    }
+
+    nav .menu:active{
+        border: 1px dashed  #000;
+    }
+
+    /* 漢堡條圖片 */
+    nav .menu .cross-btn{
+        display: block;
+        width: 28px;
+        height: 28px;
+        background-image: url("../img/menu.png");
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    /* 漢堡條menu換成X */
+    #ham-menu-switch:checked + .cross-btn{
+        display: block;
+        width: 28px;
+        height: 28px;
+        background-image: url("../img/cross.svg");
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    nav .menu .dropdown::after{
+        content: "˅";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+    }
+
+    /* #link 區塊 */
+    nav .menu #links{
+        width: 99.5%;
+        position: absolute;
+        top: 53px;
+        margin-left: -16px;
+    }
+
+    nav .menu #links > li,
+    nav .menu #links label li span,
+    nav .menu #links label .dropdown-sub li{
+        /* display: block; */
+        width: 100%;
+        /* height: 40px; */
+        line-height: 52px;
+        padding-left: 20px;
+        text-decoration: none;
+        font-size: 16px;
+        background-color: #f2f2f2;
+        color: #000;
+        border-bottom: 2px solid #E6E6E6;
+    }
+
+    nav .menu #links .dropdown-sub li{
+        list-style: none;
+    }
+
+    nav .menu #links .dropdown-sub{
+        padding-left: 32px;
+        background-color: #f2f2f2;
+        border-bottom: 2px solid #E6E6E6;
+    }
+
+    nav .menu #links .menu-map{
+        border-bottom: 2px solid #000;
+    }
+
+    /* 設定sub-menu li 區塊 */
+    nav .menu #links label{
+        display: block;
+        width: 100%;
+        background-color: #f2f2f2;
+        cursor: pointer;
+    }
+
+    nav .menu #links li:active{
+        border: 1px dashed #000;
+    }
+
+    nav .menu #links label li span{
+        display: inline-block;
+    }
+
+    nav .menu #links label li:active{
+        border: 0px;
+    }
+
+    nav .menu #links label li span:active{
+        border: 1px dashed #000;
+        width: 98%;
+    }
+
+    nav .menu #links label ul li:active{
+        border: 1px dashed #000;
+        width: 98%;
+    }
+
+    nav .menu #links label li:last-child,
+    nav .menu #links label ul{
+        border-bottom: 0px;
+    }
+
+    /* icon設定 */
+    nav .menu #links label li span{
+        position: relative;
+    }
+
+    nav .menu #links label li .fa-angle-down{
+        position: absolute;
+        margin-top: 20px;
+        right: 5%;
+        font-size: 20px;
+    }
+
+    nav .menu #links label li .fa-angle-up{
+        position: absolute;
+        margin-top: -35px;
+        right: 5%;
+        font-size: 20px;
+    }
+
+    nav .menu #links label li .fa-angle-up{
+        display: none;
+    }
+
+    nav .menu #links .sub-switch:checked + .sub-label ul{
+        display: block;
+    }
+
+    nav .menu #links .sub-switch:checked + .sub-label li .fa-angle-down{
+        display: none;
+    }
+
+    nav .menu #links .sub-switch:checked + .sub-label li .fa-angle-up{
+        display: block;
+    }
+
+    /* checked後主要連結和次要連結 block */
+    #ham-menu-switch:checked ~ #links li{
+        display: block;
+    }
+
+    #ham-menu-switch:not(:checked) ~ #links li{
+        display: none;
+    }
+
+    /* 路徑要明確，只用.sub-label會抓不到 */
+    nav .menu #links .sub-label .dropdown-sub{
+        display: none;
+    }
+    
+    nav .menu #links .sub-switch:checked + .sub-label ul{
+        display: block;
+    }
 }
 
 @media (max-width: 539px) {
     nav .menu{
         left: 2.5%;
     }
-}
-
-nav .functions .underline span:hover{
-    border-bottom: #000 solid 0px;
 }
 
 nav .series{
@@ -298,7 +459,7 @@ nav .function .all label span{
     margin-top: -1px;
 }
 
-nav .functions .down{
+nav .functions label .down{
     width: 14px;
     height: 10px;
     background-image: url("../img/down.png");
@@ -319,7 +480,7 @@ nav .functions .search{
     background-size: contain;
     margin-right: 3px;
     margin-left: 5px;
-    margin-right: 48px;
+    margin-right: 49px;
 }
 
 nav .functions .cart{
@@ -342,6 +503,7 @@ nav .functions .login{
     margin-left: 13px;
     margin-top: 2px
 }
+
 
 nav .functions .function:nth-child(4){
     margin-left: 4px;
@@ -367,7 +529,7 @@ nav .functions .function:nth-child(3){
 }
 
 @media (max-width: 1399px) {
-    nav .functions .down{
+    nav .functions label .down{
         margin-right: 16px;
     }
 
@@ -396,7 +558,7 @@ nav .functions .function:nth-child(3){
         padding-right: 32px;
     }
 
-    nav .functions .down{
+    nav .functions label .down{
         margin-right: 13px;
     }
 
@@ -423,7 +585,7 @@ nav .functions .function:nth-child(3){
     }
 
     nav .functions .search{
-        margin-left: -3px;
+        margin-left: 12px;
         margin-right: 0px;
         position: absolute;
         top: calc(50% - 9px);
@@ -499,20 +661,21 @@ nav .function .underline .all{
     transition: 0.2s ease-out;
 } */
 
-label{
+nav .functions .underline span:hover{
+    border-bottom: #000 solid 0px;
+}
+
+.function label{
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.ham-menu {
-    display: block;
     width: 122px;
     height: 40px;
+    margin-right: -2px;
 }
 
 /* 按鈕按下後 兄弟層的 .all-links出現 */
-#ham-menu-switch:checked ~ .all-links{
+#all-menu-switch:checked ~ .all-links{
     display: block;
 }
 
@@ -827,27 +990,6 @@ main .banners .description .info .hover:hover .right{
     margin: auto;
 }
 
-/* .swiper {
-    margin-left: auto;
-    margin-right: auto;
-} */
-
-
-.swiper-pagination-bullets{
-    padding-left: 41px;
-}
-
-/* 點的大小 */
-.swiper-pagination-bullet{
-    padding: 6px;
-}
-
-/* 點的外距 */
-.swiper-pagination-bullets 
-.swiper-pagination-bullet{
-    margin: auto 15px !important;
-} 
-
 .swiper-slide{
     /* text-align: center; */
     /* font-size: 18px; */
@@ -866,24 +1008,67 @@ main .banners .description .info .hover:hover .right{
     object-fit: cover;
 }
 
-/* .swiper-button-prev{
+.swiper-pagination-bullets{
+    padding-left: 41px;
+}
+
+/* 點的大小 */
+.swiper-pagination-bullet{
+    padding: 6px;
+}
+
+/* 點的外距 */
+.swiper-pagination-bullets 
+.swiper-pagination-bullet{
+    margin: auto 15px !important;
+} 
+
+.swiper-button-prev{
+    left: var(--swiper-navigation-sides-offset,40px)!important;
+}
+
+.swiper-button-next{
+    right: var(--swiper-navigation-sides-offset,0px)!important;
+}
+
+.swiper-button-next, .swiper-button-prev{
+    top: var(--swiper-navigation-top-offset,97.2%)!important;
+    width: 150% !important;
+    width: 15px;
+    height: 15px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after{
+    color: #000;
+    font-size: 20px !important;
+}
+
+.swiper-button-prev{
     left: 50%;
-    transform: translateX(-300%);
+    /* transform: translateX(-300%); */
+    transform: translateX(-20%);
 }
 
 .swiper-button-next{
     right: 50%;
-    transform: translateX(300%);
-} */
-
-.swiper-button-next, .swiper-button-prev{
-    top: 97%;
-    /* opacity: 1!important; */
-    color: black;
-    z-index: 12;
+    /* transform: translateX(300%); */
+    transform: translateX(20%);
 }
 
-.swiper-button-prev,
+/* .swiper-button-next, 
+.swiper-button-prev {
+    top: 90%;
+} */
+
+/* .swiper-button-next, .swiper-button-prev{
+    top: 97%;
+    opacity: 1!important;
+    color: black;
+    z-index: 12;
+} */
+
+/* .swiper-button-prev,
 .swiper-button-next,
 .swiper-button-prev:after,
 .swiper-button-next:after{
@@ -891,18 +1076,91 @@ main .banners .description .info .hover:hover .right{
     top: 725%;
     color: #000;
     font-size: 16px !important;
+} */
+
+@media (max-width:1399px) {
+    .swiper-button-next, .swiper-button-prev{
+        width: 145% !important;
+    }
 }
 
-@media (max-width: 1399px) {
+@media (max-width:1187px) {
+    .swiper-button-next, .swiper-button-prev{
+        width: 143% !important;
+    }
+}
+
+@media (max-width:1087px) {
+    .swiper-button-next, .swiper-button-prev{
+        top: var(--swiper-navigation-top-offset,96.5%)!important;
+        width: 142% !important;
+    }
+}
+
+@media (max-width:1083px) {
+    .swiper-button-next, .swiper-button-prev {
+        top: var(--swiper-navigation-top-offset,98%)!important;
+        width: 140% !important;
+    }
+}
+
+@media (max-width: 933px) {
+    .swiper-button-next, .swiper-button-prev {
+        top: var(--swiper-navigation-top-offset,97.7%)!important;
+        width: 139% !important;
+    }
+}
+
+@media (max-width: 859px) {
+    .swiper-button-next, .swiper-button-prev {
+        width: 133% !important;
+    }
+}
+
+@media (max-width: 803px) {
+    .swiper-button-next, .swiper-button-prev {
+        top: var(--swiper-navigation-top-offset,97.5%)!important;
+        width: 131% !important;
+    }
+}
+
+@media (max-width: 633px) {
+    .swiper-button-next, .swiper-button-prev {
+        top: var(--swiper-navigation-top-offset,97.2%)!important;
+        width: 128% !important;
+    }
+}
+
+@media (max-width: 539px) {
+    .swiper-button-next, .swiper-button-prev {
+        width: 117% !important;
+    }
+}
+
+@media (max-width: 501px) {
+    .swiper-button-next, .swiper-button-prev {
+        top: var(--swiper-navigation-top-offset,96.8%)!important;
+        width: 112% !important;
+    }
+}
+
+@media (max-width: 501px) {
+    .swiper-button-next, .swiper-button-prev {
+        top: var(--swiper-navigation-top-offset,96.4%)!important;
+        width: 103% !important;
+    }
+}
+
+/* @media (max-width: 1399px) {
     .swiper-button-prev,
     .swiper-button-next,
     .swiper-button-prev:after,
     .swiper-button-next:after {
         top: 729%;
     }
-}
+} */
 
-@media (max-width: 1083px) {
+/* @media (max-width: 1083px) {
     .swiper-button-prev,
     .swiper-button-next,
     .swiper-button-prev:after,
@@ -947,13 +1205,13 @@ main .banners .description .info .hover:hover .right{
     }
 }
 
-/* .swiper-button-prev:after{
+.swiper-button-prev:after{
     left: 3308%;
 }
 
 .swiper-button-next:after{
     right: 3144%;
-} */
+}
 
 @media (max-width: 1399px) {
     .swiper-button-prev:after{
@@ -1013,7 +1271,7 @@ main .banners .description .info .hover:hover .right{
     .swiper-button-next:after{
         right: 308%;
     }
-}
+} */
 
 .swiper picture{
     width: 100%;
@@ -1192,6 +1450,13 @@ main .description-right{
         height: 220px;
         top: 98%;
         margin: 0px;
+    }
+}
+
+@media (max-width: 377px) {
+    main .description,
+    main .description-right{
+        height: 263px;
     }
 }
 
@@ -1600,6 +1865,12 @@ main .three-series{
     }
 }
 
+@media (max-width: 539px) {
+    main .three-series{
+        height: auto;
+    }
+}
+
 @media (max-width: 415px) {
     main .three-series{
         height: 190px;
@@ -1779,7 +2050,7 @@ main .for-all{
 
 @media (max-width: 539px) {
     main .for-all{
-        margin-top: 136px;
+        margin-top: 34px;
         margin-bottom: 60px;
     }
 }
@@ -2256,7 +2527,7 @@ main .edge .intro a span:active{
 }
 
 /* 網外其他微軟相關官方網站 */
-main .media{
+main .social-media{
     margin: 53px 0px 112px 163px;
     display: flex;
     flex-direction: row;
@@ -2265,24 +2536,24 @@ main .media{
 }
 
 @media (max-width: 1399px) {
-    main .media{
-        margin: 90px 0px 12px 82px;
+    main .social-media{
+        margin: 90px 0px 110px 82px;
     }
 }
 
 @media (max-width: 1083px) {
-    main .media{
-        margin: 70px 0px 12px 24px;
+    main .social-media{
+        margin: 70px 0px 110px 24px;
     }
 }
 
 @media (max-width: 539px) {
-    main .media{
-        margin: 1% 0px 12px 24px;
+    main .social-media{
+        margin: 1% 0px 110px 24px;
     }
 }
 
-main .media a{
+main .social-media a{
     width: 32px;
     height: 32px;
     background-position: center;
@@ -2290,30 +2561,30 @@ main .media a{
     background-repeat: no-repeat;
 }
 
-main .media .fb{
+main .social-media .fb{
     background-image: url("../img/fb.png");
     margin-left: 16px;
     margin-right: 17px;
 }
 
 @media (max-width: 1399px) {
-    main .media .fb{
+    main .social-media .fb{
         margin: 0px 16px;
         margin-top: 1px;
     }
 }
 
 /* @media (max-width: 1083px) {
-    main .media .fb {
+    main .social-media .fb {
         margin: 0px 16px;
     }
 } */
 
-main .media:first-child{
+main .social-media:first-child{
     background-image: url("../img/fb.png");
 }
 
-main .media a:last-child{
+main .social-media a:last-child{
     background-image: url("../img/youtube.png");
 }
 
@@ -2407,12 +2678,6 @@ footer .up .category{
         margin-bottom: 27px;
     }
 }
-
-/* @media (max-width: 859px) {
-    footer .up .category{
-        margin-right: 0%;
-    }
-} */
 
 @media (max-width: 539px) {
     footer .up .category{
@@ -2618,7 +2883,7 @@ footer .down .right a{
 }
 
 #myBtn {
-    width: 117px;
+    width: 123px;
     height: 40px;
     border: 0px;
     border-radius: 3px;
@@ -2627,13 +2892,24 @@ footer .down .right a{
     line-height: 41px;
     font-weight: bolder;
     margin-right: 12px;
-    margin-bottom: 60px;
-    position: sticky;
-    bottom: 12px; /* 會讓#mybtn固定在畫面的右下角位置，一定要設定 */
-    z-index: 99;
-    cursor: pointer;
+    padding-right: 7px;
+    position: absolute;
+    /* top: 137vh; */
+    right: 0px;
+    /* bottom: 48.1vh; */
+    bottom: 16.4%;
     display: none;
-    float: right; /* 向右浮 */
+    
+}
+
+#myBtn a{
+    display: inline-block;
+    position: sticky;
+    /* bottom: calc(100vh - 10vh); */
+    /* bottom: 12px;  會讓#mybtn固定在畫面的右下角位置，一定要設定 */
+    z-index: 99;
+    text-decoration: none;
+    color: #000;
 }
 
 #myBtn:hover{
@@ -2644,4 +2920,88 @@ footer .down .right a{
 #myBtn:hover:active span{
     padding: 5px 9px;
     border: 3px dotted #000;
+}
+
+@media (min-height: 50px) {
+    #myBtn{
+        display: block;
+    }
+}
+
+@media (max-width: 1399px) {
+    #myBtn{
+        bottom: 15%;
+    }
+}
+
+@media (max-width: 1083px) {
+    #myBtn{
+        bottom: 17.3%;
+    }
+}
+
+@media (max-width: 935px) {
+    #myBtn{
+        bottom: 17.8%;
+    }
+}
+
+@media (max-width: 859px) {
+    #myBtn{
+        bottom: 19.3%;
+    }
+}
+
+@media (max-width: 755px) {
+    #myBtn{
+        bottom: 20.1%;
+    }
+}
+
+@media (max-width: 539px) {
+    #myBtn{
+        bottom: 25.3%;
+    }
+}
+
+@media (max-width: 539px) {
+    #myBtn{
+        bottom: 25.9%;
+    }
+}
+
+@media (max-width: 503px) {
+    #myBtn{
+        bottom: 26.2%;
+    }
+}
+
+@media (max-width: 479px) {
+    #myBtn{
+        bottom: 26.8%;
+    }
+}
+
+@media (max-width: 451px) {
+    #myBtn{
+        bottom: 27.4%;
+    }
+}
+
+@media (max-width: 420px) {
+    #myBtn{
+        bottom: 28.1%;
+    }
+}
+
+@media (max-width: 398px) {
+    #myBtn{
+        bottom: 28.5%;
+    }
+}
+
+@media (max-width: 367px) {
+    #myBtn{
+        bottom: 30.7%;
+    }
 }
