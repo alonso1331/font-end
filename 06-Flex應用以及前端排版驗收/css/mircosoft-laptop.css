@@ -3173,14 +3173,12 @@ footer .down .right a{
     line-height: 41px;
     font-weight: bolder;
     margin-right: 12px;
-    padding-right: 7px;
     position: absolute;
     /* top: 137vh; */
     right: 0px;
     /* bottom: 48.1vh; */
-    bottom: 16.4%;
+    bottom: 15.5%;
     display: none;
-    
 }
 
 #myBtn a{
@@ -3211,43 +3209,43 @@ footer .down .right a{
 
 @media (max-width: 1399px) {
     #myBtn{
-        bottom: 15%;
+        bottom: 14.8%;
     }
 }
 
 @media (max-width: 1083px) {
     #myBtn{
-        bottom: 17.3%;
+        bottom: 17.2%;
     }
 }
 
 @media (max-width: 935px) {
     #myBtn{
-        bottom: 17.8%;
+        bottom: 17.7%;
     }
 }
 
 @media (max-width: 859px) {
     #myBtn{
-        bottom: 19.3%;
+        bottom: 19.1%;
     }
 }
 
 @media (max-width: 755px) {
     #myBtn{
-        bottom: 20.1%;
+        bottom: 20%;
     }
 }
 
 @media (max-width: 539px) {
     #myBtn{
-        bottom: 25.3%;
+        bottom: 25.7%;
     }
 }
 
-@media (max-width: 539px) {
+@media (max-width: 520px) {
     #myBtn{
-        bottom: 25.9%;
+        bottom: 26.5%;
     }
 }
 
