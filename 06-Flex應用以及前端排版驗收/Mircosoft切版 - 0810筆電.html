@@ -12,13 +12,24 @@
 <body>
     <nav id="top">
         <div class="series">
-            <div class="logo" id="logo"><a href="#logo"></a></div>    
-            <div class="link">Microsoft 365</div>
-            <div class="link">Teams</div>
-            <div class="link">Windows</div>
-            <div class="link">Surface</div>
-            <div class="link">Xbox</div>
-            <div class="link">支援</div>
+            <div class="logo" id="logo" tabindex="1"></div>    
+            <div class="link" tabindex="1">Microsoft 365</div>
+            <div class="link" tabindex="1">Teams</div>
+            <div class="link" tabindex="1">Windows</div>
+            <div class="link" tabindex="1">Surface</div>
+            <div class="link" tabindex="1">Xbox</div>
+            <div class="link" tabindex="1">支援</div>
+            <input type="checkbox" id="more-menu-switch" hidden>
+            <label for="more-menu-switch" class="link more" tabindex="1">
+                <span>更多</span>
+                <div class="icon down"></div>
+            </label>
+            <div class="more-links" id="myDropdown">
+                <ul>
+                    <li>Xbox</li>
+                    <li>支援</li>
+                </ul>
+            </div>
             <div class="menu">
                 <input type="checkbox" id="ham-menu-switch" hidden>
                 <label for="ham-menu-switch" class="cross-btn"></label>
@@ -77,7 +88,7 @@
                     <input type="checkbox" id="sub-menu-switch-business" class="sub-switch" hidden>
                     <label for="sub-menu-switch-business" class="sub-label">
                         <li>
-                            <span>商業適用</span>
+                            <span>商務適用</span>
                             <i class="fa-solid fa-angle-down"></i>
                             <i class="fa-solid fa-angle-up"></i>
                         </li>
@@ -131,9 +142,9 @@
             </div>
         </div>
         <div class="functions">
-            <div class="function underline all" onclick="myFunction()">
+            <div class="function underline all">
                 <input type="checkbox" id="all-menu-switch" hidden>
-                <label for="all-menu-switch">
+                <label for="all-menu-switch" class="function" tabindex="1">
                     <span>所有 Microsoft</span>
                     <div class="icon down"></div>
                 </label>
@@ -209,15 +220,15 @@
                     </div>
                 </div>
             </div>
-            <div class="function underline">
+            <div class="function underline search-group" tabindex="1">
                 <span>搜尋</span>
-                <div class="icon search underline"></div>
+                <div class="icon search"></div>
             </div>
-            <div class="function shopping underline">
+            <div class="function shopping underline" tabindex="1">
                 <span>購物車</span>
                 <div class="icon cart"></div>
             </div>
-            <div class="function">
+            <div class="function" tabindex="1">
                 <span>登入</span>
                 <div class="icon login"></div>
             </div>
@@ -470,9 +481,6 @@
             <a class="fb" href="https://www.facebook.com/MicrosoftTaiwan/" alt="微軟FB官方網站" title="微軟FB官方網站"></a>
             <a href="https://www.youtube.com/user/MicrosoftTaiwan" alt="微軟YOUTUBE官方網站" title="微軟YOUTUBE官方網站"></a>
         </div>
-
-        <!-- 回到頁首 onclick-->
-        <!-- <button onclick="topFunction()" id="myBtn" title="Go to top"><span>↑　回到頁首</span></button> -->
     </main>
 
     <!-- 回到頁首 css-->
@@ -566,49 +574,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
-        // function myFunction(){
-        //     document.getElementById("myDropdown").classList.toggle("show");
-        // }
-
-        // window.onclick = function(event){
-        //     if (!event.target.matches('.all')){
-        //         let all = document.getElementsByClassName('all-links');
-        //         let i;
-        //         for (i = 0; i < all.length; i++){
-        //             let openAll = all[i];
-        //             if (openAll.classList.contains('show')){
-        //                 openAll.classList.remove('show')
-        //             }
-        //         }
-        //     }
-        // }
-        
-        // 回到首頁
-        // let mybtn = document.getElementById('myBtn');
-
-        // window.onscroll = function(){scrollFunction()};
-        
-        // function scrollFunction(){
-        //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
-        //         mybtn.style.display = 'block';
-        //     } else {
-        //         mybtn.style.display = 'none';
-        //     }
-        // }
-
-        // function topFunction(){
-        //     document.body.scrollTop = 0;
-        //     document.documentElement.scrollTop = 0;
-        // }
-
-        // menu toggle
-        // let cross = document.querySelector('.cross');
-        // let links = document.getElementById('links');
-
-        // cross.onclick = function(){
-        //     cross.style.display = 'none';
-        // }
-        
         // swiper.js
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,

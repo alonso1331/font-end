@@ -11,12 +11,54 @@ body{
 }
 
 nav{
-    width: 90%;
+    width: 83.5%;
     height: 56px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     position: relative;
+}
+
+@media (max-width: 1902px) {
+    nav{
+        width: 84%;
+    }
+}
+
+@media (max-width: 1890px) {
+    nav{
+        width: 84.5%;
+    }
+}
+
+@media (max-width: 1877px) {
+    nav{
+        width: 85%;
+    }
+}
+
+@media (max-width: 1857px) {
+    nav{
+        width: 86%;
+    }
+}
+
+@media (max-width: 1833px) {
+    nav{
+        width: 87%;
+    }
+}
+
+@media (max-width: 1803px) {
+    nav{
+        width: 88.5%;
+    }
+}
+
+@media (max-width: 1083px) {
+    nav{
+        width: 94%;
+    }
 }
 
 @media (max-width: 859px) {
@@ -39,7 +81,9 @@ nav{
 }
 
 nav .series .link:hover{
-    border-bottom: #000 solid 2px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
 }
 
 /* 隱藏漢堡條區塊 */
@@ -181,7 +225,7 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
         z-index: 2;
         margin-top: 10px;
         /* margin-left: 12px; */
-        padding: 5px;
+        padding: 11px 12px 12px;
     }
 
     nav .menu:active{
@@ -345,12 +389,6 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
     }
 }
 
-@media (max-width: 539px) {
-    nav .menu{
-        left: 2.5%;
-    }
-}
-
 nav .series{
     width: auto;
     height: 100%;
@@ -377,20 +415,20 @@ nav .series{
 
 @media (max-width: 859px) {
     nav .series{
-        /* padding-left: 0px; */
         margin-top: -5px;
     }
 }
 
 nav .logo{
     width: 108px;
-    height: 24px;
+    height: 23px;
     margin-top: -5px;
-    margin-right: 34px;
+    margin-right: 31px;
     background-image: url("../img/logo.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    padding: 24px;
 }
 
 /* @media (max-width: 1399px) {
@@ -399,33 +437,114 @@ nav .logo{
     }
 } */
 
+@media (max-width: 1650px) {
+    nav .logo{
+        margin-right: 24px;
+    }
+}
+
 @media (max-width: 859px) {
     nav .logo{
         margin-right: 0px;
         position: absolute;
         top: calc(50% - 11px);
         left: calc(50% - 55px);
+        padding: 0px;
+        margin-top: -3px;
     }
 }
 
 nav .series .link{
     display: flex;
     align-items: center;
-    margin-right: 29.5px;
+    margin-right: 9px;
     margin-top: -2px;
+    padding: 12px 8px;
+}
+
+nav .series label{
+    position: relative;
+}
+
+nav .series label span,
+nav .series label .icon{
+    display: none;
+}
+
+nav .series .more-links{
+    width: 170px;
+    height: 115px;
+    position: absolute;
+    top: 90%;
+    right: 25.8%;
+    z-index: 20;
+    background-color: #f2f2f2;
+    font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-bottom: #000 solid 2px;
+}
+
+nav .series .more-links ul li{
+    padding: 18px 0px 18px 24px;
+}
+
+/* 更多標示的icon */
+nav .series label .down{
+    width: 14px;
+    height: 10px;
+    background-image: url("../img/down.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 12px;
+    margin-left: 2px;
+}
+
+nav .series .more-links{
+    display: none;
+}
+
+nav .series .more-links li{
+    list-style-type: none;
+}
+
+@media (max-width: 1650px) {
+    nav .series .link{
+        margin-right: 0px;
+    }
 }
 
 @media (max-width: 1399px) {
     nav .series .link{
-        margin-right: 21.5px;
+        /* margin-right: 21.5px; */
+        margin-right: 2px;
     }
 }
 
 @media (max-width: 1083px) {
     nav .series .link{
         /* margin-right: 24px; */
-        /* margin-right: 1%; */
-        margin-right: 21.6px;
+        margin-right: 5.6px;
+    }
+}
+
+@media (max-width: 873px) {
+    nav .series div:nth-child(6),
+    nav .series div:nth-child(7){
+        display: none;
+    }
+
+    nav .series label span,
+    nav .series label .icon{
+        display: block;
+    }
+
+    nav .series label:focus{
+        background-color: #f2f2f2;
+    }
+
+    nav .series #more-menu-switch:checked ~ .more-links{
+        display: block;
     }
 }
 
@@ -435,6 +554,7 @@ nav .series .link{
     }
 }
 
+/* nav 右邊功能欄位 */
 nav .functions{
     width: auto;
     height: 100%;
@@ -471,7 +591,7 @@ nav .functions label .down{
     background-size: contain;
     margin-top: 12px;
     margin-left: 2px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 nav .functions .search{
@@ -507,6 +627,10 @@ nav .functions .login{
     margin-top: 2px
 }
 
+nav .functions .function:nth-child(2){
+    margin-left: 4px;
+    padding: 12px 0px;
+}
 
 nav .functions .function:nth-child(4){
     margin-left: 4px;
@@ -531,10 +655,21 @@ nav .functions .function:nth-child(3){
     margin-top: -5px;
 }
 
-@media (max-width: 1399px) {
-    nav .functions label .down{
-        margin-right: 16px;
+@media (max-width: 1650px) {
+    nav .functions .search{
+        margin-right: 39px;
     }
+
+    nav .functions .function:nth-child(2){
+        margin-left: -4px;
+        padding: 12px 0px;
+    }
+}
+
+@media (max-width: 1399px) {
+    /* nav .functions label .down{
+        margin-right: 16px;
+    } */
 
     nav .functions .search{
         margin-left: 7px;
@@ -542,14 +677,18 @@ nav .functions .function:nth-child(3){
     }
 
     nav .functions .cart{
-        margin-right: 8px;
+        margin-right: 4px;
     }
 
     nav .functions .login{
         margin-left: 5px;
     }
 
-    nav .functions .function:nth-child(2) span,
+    nav .functions .function:nth-child(2){
+        padding: 12px 0px 12px 20px;
+    }
+    
+    nav .functions .search-group span,
     nav .functions .function:nth-child(3) span,
     nav .functions .function:nth-child(4) span{
         display: none;
@@ -561,12 +700,15 @@ nav .functions .function:nth-child(3){
         padding-right: 32px;
     } */
 
-    nav .functions label .down{
-        margin-right: 13px;
+    nav .functions label{
+        width: 128px;
     }
 
+    /* nav .functions label .down{
+        margin-right: 13px;
+    } */
+
     nav .functions .search{
-        margin-left: 10px;
         margin-right: 20px;
         margin-top: -1px;
     }
@@ -579,6 +721,10 @@ nav .functions .function:nth-child(3){
         margin-left: 5px;
         margin-top: 1px;
     }
+
+    nav .functions .function:nth-child(2){
+        padding: 12px 0px 12px 8px;
+    }
 }
 
 @media (max-width: 859px) {
@@ -588,7 +734,7 @@ nav .functions .function:nth-child(3){
     }
 
     nav .functions .search{
-        margin-left: 12px;
+        margin-left: 10px;
         margin-right: 0px;
         position: absolute;
         top: calc(50% - 9px);
@@ -603,7 +749,30 @@ nav .functions .function:nth-child(3){
         margin-left: 14px;
         margin-right: 18px;
     }
+}
 
+@media (max-width: 720px) {
+    nav .functions .search{
+        margin-left: 13px;
+    }
+}
+
+@media (max-width: 675px) {
+    nav .functions .search{
+        margin-left: 17px;
+    }
+}
+
+@media (max-width: 621px) {
+    nav .functions .search{
+        margin-left: 19px;
+    }
+}
+
+@media (max-width: 589px) {
+    nav .functions .search{
+        margin-left: 23px;
+    }
 }
 
 @media (max-width: 539px) {
@@ -618,6 +787,12 @@ nav .functions .function:nth-child(3){
     }
 }
 
+@media (max-width: 500px) {
+    nav .functions .search{
+        margin-left: 26px;
+    }
+}
+
 @media (max-width: 367px) {
     nav .functions .search{
         margin-left: 37px;
@@ -626,15 +801,18 @@ nav .functions .function:nth-child(3){
 
 nav .functions .shopping span{
     margin-right: 4px;
+    padding: 12px 0;
 }
 
-/* active後的效果 */
-nav .series .logo:active,
-nav .series .link:active,
-nav .functions .function:active{
-    border:  2px dotted #000;
-    text-decoration: underline 2px;
-    padding: 12px 10px;
+/* focus後的效果 */
+nav .series .logo:focus{
+    border:  1px dashed #000;
+}   
+
+nav .series .link:focus,
+nav .functions .function:focus{
+    border:  1px dashed #000;
+    /* text-decoration: underline 1px; */
 }
 
 /* 所有 Microsoft 區塊連結 */
@@ -647,9 +825,10 @@ nav .function .underline .all{
     height: 455.5px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     background-color: #f2f2f2;
     color: #616161;
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 20px;
     margin-bottom: 10px;
     border: 1px solid rgba(0, 0, 0, .05);
@@ -660,20 +839,94 @@ nav .function .underline .all{
     display: none;
 }
 
+@media (max-width: 1399px) {
+    .all-links{
+        right: 0%;
+    }
+}
+
+@media (max-width: 1349px) {
+    .all-links{
+        right: -2%;
+    }
+}
+
+@media (max-width: 1250px) {
+    .all-links{
+        right: -6.6%;
+    }
+}
+
+@media (max-width: 1290px) {
+    .all-links{
+        right: -6.6%;
+    }
+}
+
+@media (max-width: 1229px) {
+    .all-links{
+        right: 2.4%;
+        width: 1025px;
+        height: 738.5px;
+    }
+
+    .links-list{
+        flex-wrap: wrap;
+        /* margin-bottom: 10px; */
+    }
+
+    .links-list:last-child{
+        height: 283px;
+    }
+}
+
+@media (max-width: 1140px) {
+    .all-links{
+        right: -1.5%;
+    }
+}
+
+@media (max-width: 1056px) {
+    .all-links{
+        right: -2.5%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .all-links{
+        right: 6.4%;
+        width: 820px;
+        height: 825.5px;
+    }
+
+    .links-list div:nth-child(5){
+        height: 370px;
+    }
+}
+
+@media (max-width: 933px) {
+    .all-links{
+        right: -1.8%;
+    }
+}
+
 /* .all:hover .all-links{
     display: block;
     transition: 0.2s ease-out;
 } */
 
 nav .functions .underline span:hover{
-    border-bottom: #000 solid 0px;
+    /* border-bottom: #000 solid 2px; */
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
 }
 
 .function label{
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 122px;
+    width: 123px;
     height: 40px;
     margin-right: -2px;
 }
@@ -684,11 +937,11 @@ nav .functions .underline span:hover{
 }
 
 /* js用 */
-.show{
+/* .show{
     display: block;
-}
+} */
 
-.all:hover{
+nav .functions .all:hover{
     background-color: #f2f2f2;
     width: auto;
     height: 57px;
@@ -708,6 +961,7 @@ nav .functions .underline span:hover{
 .links-list .list{
     width: 195px;
     height: 413.5px;
+    margin-right: 5px;
 }
 
 .links-list .list span{
@@ -737,6 +991,29 @@ nav .functions .underline span:hover{
     line-height: 38px;
     background-color: #e6e6e6;
     border-bottom: #000 solid 2px;
+}
+
+@media (max-width: 859px) {
+    nav .menu #links input{
+        display: none;
+    }
+
+    nav .functions .all:hover{
+        background-color: #fff;
+        width: 0px;
+        height: 0px;
+        border: 0px;
+    }
+
+    nav .functions .all:focus{
+        width: 0px;
+        height: 0px;
+        border: #fff dashed 0px;
+    }
+
+    #all-menu-switch:checked ~ .all-links{
+        display: none;
+    }
 }
 
 /* main 區塊 */
