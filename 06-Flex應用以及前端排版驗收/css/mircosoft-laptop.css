@@ -1317,6 +1317,7 @@ main .banners .description .info .hover:hover .right{
     width: 150% !important;
     width: 15px;
     height: 15px;
+    z-index: 11 !important;
 }
 
 .swiper-button-prev:after,
