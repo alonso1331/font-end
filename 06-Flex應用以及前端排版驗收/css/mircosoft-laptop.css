@@ -423,7 +423,7 @@ nav .logo{
     width: 108px;
     height: 23px;
     margin-top: -5px;
-    margin-right: 31px;
+    margin-right: 26px;
     background-image: url("../img/logo.png");
     background-position: center;
     background-size: contain;
@@ -457,7 +457,7 @@ nav .logo{
 nav .series .link{
     display: flex;
     align-items: center;
-    margin-right: 9px;
+    margin-right: 14px;
     margin-top: -2px;
     padding: 12px 8px;
 }
@@ -1305,16 +1305,16 @@ main .banners .description .info .hover:hover .right{
 } 
 
 .swiper-button-prev{
-    left: var(--swiper-navigation-sides-offset,40px)!important;
+    left: var(--swiper-navigation-sides-offset,47%)!important;
 }
 
 .swiper-button-next{
-    right: var(--swiper-navigation-sides-offset,0px)!important;
+    right: var(--swiper-navigation-sides-offset,45%)!important;
 }
 
 .swiper-button-next, .swiper-button-prev{
     top: var(--swiper-navigation-top-offset,97.2%)!important;
-    width: 150% !important;
+    /* width: 150% !important; */
     width: 15px;
     height: 15px;
     z-index: 11 !important;
@@ -1329,107 +1329,137 @@ main .banners .description .info .hover:hover .right{
 .swiper-button-prev{
     left: 50%;
     /* transform: translateX(-300%); */
-    transform: translateX(-20%);
+    /* 用transform 調整水平位置 */
+    /* transform: translateX(-20%); */
 }
 
 .swiper-button-next{
     right: 50%;
     /* transform: translateX(300%); */
-    transform: translateX(20%);
+    /* transform: translateX(20%); */
 }
 
-/* .swiper-button-next, 
-.swiper-button-prev {
-    top: 90%;
-} */
+@media (max-width:1754px) {
+    .swiper-button-prev{
+        left: var(--swiper-navigation-sides-offset,46.5%)!important;
+    }
 
-/* .swiper-button-next, .swiper-button-prev{
-    top: 97%;
-    opacity: 1!important;
-    color: black;
-    z-index: 12;
-} */
-
-/* .swiper-button-prev,
-.swiper-button-next,
-.swiper-button-prev:after,
-.swiper-button-next:after{
-    position: absolute;
-    top: 725%;
-    color: #000;
-    font-size: 16px !important;
-} */
+    .swiper-button-next{
+        right: var(--swiper-navigation-sides-offset,44%)!important;
+    }
+}
 
 @media (max-width:1399px) {
-    .swiper-button-next, .swiper-button-prev{
+    /* .swiper-button-next, .swiper-button-prev{
         width: 145% !important;
+    } */
+
+    .swiper-button-prev{
+        left: var(--swiper-navigation-sides-offset,45%)!important;
+    }
+
+    .swiper-button-next{
+        right: var(--swiper-navigation-sides-offset,41.7%)!important;
     }
 }
 
 @media (max-width:1187px) {
-    .swiper-button-next, .swiper-button-prev{
+    /* .swiper-button-next, .swiper-button-prev{
         width: 143% !important;
-    }
+    } */
 }
 
 @media (max-width:1087px) {
     .swiper-button-next, .swiper-button-prev{
         top: var(--swiper-navigation-top-offset,96.5%)!important;
-        width: 142% !important;
+        /* width: 142% !important; */
     }
 }
 
 @media (max-width:1083px) {
     .swiper-button-next, .swiper-button-prev {
         top: var(--swiper-navigation-top-offset,98%)!important;
-        width: 140% !important;
+        /* width: 140% !important; */
+    }
+
+    .swiper-button-prev{
+        left: var(--swiper-navigation-sides-offset,43.5%)!important;
+    }
+
+    .swiper-button-next{
+        right: var(--swiper-navigation-sides-offset,39%)!important;
     }
 }
 
 @media (max-width: 933px) {
     .swiper-button-next, .swiper-button-prev {
         top: var(--swiper-navigation-top-offset,97.7%)!important;
-        width: 139% !important;
+        /* width: 139% !important; */
     }
 }
 
 @media (max-width: 859px) {
-    .swiper-button-next, .swiper-button-prev {
+    /* .swiper-button-next, .swiper-button-prev {
         width: 133% !important;
+    } */
+
+    .swiper-button-prev{
+        left: var(--swiper-navigation-sides-offset,42.5%)!important;
     }
+
+    .swiper-button-next{
+        right: var(--swiper-navigation-sides-offset,37%)!important;
+    }
+
 }
 
 @media (max-width: 803px) {
     .swiper-button-next, .swiper-button-prev {
         top: var(--swiper-navigation-top-offset,97.5%)!important;
-        width: 131% !important;
+        /* width: 131% !important; */
     }
 }
 
 @media (max-width: 633px) {
     .swiper-button-next, .swiper-button-prev {
         top: var(--swiper-navigation-top-offset,97.2%)!important;
-        width: 128% !important;
+        /* width: 128% !important; */
+    }
+
+    .swiper-button-prev{
+        left: var(--swiper-navigation-sides-offset,41.5%)!important;
+    }
+
+    .swiper-button-next{
+        right: var(--swiper-navigation-sides-offset,35%)!important;
     }
 }
 
 @media (max-width: 539px) {
-    .swiper-button-next, .swiper-button-prev {
+    /* .swiper-button-next, .swiper-button-prev {
         width: 117% !important;
+    } */
+
+    .swiper-button-prev{
+        left: var(--swiper-navigation-sides-offset,39.5%)!important;
+    }
+
+    .swiper-button-next{
+        right: var(--swiper-navigation-sides-offset,32%)!important;
     }
 }
 
-@media (max-width: 501px) {
+@media (max-width: 520px) {
     .swiper-button-next, .swiper-button-prev {
         top: var(--swiper-navigation-top-offset,96.8%)!important;
-        width: 112% !important;
+        /* width: 112% !important; */
     }
 }
 
 @media (max-width: 501px) {
     .swiper-button-next, .swiper-button-prev {
         top: var(--swiper-navigation-top-offset,96.4%)!important;
-        width: 103% !important;
+        /* width: 103% !important; */
     }
 }
 
@@ -1592,28 +1622,50 @@ main .banners .description .info .hover:hover .right{
 
 .play-btn{
     position: absolute;
-    top: 40%;
+    padding: 4px 4px 0px 4px;
+    margin-top: -7px;
+    top: 46%;
     left: 44.6%;
+    z-index: 11;
 }
+
+main .swiper-control .play-btn:focus{
+    border: 3px dotted #000;
+}
+
+/* @media (max-width: 1399px) {
+    .play-btn{
+        position: absolute;
+        top: 40%;
+        left: 44.6%;
+    }
+} */
 
 @media (max-width: 1399px) {
     .play-btn{
-        top: 37%;
-        left: 42.6%;
+        top: 47%;
+        left: 41.6%;
     }
 }
 
 @media (max-width: 1083px) {
     .play-btn{
-        top: 68%;
-        left: 40.3%;
+        top: 74%;
+        left: 38.3%;
     }
 }
 
 @media (max-width: 859px) {
     .play-btn{
-        top: 39%;
+        top: 48%;
         left: 38%;
+    }
+}
+
+@media (max-width: 633px) {
+    .play-btn{
+        top: 46%;
+        left: 35%;
     }
 }
 
@@ -2024,20 +2076,26 @@ main .control{
     }
 }
 
-main .control .play-btn,
-.play-btn,
+main .swiper-control .play-img{
+    background-image: url(../img/play-button.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* main .control .play-btn,
 main .control .left-btn,
 main .control .right-btn{
     width: 36px;
     height: 36px;
     display: inline-block;
     padding: 4px;
-}
+} */
 
-main .control .play-btn img,
-.play-btn img,
-main .control .left-btn span,
-main .control .right-btn span{
+/* main .control .play-btn img, 
+main .control .left-btn span, 
+main .control .right-btn span*/
+main .swiper-control .play-btn img{
     width: 20px;
     height: 20px;
     display: inline-block;
@@ -2046,20 +2104,16 @@ main .control .right-btn span{
     background-repeat: no-repeat;
 }
 
-main .control .play-btn:active,
-.play-btn:active{
-    border: 3px dotted #000;
-    padding: 4px;
-}
-
-main .control .play-btn img:hover,
+/* main .control .play-btn img:hover, */
 .play-btn img:hover{
     background-image: url("../img/play-button-black.svg");
 }
 
-main .control .left-btn span{
+
+
+/* main .control .left-btn span{
     background-image: url("../img/left.png");
-}
+} */
 
 /* main .banners .control .left-btn span:active{
     border: 3px dashed #000;
@@ -3178,18 +3232,22 @@ footer .down .right a{
     /* top: 137vh; */
     right: 0px;
     /* bottom: 48.1vh; */
-    bottom: 15.5%;
-    display: none;
+    /* bottom: 15.5%; */
+    bottom: 47.8%;
+    /* display: none; */
+    position: fixed;
+    z-index: 99;
 }
 
 #myBtn a{
     display: inline-block;
-    position: sticky;
+    /* display: sticky; */
     /* bottom: calc(100vh - 10vh); */
     /* bottom: 12px;  會讓#mybtn固定在畫面的右下角位置，一定要設定 */
-    z-index: 99;
+    /* z-index: 99; */
     text-decoration: none;
     color: #000;
+    /* padding-right: 7px; */
 }
 
 #myBtn:hover{
@@ -3202,31 +3260,32 @@ footer .down .right a{
     border: 3px dotted #000;
 }
 
-@media (min-height: 50px) {
+/* @media (min-height: 50px) {
     #myBtn{
         display: block;
+        position: fixed;
     }
-}
+} */
 
 @media (max-width: 1399px) {
     #myBtn{
-        bottom: 14.8%;
+        bottom: 47.8%;
     }
 }
 
 @media (max-width: 1083px) {
     #myBtn{
-        bottom: 17.2%;
+        bottom: 88.6%;
     }
 }
 
-@media (max-width: 935px) {
+/* @media (max-width: 935px) {
     #myBtn{
         bottom: 17.7%;
     }
-}
+} */
 
-@media (max-width: 859px) {
+/* @media (max-width: 859px) {
     #myBtn{
         bottom: 19.1%;
     }
@@ -3242,15 +3301,15 @@ footer .down .right a{
     #myBtn{
         bottom: 25.7%;
     }
-}
+} */
 
 @media (max-width: 520px) {
     #myBtn{
-        bottom: 26.5%;
+        bottom: 71.5%;
     }
 }
 
-@media (max-width: 503px) {
+/* @media (max-width: 503px) {
     #myBtn{
         bottom: 26.2%;
     }
@@ -3284,4 +3343,4 @@ footer .down .right a{
     #myBtn{
         bottom: 30.7%;
     }
-}
+} */

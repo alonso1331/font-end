@@ -8,6 +8,7 @@
     <link rel="SHORTCUT ICON" href="./icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <nav id="top">
@@ -287,17 +288,12 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
             <div class="swiper-control">
-                <div class="play-btn"><img src="./img/play-button.svg" alt=""></div>
+                <div class="play-btn" tabindex="1">
+                    <img src="./img/play-button.svg" alt="" >
+                    <!-- <span class="play-img"></span> -->
+                </div>
             </div>
         </div>
-
-        <!-- <div class="control">
-            <div class="play-btn"><img src="./img/play-button.svg" alt=""></div>
-            <div class="left-btn"><span></span></div>
-            <div class="dot-1st"></div>
-            <div class="dot-2nd"></div>
-            <div class="right-btn"><span></span></div>
-        </div> -->
 
         <!-- 產品項目區塊 -->
         <div class="products">
@@ -322,6 +318,10 @@
                     <a href="">取得 Windows 11</a>
                 </div>
             </div>
+
+            <button type="button" title="Go to top" id="myBtn" data-aos="zoom-in" data-aos-anchor-placement="top-center"  data-aos-anchor=".edge">
+                <a href="#top"><span>↑　回到頁首</span></a>
+            </button>
 
             <!-- for all 群眾的產品 -->
             <div class="for-all">
@@ -484,10 +484,10 @@
     </main>
 
     <!-- 回到頁首 css-->
-    <button type="button" title="Go to top" id="myBtn">
+    <!-- <button type="button" title="Go to top" id="myBtn" data-aos="zoom-in">
         <a href="#top"><span>↑　回到頁首</span></a>
-    </button>
-
+    </button> -->
+    
     <footer>
         <div class="up">
             <div class="category">
@@ -573,6 +573,7 @@
     <!-- js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // swiper.js
         var swiper = new Swiper(".mySwiper", {
@@ -587,6 +588,12 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+        });
+
+        // AOS.js
+        AOS.init({
+            // offset: 100,
+            // mirror: true,
         });
     </script>
 </body>
