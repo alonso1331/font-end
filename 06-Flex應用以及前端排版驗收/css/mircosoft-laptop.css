@@ -2131,10 +2131,6 @@ main .swiper-control .play-btn:focus:hover img{
     background-repeat: no-repeat;
 }
 
-
-
-
-
 /* main .control .left-btn span{
     background-image: url("../img/left.png");
 } */
@@ -2695,14 +2691,23 @@ main .for-business .card .hover span{
     background-image: url("../img/blue-rigth.png");
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; 
+}
+
+.swiper-button-next, 
+.swiper-button-prev{
     margin-left: 4px;
     transition-duration: 1s;
 }
 
 main .for-all .card .hover:hover span,
-main .for-business .card .hover:hover span{
-    transform: translateX(10px);
+main .for-business .card .hover:hover span,
+.swiper-button-next:hover{
+    transform: translateX(8px);
+}
+
+.swiper-button-prev:hover{
+    transform: translateX(-8px);
 }
 
 main .for-all .card .xbox,
