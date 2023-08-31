@@ -1633,6 +1633,10 @@ main .swiper-control .play-btn:focus{
     border: 3px dotted #000;
 }
 
+/* main .swiper-control .play-btn:focus img{
+    <img src="./img/play-button.svg" alt="" >
+} */
+
 /* @media (max-width: 1399px) {
     .play-btn{
         position: absolute;
@@ -2076,12 +2080,12 @@ main .control{
     }
 }
 
-main .swiper-control .play-img{
+/* main .swiper-control .play-img{
     background-image: url(../img/play-button.svg);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-}
+} */
 
 /* main .control .play-btn,
 main .control .left-btn,
@@ -2108,6 +2112,26 @@ main .swiper-control .play-btn img{
 .play-btn img:hover{
     background-image: url("../img/play-button-black.svg");
 }
+
+main .swiper-control .play-btn:focus img{
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/pause-circle.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+main .swiper-control .play-btn:focus:hover img{
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/pause-circle-black.svg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
 
 
 
@@ -3235,7 +3259,8 @@ footer .down .right a{
     /* bottom: 15.5%; */
     bottom: 47.8%;
     /* display: none; */
-    position: fixed;
+    /* 固定位置的關鍵fixed */
+    position: fixed; 
     z-index: 99;
 }
 
