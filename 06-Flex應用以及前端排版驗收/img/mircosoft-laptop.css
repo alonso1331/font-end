@@ -94,6 +94,126 @@ nav .menu{
 /* 漢堡menu 作法，w3shools淺顯易懂
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
 
+/* @media (max-width: 859px) {
+    nav .menu{
+        width: 28px;
+        height: 28px;
+        display: block;
+        background-image: url("../img/menu.png");
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 23%;
+        left: 1.5%;
+        margin-right: 0px;
+    }
+
+    nav .menu #links a{
+        display: none;
+    }
+
+    nav .menu:hover{
+        display: block;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        z-index: 2;
+        border-bottom: 2px solid #000;
+        background-image: unset;
+    }
+
+    nav .menu .dropdown{
+        position: relative;
+    }
+
+    nav .menu .dropdown:hover{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    nav .menu .dropdown:active{
+        border: 2px dotted #000;
+        padding: 4px;
+    }
+
+    nav .menu .dropdown::after{
+        content: "˅";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0px;
+        right: 10px;
+    }
+
+    /* nav .menu .dropdown:hover .dropdown::after{
+        content: "˄";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -10px;
+        right: 10px;
+    } */
+
+    /* nav .menu:hover img{
+        margin: 10px;
+        width: 28px;
+        height: 28px;
+        display: block;
+    } */
+
+    /* hover 區塊會跑出細項 */
+    /* nav .menu:hover #links a,
+    nav .dropdown:hover div{
+        display: block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 20px;
+        text-decoration: none;
+        font-size: 16px;
+        background-color: #D9D9D9;
+        color: #000;
+        border-bottom: 2px solid #E6E6E6;
+    }
+
+    nav .menu #links a,
+    nav .menu .dropdown div{
+        color: #000;
+        border-bottom: 2px solid #E6E6E6;
+    }
+
+    nav .menu:active{
+        border: 2px dotted #000;
+    }
+    
+    nav .menu #links .dropdown:hover{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    nav .dropdown:hover .sub-link:last-child{
+        border-bottom: 0px;
+    } */
+
+    /* nav .dropdown:hover a{
+        display: block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 40px;
+        text-decoration: none;
+        font-size: 16px;
+        background-color: #D9D9D9;
+        color: #000;
+        border-bottom: 2px solid #E6E6E6;
+    } 
+}*/
+
 @media (max-width: 859px) {
     nav{
         width: 100%;
@@ -272,9 +392,12 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_menu_icon_js */
 nav .series{
     width: auto;
     height: 100%;
+    /* padding-left: 162px; */
+    /* padding-left: 8.5%; */
     font-size: 13px;
     display: flex;
     align-items: center;
+    /* justify-content: space-between; */
     cursor: pointer; 
 }
 
@@ -555,6 +678,23 @@ nav .functions .function:nth-child(3){
 }
 
 @media (max-width: 1399px) {
+    /* nav .functions label .down{
+        margin-right: 16px;
+    } */
+
+    /* nav .functions .search{
+        margin-left: 7px;
+        margin-right: 20px;
+    }
+
+    nav .functions .cart{
+        margin-right: 4px;
+    }
+
+    nav .functions .login{
+        margin-left: 5px;
+    } */
+    
     nav .functions .search-group span,
     nav .functions .function:nth-child(3) span,
     nav .functions .function:nth-child(4) span{
@@ -1403,7 +1543,6 @@ main .swiper-control label .pause-btn img:focus {
 }
 
 /* play圖片 */
-
 main .swiper-control .play-switch{
     display: block;
     width: 44px;
@@ -1872,6 +2011,93 @@ main .description-right .info .hover .right{
 main .description .info .hover:hover .right,
 main .description-right .info .hover:hover .right{
     transform: translateX(10px);
+}
+
+/* control 區塊 */
+/* main .control{
+    width: 200px;
+    margin: 80px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+@media (max-width: 1083px) {
+    main .control{
+        margin-top: 195px;
+    }
+}
+
+@media (max-width: 540px) {
+    main .control{
+        margin-top: 204px;
+    }
+}
+
+@media (max-width: 380px) {
+    main .control{
+        margin-top: 234px;
+    }
+} */
+
+
+
+/* main .control .left-btn span{
+    background-image: url("../img/left.png");
+} */
+
+/* main .banners .control .left-btn span:active{
+    border: 3px dashed #000;
+    padding: 4px;
+} */
+
+main .control .left-btn:active{
+    border: 3px dotted #000;
+    padding: 4px;
+    transform: translateX(-8px);
+}
+
+main .control .left-btn span:hover{
+    transform: translateX(-7px);
+    transition-duration: 1s; 
+}
+
+main .control .dot-1st{
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+    margin-bottom: 3px;
+}
+
+main .control .dot-2nd{
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border: #000 solid 2px;
+    border-radius: 50%;
+    margin-bottom: 3px;
+}
+
+main .control .right-btn span{
+    background-image: url("../img/right.png");
+}
+
+/* main .banners .control .right-btn span:active{
+    border: 3px dashed #000;
+} */
+
+main .control .right-btn:active{
+    border: 3px dotted #000;
+    padding: 4px;
+    transform: translateX(8px);
+}
+
+main .control .right-btn span:hover{
+    transform: translateX(8px);
+    transition-duration: 1s;
 }
 
 /* 產品區塊統一padding */
@@ -2395,19 +2621,13 @@ main .for-business .card .hover span{
 }
 
 main .for-all .card .hover:hover span,
-main .for-business .card .hover:hover span{
-    transform: translateX(8px);
-    transition: 0.6s ease-in-out;
-}
-
+main .for-business .card .hover:hover span,
 .swiper-button-next:hover::after{
     transform: translateX(8px);
-    transition-duration: 1s;
 }
 
 .swiper-button-prev:hover::after{
     transform: translateX(-8px);
-    transition-duration: 1s;
 }
 
 main .for-all .card .xbox,
@@ -2984,6 +3204,13 @@ footer .down .right a{
     padding: 5px 9px;
     border: 3px dotted #000;
 }
+
+/* @media (min-height: 50px) {
+    #myBtn{
+        display: block;
+        position: fixed;
+    }
+} */
 
 @media (max-width: 1399px) {
     #myBtn{
