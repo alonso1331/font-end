@@ -2394,6 +2394,11 @@ main .for-business .card .hover span{
     border: 3px dotted #000;
 }
 
+main .for-all .card .hover span,
+main .for-business .card .hover span{
+    transition: 0.6s ease-in-out;
+}
+
 main .for-all .card .hover:hover span,
 main .for-business .card .hover:hover span{
     transform: translateX(8px);
