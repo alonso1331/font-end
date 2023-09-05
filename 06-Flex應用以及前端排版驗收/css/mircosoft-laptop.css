@@ -714,6 +714,13 @@ nav .functions .function:nth-child(3){
     }
 }
 
+
+@media (max-width: 541px) {
+    nav .functions {
+        margin-right: 8px;
+    }
+}
+
 @media (max-width: 539px) {
     nav .functions .search{
         margin-left: 23px;
@@ -1401,19 +1408,19 @@ main .swiper-control label{
 
 @media (max-width: 376px) {
     .swiper-button-next, .swiper-button-prev {
-        top: var(--swiper-navigation-top-offset,95.8%)!important;
+        top: var(--swiper-navigation-top-offset,95%)!important;
     }
 
     .swiper-button-prev{
-        left: var(--swiper-navigation-sides-offset,31.5%)!important;
+        left: var(--swiper-navigation-sides-offset,30.5%)!important;
     }
 
     .swiper-button-next{
-        right: var(--swiper-navigation-sides-offset,21%)!important;
+        right: var(--swiper-navigation-sides-offset,20%)!important;
     }
 
     main .swiper-control label{
-        left: 21%;
+        left: 19%;
     }
 }
 
@@ -1638,23 +1645,23 @@ main .description-right{
         width: 98.7%;
     }
     
-    main .description{
+    /* main .description{
         height: 258px;
         margin: 0px;
-    }
+    } */
 
     main .description-right{
-        height: 220px;
+        /* height: 220px; */
         top: 98%;
         margin: 0px;
     }
 }
 
 @media (max-width: 377px) {
-    main .description,
+    /* main .description,
     main .description-right{
         height: 263px;
-    }
+    } */
 }
 
 @media (max-width: 367px) {
@@ -2495,7 +2502,7 @@ main .edge .banner picture img{
 @media (max-width: 539px) {
     main .edge {
         margin-top: 0px;
-        margin-bottom: 266px;
+        margin-bottom: 276px;
     }
 }
 
@@ -2616,15 +2623,15 @@ main .social-media{
 
 @media (max-width: 859px) {
     main .social-media{
-        margin: 0px 0px 11px 24px;
+        margin: 0px 0px 12px 24px;
     }
 }
 
-@media (max-width: 539px) {
+/* @media (max-width: 539px) {
     main .social-media{
-        margin: 1% 0px 10px 24px;
+        margin: 0px 0px 12px 24px;
     }
-}
+} */
 
 main .social-media a{
     width: 32px;
@@ -2652,6 +2659,12 @@ main .social-media .fb{
         margin: 0px 16px;
     }
 } */
+
+@media (max-width: 541px) {
+    main .social-media .fb{
+        margin-top: 0px;
+    }
+}
 
 main .social-media:first-child{
     background-image: url("../img/fb.png");
@@ -2787,17 +2800,17 @@ footer .up .category{
     }
 }
 
-/* @media (max-width: 859px) {
+@media (max-width: 859px) {
     footer .up .category{
-        margin-bottom: 31px;
-    }
-} */
-
-@media (max-width: 541px) {
-    footer .up .category{
-        margin-bottom: 27px;
+        margin-bottom: 21px;
     }
 }
+
+/* @media (max-width: 541px) {
+    footer .up .category{
+        margin-bottom: 22px;
+    }
+} */
 
 @media (max-width: 539px) {
     footer .up .category{
@@ -2828,10 +2841,18 @@ footer .up div:nth-child(6){
 }
 
 @media (max-width: 859px) {
-    footer .up div:nth-child(3),
-    footer .up div:nth-child(6){
-        margin-left: 0px;
+    footer .up div:nth-child(1),
+    footer .up div:nth-child(2),
+    footer .up div:nth-child(3){
+        margin-bottom: 27px;
     }
+
+    footer .up div:nth-child(4) span:first-child,
+    footer .up div:nth-child(5) span:first-child,
+    footer .up div:nth-child(6) span:first-child{
+        margin-top: 5px;
+    }
+
 
     footer .up div:nth-child(4) span:first-child,
     footer .up div:nth-child(5) span:first-child,
@@ -2846,7 +2867,7 @@ footer .up div:nth-child(6){
     footer .up div:nth-child(4) span:first-child,
     footer .up div:nth-child(5) span:first-child,
     footer .up div:nth-child(6) span:first-child{
-        margin-top: 10px;
+        margin-top: 11px;
     }
 }
 
@@ -2951,15 +2972,19 @@ footer .down .left .privacy{
 }
 
 @media (max-width: 859px) {
+    footer .down .left .language{
+        padding: 8px 0px 3px;
+    }
+
     footer .down .left .privacy{
-        margin: 3px 0px 16px 0px;
+        margin: 3px 0px 15px 0px;
         padding: 4px 0px 0px 0px;
     }
 }
 
 @media (max-width: 541px) {
     footer .down .left .privacy{
-        margin: 6px 0px 24px 0px;
+        margin: 3px 0px 24px 0px;
     }
 }
 
