@@ -281,13 +281,25 @@ nav .series{
     display: flex;
     align-items: center;
     cursor: pointer; 
-    margin-left: 3px;
+    margin-left: 5px;
+}
+
+@media (max-width: 1399px) {
+    nav .series{
+        margin-left: 3px;
+    }
+}
+
+@media (max-width: 1083px) {
+    nav .series{
+        margin-left: 2px;
+    }
 }
 
 @media (max-width: 859px) {
     nav .series{
         margin-top: -5px;
-        margin-left: 0px;
+        margin-left: 1px;
     }
 }
 
@@ -330,9 +342,76 @@ nav .series .link{
     display: flex;
     align-items: center;
     height: 48px;
-    margin-right: 12.9px;
+    margin-right: 11px;
     margin-top: -3px;
     padding: 12px 8px 10px;
+}
+
+nav .series .link:nth-child(3){
+    margin-right: 14px;
+}
+
+nav .series .link:nth-child(4){
+    margin-right: 13px;
+}
+
+nav .series .link:nth-child(5){
+    margin-right: 14px;
+}
+
+nav .series .link:nth-child(6){
+    margin-right: 13.5px;
+}
+
+@media (max-width: 1650px) {
+    nav .series .link{
+        margin-right: 6px;
+    }
+}
+
+@media (max-width: 1399px) {
+    nav .series .link{
+        margin-right: 4px;
+    }
+    
+    nav .series .link:nth-child(3){
+        margin-right: 5px;
+    }
+    
+    nav .series .link:nth-child(4){
+        margin-right: 6px;
+    }
+    
+    nav .series .link:nth-child(5){
+        margin-right: 5px;
+    }
+    
+    nav .series .link:nth-child(6){
+        margin-right: 6px;
+    }
+    
+}
+
+@media (max-width: 1083px) {
+    nav .series .link{
+        margin-right: 4px;
+    }
+
+    nav .series .link:nth-child(3){
+        margin-right: 5px;
+    }
+    
+    nav .series .link:nth-child(4){
+        margin-right: 5px;
+    }
+    
+    nav .series .link:nth-child(5){
+        margin-right: 6px;
+    }
+    
+    nav .series .link:nth-child(6){
+        margin-right: 6px;
+    }
 }
 
 nav .series .Microsoft-365{
@@ -387,24 +466,6 @@ nav .series .more-links{
 
 nav .series .more-links li{
     list-style-type: none;
-}
-
-@media (max-width: 1650px) {
-    nav .series .link{
-        margin-right: 6px;
-    }
-}
-
-@media (max-width: 1399px) {
-    nav .series .link{
-        margin-right: 5px;
-    }
-}
-
-@media (max-width: 1083px) {
-    nav .series .link{
-        margin-right: 4.5px;
-    }
 }
 
 @media (max-width: 873px) {
@@ -499,7 +560,6 @@ nav .functions label .down{
     background-size: contain;
     margin-top: 12px;
     margin-left: 2px;
-    /* margin-right: 20px; */
 }
 
 nav .functions .search{
@@ -515,7 +575,7 @@ nav .functions .search{
 
 @media (max-width: 1399px) {
     nav .functions .search{
-        margin-right: 17px
+        margin-right: 20px
     }
 }
 
@@ -526,7 +586,6 @@ nav .functions .space{
 }
 
 nav .functions .search-group{
-    /* width: 65.56px; */
     height: 46px;
     padding-left: 8px;
     padding-left: 2px;
@@ -534,12 +593,14 @@ nav .functions .search-group{
 
 nav .functions .search-group span{
     margin-top: -4px;
+    padding-left: 6px;
 }
 
 nav .functions .shopping{
     height: 48px;
     margin: 1px;
-    margin-top: -4px;
+    margin-top: -5px;
+    margin-right: 3px;
 }
 
 nav .functions .cart{
@@ -552,8 +613,8 @@ nav .functions .login-group{
 }
 
 nav .functions .cart{
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     background-image: url("../img/cart.svg");
     background-position: center;
     background-repeat: no-repeat;
@@ -593,7 +654,7 @@ nav .functions .login{
 
 @media (max-width: 1083px) {
     nav .functions {
-        margin-right: -13px;
+        margin-right: -11px;
     }
 }
 
@@ -611,7 +672,6 @@ nav .functions .function:nth-child(3){
     align-items: center;
     width: 121px;
     height: 54px;
-    /* padding: 16px 24px 16px 15px; */
     margin-right: 3px;
 }
 
@@ -653,7 +713,8 @@ nav .functions .function:nth-child(3){
     }
 
     nav .functions .cart{
-        margin-right: 8px;
+        margin-right: 3px;
+        margin-top: -4px;
     }
 
     nav .functions .login{
@@ -668,7 +729,7 @@ nav .functions .function:nth-child(3){
     }
     
     nav .functions {
-        margin-right: 11px;
+        margin-right: 8px;
     }
 
     nav .functions .all,
@@ -678,6 +739,10 @@ nav .functions .function:nth-child(3){
     
     nav .functions .shopping{
         padding: 15px 10px;
+    }
+
+    nav .functions .cart{
+        margin-right: 9px;
     }
 
     nav .functions .login-group {
@@ -746,7 +811,7 @@ nav .functions .function:nth-child(3){
 }
 
 nav .functions .shopping span{
-    margin-right: 7px;
+    margin-right: 6px;
     padding: 12px 0;
 }
 
@@ -816,7 +881,7 @@ nav .functions .underline span:hover{
     width: 121px;
     height: 54px;
     /* padding: 16px 24px 16px 15px; */
-    margin-right: 3px;
+    margin-right: -1px;
 }
 
 .function label span{
@@ -1544,10 +1609,10 @@ main .swiper-control #play-switch:checked + label:hover{
 
 main .description{
     /* width: 593px; */
-    width: 31.4%;
+    width: 30.4%;
     height: 263px;
     position: absolute;
-    top: 35.9%;
+    top: 36%;
     left: 10%;
     padding: 4px 9px;
 }
@@ -1557,7 +1622,7 @@ main .description-right{
     height: 263px;
     position: absolute;
     top: 36.6%;
-    right: 14.5%;
+    right: 14.49%;
 }
 
 @media (max-width: 1399px) {
@@ -1675,7 +1740,7 @@ main .description h1,
 main .description-right h1{
     font-weight: 600;
     font-size: 37px;
-    margin-bottom: 19px;
+    margin-bottom: 18px;
 }
 
 @media (max-width: 1399px) {
@@ -1708,6 +1773,10 @@ main .description-right .info{
     align-items: center;
 }
 
+main .description .info{
+    margin-left: 1px;
+}
+
 main .description .info a,
 main .description-right .info a{
     text-decoration: none;
@@ -1730,9 +1799,17 @@ main .description-right .info > a:first-child{
     border-radius: 2px;
 }
 
-main .description .info > a:first-child{
-    margin-right: 29px;
+main .description .info a {
+    padding-right: 2px;
 }
+
+/* main .description .info a span{
+    margin-right: 29px;
+} */
+
+/* main .description .info > a:first-child{
+    margin-right: 29px;
+} */
 
 /* main .description-right .info > a:first-child{
     width: 92px;
