@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 評等</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            height: 0px;
+        }
+
+        main{
+            background-color: ivory;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .content{
+            display: block;
+            margin: auto;
+            width: 550px;
+            height: 300px;
+            border-radius: 8px;
+            background-color: steelblue;
+            position: absolute;
+            left: calc(50% - 275px);
+            top: calc(50% - 150px);
+            padding: 30px 20px;
+            box-shadow: 2px 3px 3px 2px rgba(0, 0, 0, 0.2); ;
+        }
+
+        label, p, .rate, span{
+            color: #f9da11;
+            font-family: DFKai-sb;
+        }
+
+        label{
+            font-size: 22px;
+            vertical-align: sub;
+            margin-right: 5px;
+        }
+
+        input{
+            border: 0px solid #fff;
+            width: 50%;
+            height: 30px;
+            border-radius: 8px;
+            padding-left: 12px;
+        }
+
+        button{
+            display: inline-block;
+            width: 70px;
+            height: 30px;
+            margin-left: 5px;
+            font-size: 18px;
+            line-height: 30px;
+            color: #000;
+            background-color: #f9da11;
+            border: 0px;
+            border-radius: 8px;
+            vertical-align: top;
+            cursor: pointer;
+        }
+
+        span{
+            color: #fff;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 35px;
+            margin-left: 100px;
+        }
+
+        p{
+            font-size: 26px;
+            margin-top: 80px;
+            /* text-align: center; */
+        }
+
+        .rate{
+            font-size: 52px;
+            margin-top: 36px;
+            padding-top: 20px;
+            border-top: #f9da11 solid 2px;
+            text-align: center;
+        }
+
+        .rate-failed{
+            color: red;
+            font-size: 52px;
+            margin-top: 0px;
+            padding-top: 0px;
+            border-top: #f9da11 solid 0px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="content">
+            <div class="form-group">
+                <form action="">
+                    <label for="">輸入成績</label>
+                    <input type="number" id="score">
+                    <button type="button">確認</button>
+                    <button type="reset" class="reset">清除</button>
+                </form>
+                <span></span>
+            </div>
+            <p>評等</p>
+            <div class="rate"></div>
+        </div>
+    </main>
+    
+    <script>
+        let score = document.querySelector('#score');
+        const btn = document.querySelector('button');
+        const reset = document.querySelector('.reset');
+        const text = document.querySelector('span');
+        const rate = document.querySelector('.rate');
+        
+        btn.addEventListener('click', () => {
+            if( score.value === ''){
+                text.innerHTML = '請輸入數字';
+                rate.innerHTML = '';
+            }else if (score.value > 100 || score.value < 0){
+                text.innerHTML = '請輸入 0~100 之間的數字';
+                rate.innerHTML = '';
+            }else{
+                text.innerHTML = '';
+                if (score.value >= 90){
+                    rate.innerHTML = '甲等';
+                } else if (score.value < 90 && score.value >= 80 ) {
+                    rate.innerHTML = '乙等';
+                } else if (score.value < 80 && score.value >= 70 ) {
+                    rate.innerHTML = '丙等';
+                } else if (score.value < 70 && score.value >= 60 ) {
+                    rate.innerHTML = '丁等';
+                } else {
+                    rate.innerHTML = "<div class='rate-failed'>不及格</div>";
+                }
+            }
+        });
+
+        reset.addEventListener('click', () => {
+            text.innerHTML = '';
+            rate.innerHTML = '';
+        });
+    </script>
+</body>
+</html>
