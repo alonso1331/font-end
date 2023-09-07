@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/weighing-machine.png" type="image/x-icon">
+    <!-- <a href="https://www.flaticon.com/free-icons/weight" title="weight icons">Weight icons created by smashingstocks - Flaticon</a> -->
+    <title>BMI</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            height: 0px;
+        }
+
+        main{
+            background-color: ivory;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .content{
+            display: block;
+            width: 450px;
+            height: 500px;
+            position: absolute;
+            left: calc(50% - 225px);
+            top: calc(50% - 250px);
+            background-color: yellowgreen;
+            border-radius: 8px;
+            padding: 20px 30px;
+        }
+
+        form{
+            display: block;
+            width: auto;
+            height: 150px;
+        }
+
+        label{
+            font-size: 28px;
+            margin-right: 10px;
+            vertical-align: top;
+        }
+
+        input{
+            width: 320px;
+            height: 30px;
+            border-radius: 12px;
+            border: 0px;
+            padding-left: 20px;
+        }
+
+        .weight{
+            margin-top: 5px;
+            margin-bottom: 6px;
+        }
+
+        .warning{
+            font-size: 18px;
+            color: red;
+        }
+
+        .btn{
+            display: flex;
+            justify-content: center;
+            padding: 20px 0px;
+        }
+
+        button{
+            width: 70px;
+            height: 40px;
+            border-radius: 12px;
+            border: 0px;
+            font-size: 20px;
+            background-color: green;
+            background-color:forestgreen;
+            color: #fff;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .btn button:first-child{
+            margin-right: 20px;
+        }
+
+        .result{
+            display: block;
+            width: auto;
+            height: 200px;
+            /* padding: 20px auto; */
+        }
+
+        h2{
+            display: block;
+            width: auto;
+            height: 40px;
+            line-height: 40px;
+            margin-top: 20px;
+            font-weight: 600;
+            border-bottom: solid gold 2px;
+        }
+
+        .your-BMI,
+        .cale-result{
+            display: block;
+            font-size: 30px;
+            height: 40px;
+            line-height: 1.3;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .add{
+            display: block;
+            font-size: 26px;
+            margin-top: 40px;
+            text-align: center;
+            color: steelblue;
+        }
+
+        .underweight{
+            color: blue;
+        }
+
+        .normal{
+            color: gold;
+        }
+
+        .overweight{
+            color: #DE254A;
+        }
+
+        .slight{
+            color: #A61C37;
+        }
+
+        .middle{
+            color: #6F1225;
+        }
+
+        .extreme{
+            color: red;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="content">
+            <form action="">
+                <label for="">身高</label>
+                <input type="number" class="height">
+                <label for="">體重</label>
+                <input type="number" class="weight">
+                <p class="warning"></p>
+                <div class="btn">
+                    <button type="button" class="calc">計算</button>
+                    <button type="reset" class="reset">清除</button>
+                </div>
+            </form>
+            <div class="result">
+                <h2>計算結果</h2>
+                <P class="your-BMI"></P>
+                <p class="cale-result">來測看看吧！</p>
+                <p class="add"></p>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        const weight = document.querySelector('.weight');
+        const height = document.querySelector('.height');
+        const warning = document.querySelector('.warning')
+        const calc = document.querySelector('.calc');
+        const reset = document.querySelector('.reset');
+        const yourBMI = document.querySelector('.your-BMI');
+        const result = document.querySelector('.cale-result');
+        const add = document.querySelector('.add');
+
+        reset.addEventListener('click', () => {
+            yourBMI.innerHTML = '';
+            result.innerHTML = '';
+        });
+
+        calc.addEventListener('click', () => {
+            if (weight.value === '' || height.value === ''){
+                warning.innerHTML = '請確認身高、體重是否有輸入數字';
+            } else if ( weight.value <= 0 && height.value <= 0){
+                warning.innerHTML = '身高、體重不得小於0';
+            } else if ( weight.value <= 0 ){
+                warning.innerHTML = '體重不得小於0';
+            } else if ( height.value <= 0 ){
+                warning.innerHTML = '身高不得小於0';
+            } else {
+                // 取得小數點後一點的BMI值
+                let BMI = (((weight.value / (height.value * height.value))*100*100).toFixed(1));
+                if ( BMI < 18.5 ) {
+                    yourBMI.innerHTML = "您的BMI為："+BMI;
+                    result.innerHTML = "<p class='cale-result underweight'>體重過輕</p>";
+                } else if ( BMI < 24 ) {
+                    yourBMI.innerHTML = "您的BMI為："+BMI;
+                    result.innerHTML = "<p class='cale-result normal'>正常範圍</p>";
+                } else if ( BMI < 27 ) {
+                    yourBMI.innerHTML = "您的BMI為："+BMI;
+                    result.innerHTML = "<p class='cale-result overweight'>過重</p>";
+                } else if ( BMI < 30 ) {
+                    yourBMI.innerHTML = "您的BMI為："+BMI;
+                    result.innerHTML = "<p class='cale-result slight'>輕度肥胖</p>";
+                } else if ( BMI < 35 ) {
+                    yourBMI.innerHTML = "您的BMI為："+BMI;
+                    result.innerHTML = "<p class='cale-result middle'>中度肥胖</p>";
+                } else {
+                    yourBMI.innerHTML = "您的BMI為："+BMI;
+                    result.innerHTML = "<p class='cale-result extreme'>重度肥胖</p>";
+                }
+                
+            }
+        });
+    </script>
+</body>
+</html>
