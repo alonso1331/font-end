@@ -116,7 +116,7 @@
     </main>
     
     <script>
-        let score = document.querySelector('#score');
+        const input = document.querySelector('#score');
         const btn = document.querySelector('button');
         const reset = document.querySelector('.reset');
         const text = document.querySelector('span');
@@ -124,24 +124,26 @@
         // if else 和 switch 差異：一、速度上來說，switch比較快(網路上說的)；
         // 二、使用時機，if else 用在一個需要判斷的範圍，如81~90為甲等，switch則用在具體的對象，case 0: day = "Sunday"。
         btn.addEventListener('click', () => {
-            if( score.value === ''){
+            // 變數 score 要放在監聽事件內才會有值
+            let score = input.value;
+            if( score === ''){
                 text.innerHTML = '請輸入數字';
                 rate.innerHTML = '';
-            }else if (score.value > 100 || score.value < 0){
+            }else if (score > 100 || score < 0){
                 text.innerHTML = '請輸入 0~100 之間的數字';
                 rate.innerHTML = '';
             }else{
                 text.innerHTML = '';
-                if (score.value >= 90){
+                if (score >= 90){
                     rate.innerHTML = '甲等';
                 // } else if (score.value < 90 && score.value >= 80 ) {
-                } else if (score.value >= 80 ) {
+                } else if (score >= 80 ) {
                     rate.innerHTML = '乙等';
                 // } else if (score.value < 80 && score.value >= 70 ) {
-                } else if (score.value >= 70 ) {
+                } else if (score >= 70 ) {
                     rate.innerHTML = '丙等';
                 // } else if (score.value < 70 && score.value >= 60 ) {
-                } else if (score.value >= 60 ) {
+                } else if (score >= 60 ) {
                     rate.innerHTML = '丁等';
                 } else {
                     rate.innerHTML = "<div class='rate-failed'>不及格</div>";
