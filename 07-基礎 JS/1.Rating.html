@@ -121,7 +121,8 @@
         const reset = document.querySelector('.reset');
         const text = document.querySelector('span');
         const rate = document.querySelector('.rate');
-        
+        // if else 和 switch 差異：一、速度上來說，switch比較快(網路上說的)；
+        // 二、使用時機，if else 用在一個需要判斷的範圍，如81~90為甲等，switch則用在具體的對象，case 0: day = "Sunday"。
         btn.addEventListener('click', () => {
             if( score.value === ''){
                 text.innerHTML = '請輸入數字';
