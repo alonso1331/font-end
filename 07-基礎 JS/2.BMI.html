@@ -156,9 +156,9 @@
         <div class="content">
             <form action="">
                 <label for="">身高</label>
-                <input type="number" class="height">
+                <input type="number" class="height" max="272" min="54.6">
                 <label for="">體重</label>
-                <input type="number" class="weight">
+                <input type="number" class="weight" max="635" min="5.5">
                 <p class="warning"></p>
                 <div class="btn">
                     <button type="button" class="calc">計算</button>
@@ -185,6 +185,7 @@
         const add = document.querySelector('.add');
 
         reset.addEventListener('click', () => {
+            warning.innerHTML = '';
             yourBMI.innerHTML = '';
             result.innerHTML = '';
         });
@@ -198,7 +199,12 @@
                 warning.innerHTML = '體重不得小於0';
             } else if ( height.value <= 0 ){
                 warning.innerHTML = '身高不得小於0';
+            } else if ( weight.value < 5.5 || weight.value > 635){
+                warning.innerHTML = '人類體重介於5.5 ~ 635公斤，請輸入正常值';
+            } else if ( height.value < 54.6 || height.value > 272 ){
+                warning.innerHTML = '人類身高介於54.6 ~ 272公分，請輸入正常值';
             } else {
+                warning.innerHTML = '';
                 // 取得小數點後一點的BMI值
                 let BMI = (((weight.value / (height.value * height.value))*100*100).toFixed(1));
                 if ( BMI < 18.5 ) {

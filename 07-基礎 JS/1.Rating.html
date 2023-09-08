@@ -32,6 +32,11 @@
             box-shadow: 2px 3px 3px 2px rgba(0, 0, 0, 0.2); ;
         }
 
+        form{
+            width: auto;
+            height: 30px;
+        }
+
         label, p, .rate, span{
             color: #f9da11;
             font-family: DFKai-sb;
@@ -69,8 +74,9 @@
         span{
             color: #fff;
             font-size: 18px;
-            display: inline-block;
-            margin-top: 35px;
+            /* 用inline-block，當跳出警示標誌會影響input輸入 */
+            display: block;
+            margin-top: 8px;
             margin-left: 100px;
         }
 
