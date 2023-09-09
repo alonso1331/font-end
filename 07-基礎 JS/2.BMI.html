@@ -94,7 +94,7 @@
             display: block;
             width: auto;
             height: 200px;
-            /* padding: 20px auto; */
+            transition: 2s;
         }
 
         h2{
@@ -107,6 +107,19 @@
             border-bottom: solid gold 2px;
         }
 
+        .try-it{
+            font-size: 30px;
+            width: auto;
+            height: auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .transition{
+            transition: 1.5s;
+            opacity: 0;
+        }
+
         .your-BMI,
         .cale-result{
             display: block;
@@ -115,14 +128,25 @@
             line-height: 1.3;
             margin-top: 40px;
             text-align: center;
+            transition: 1.5s;
         }
 
-        .add{
+        .cale-result{
+            transition: 0.5s;
+        }
+
+        .suggest{
             display: block;
-            font-size: 26px;
-            margin-top: 40px;
+            font-size: 22px;
+            margin-top: 34px;
             text-align: center;
-            color: steelblue;
+            /* color: steelblue; */
+            color: purple;
+            transition: 1.5s;
+        }
+
+        .act{
+            opacity: 1;
         }
 
         .underweight{
@@ -167,9 +191,12 @@
             </form>
             <div class="result">
                 <h2>計算結果</h2>
-                <P class="your-BMI"></P>
-                <p class="cale-result">來測看看吧！</p>
-                <p class="add"></p>
+                <p class="try-it">來測看看吧！</p>
+                <div class="transition">
+                    <P class="your-BMI"></P>
+                    <p class="cale-result"></p>
+                    <p class="suggest"></p>
+                </div>
             </div>
         </div>
     </main>
@@ -180,52 +207,82 @@
         const warning = document.querySelector('.warning')
         const calc = document.querySelector('.calc');
         const reset = document.querySelector('.reset');
+        const tryIt = document.querySelector('.try-it');
         const yourBMI = document.querySelector('.your-BMI');
         const result = document.querySelector('.cale-result');
-        const add = document.querySelector('.add');
+        const suggest = document.querySelector('.suggest');
+        const transition = document.querySelector('.transition');
 
         reset.addEventListener('click', () => {
             warning.innerHTML = '';
             yourBMI.innerHTML = '';
             result.innerHTML = '';
+            suggest.innerHTML = '';
+            transition.classList.remove('act');
         });
 
         calc.addEventListener('click', () => {
             if (weight.value === '' || height.value === ''){
                 warning.innerHTML = '請確認身高、體重是否有輸入數字';
-            } else if ( weight.value <= 0 && height.value <= 0){
+            // } else if ( isNan(weight.value) || isNan(height.value) ) {
+            //     warning.innerHTML = '身高、體重不得為文字';
+            } else if ( weight.value <= 0 && height.value <= 0 ){
                 warning.innerHTML = '身高、體重不得小於0';
+            // 長度為0，代表沒有東西
+            } else if ( (weight.value).trim().length == 0 || (height.value).trim().length == 0 ){
+                warning.innerHTML = '請確認身高、體重是否有輸入數字';
             } else if ( weight.value <= 0 ){
                 warning.innerHTML = '體重不得小於0';
             } else if ( height.value <= 0 ){
                 warning.innerHTML = '身高不得小於0';
-            } else if ( weight.value < 5.5 || weight.value > 635){
+            } else if ( weight.value < 5.5 || weight.value > 635 ){
                 warning.innerHTML = '人類體重介於5.5 ~ 635公斤，請輸入正常值';
             } else if ( height.value < 54.6 || height.value > 272 ){
                 warning.innerHTML = '人類身高介於54.6 ~ 272公分，請輸入正常值';
             } else {
                 warning.innerHTML = '';
+                tryIt.style.display = 'none';
+                transition.classList.remove('act');
+                result.classList.remove('underweight','normal','overweight','slight','middle','extreme');
+                
                 // 取得小數點後一點的BMI值
                 let BMI = (((weight.value / (height.value * height.value))*100*100).toFixed(1));
                 if ( BMI < 18.5 ) {
-                    yourBMI.innerHTML = "您的BMI為："+BMI;
-                    result.innerHTML = "<p class='cale-result underweight'>體重過輕</p>";
+                    // yourBMI.innerHTML = "您的BMI為：" + BMI;
+                    // result.innerHTML = "<p class='cale-result act underweight'>體重過輕</p>";
+                    result.innerHTML = '體重過輕';
+                    result.classList.add('underweight');
+                    suggest.innerHTML = '沒什麼狀況，這樣也很好';
                 } else if ( BMI < 24 ) {
-                    yourBMI.innerHTML = "您的BMI為："+BMI;
-                    result.innerHTML = "<p class='cale-result normal'>正常範圍</p>";
+                    // yourBMI.innerHTML = "您的BMI為：" + BMI;
+                    result.innerHTML = '正常範圍'
+                    result.classList.add('normal');
+                    suggest.innerHTML = '符合健康署的標準規範';
                 } else if ( BMI < 27 ) {
-                    yourBMI.innerHTML = "您的BMI為："+BMI;
-                    result.innerHTML = "<p class='cale-result overweight'>過重</p>";
+                    // yourBMI.innerHTML = "您的BMI為：" + BMI;
+                    result.innerHTML = '過重';
+                    result.classList.add('overweight');
+                    suggest.innerHTML = '據研究指出，這個級距的人反而較標準的人還長壽';
                 } else if ( BMI < 30 ) {
-                    yourBMI.innerHTML = "您的BMI為："+BMI;
-                    result.innerHTML = "<p class='cale-result slight'>輕度肥胖</p>";
+                    // yourBMI.innerHTML = "您的BMI為：" + BMI;
+                    result.innerHTML = '輕度肥胖';
+                    result.classList.add('slight');
+                    suggest.innerHTML = '還有成長的空間';
                 } else if ( BMI < 35 ) {
-                    yourBMI.innerHTML = "您的BMI為："+BMI;
-                    result.innerHTML = "<p class='cale-result middle'>中度肥胖</p>";
+                    // yourBMI.innerHTML = "您的BMI為：" + BMI;
+                    result.innerHTML = '中度肥胖';
+                    result.classList.add('middle');
+                    suggest.innerHTML = '呃~巨石強森也是中度肥胖，練得跟他一樣壯，沒有人會說您胖';
                 } else {
-                    yourBMI.innerHTML = "您的BMI為："+BMI;
-                    result.innerHTML = "<p class='cale-result extreme'>重度肥胖</p>";
+                    // yourBMI.innerHTML = "您的BMI為：" + BMI;
+                    result.innerHTML = '重度肥胖';
+                    result.classList.add('extreme');
+                    suggest.innerHTML = '您已經達到一個極致了，您有堅強的意志，想換個方向嗎？';
                 }
+
+                // 可以將輸出的部分放在後面執行
+                transition.classList.add('act'); //要讓動畫效果先於印出BMI，不然會沒有動畫效果
+                yourBMI.innerHTML = "您的BMI為：" + BMI;
             }
         });
     </script>
