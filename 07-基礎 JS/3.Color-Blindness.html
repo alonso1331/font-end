@@ -173,14 +173,13 @@
         //     }
         // });
 
-        // box的尺寸大小公式
+        // box的尺寸大小公式，求出一邊個尺寸就行
         function boxWidth(level){
             return ((700 - (level * 20))/level);
-            
         };
-        function boxHeight(level){
-            return ((700 - (level * 20))/level);
-        };
+        // function boxHeight(level){
+        //     return ((700 - (level * 20))/level);
+        // };
 
         function startGame(){
             // 產生隨機亂數，注意方法的括號不要忘了加上
@@ -202,9 +201,9 @@
             // 產生方塊
             for (let index = 0; index < (level ** 2); index++) {
                 if (index == ans){
-                    container.innerHTML += '<div class="box" style="width:'+ boxWidth(level) +'px; height:'+ boxHeight(level) +'px;background-color: rgb('+ r +', '+ g +', '+ b +'); opacity:' + opacity +';"></div>';
+                    container.innerHTML += '<div class="box" style="width:'+ boxWidth(level) +'px; height:'+ boxWidth(level) +'px;background-color: rgb('+ r +', '+ g +', '+ b +'); opacity:' + opacity +';"></div>';
                 }else{
-                    container.innerHTML += '<div class="box" style="width:'+ boxWidth(level) +'px; height:'+ boxHeight(level) +'px; background-color: rgb('+ r +', '+ g +', '+ b +');"></div>';
+                    container.innerHTML += '<div class="box" style="width:'+ boxWidth(level) +'px; height:'+ boxWidth(level) +'px; background-color: rgb('+ r +', '+ g +', '+ b +');"></div>';
                     // 用樣板字樣的方式
                     // container.innerHTML += `<div class="box" style="background-color: rgb(${r},$(g),$(b));"></div>`;
                 }
