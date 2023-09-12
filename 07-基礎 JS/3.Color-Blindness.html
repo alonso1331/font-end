@@ -76,17 +76,23 @@
         .container{
             display: flex;
             flex-wrap: wrap;
-            width: 220px;
+            /* width: 220px; */
             margin: auto;
+            width: 700px;
+            height: 700px;
+            /* background-color: #999; */
         }
 
         .box{
-            width: 90px;
+            /* width: 90px;
             height: 90px;
-            margin: 8px;
+            margin: 8px; */
             cursor: pointer;
             background-color: burlywood;
             border-radius: 8px;
+            /* width: 330px;
+            height: 330px; */
+            margin: 10px;
         }
 
         /* .ans{
@@ -150,7 +156,6 @@
                     alert('時間到，你的分數為' + point);
                 }
             }, 1000);
-            console.log(timer);
 
             startGame();
         });
@@ -168,6 +173,15 @@
         //     }
         // });
 
+        // box的尺寸大小公式
+        function boxWidth(level){
+            return ((700 - (level * 20))/level);
+            
+        };
+        function boxHeight(level){
+            return ((700 - (level * 20))/level);
+        };
+
         function startGame(){
             // 產生隨機亂數，注意方法的括號不要忘了加上
             // Math.random()因為是隨機給予0.1~0.9之間的數字，乘上一個數字，可以讓隨機的數字介於在該數字的範圍內
@@ -183,19 +197,22 @@
             let b = Math.floor(Math.random() * 256);
 
             // 增加container 的寬度，以容納更多方塊
-            container.style.width = (level * 106) + 'px';
+            // container.style.width = (level * 106) + 'px';
 
             // 產生方塊
             for (let index = 0; index < (level ** 2); index++) {
                 if (index == ans){
-                    container.innerHTML += '<div class="box" style="background-color: rgb('+ r +', '+ g +', '+ b +'); opacity:' + opacity +';"></div>';
+                    container.innerHTML += '<div class="box" style="width:'+ boxWidth(level) +'px; height:'+ boxHeight(level) +'px;background-color: rgb('+ r +', '+ g +', '+ b +'); opacity:' + opacity +';"></div>';
                 }else{
-                    container.innerHTML += '<div class="box" style="background-color: rgb('+ r +', '+ g +', '+ b +');"></div>';
+                    container.innerHTML += '<div class="box" style="width:'+ boxWidth(level) +'px; height:'+ boxHeight(level) +'px; background-color: rgb('+ r +', '+ g +', '+ b +');"></div>';
                     // 用樣板字樣的方式
                     // container.innerHTML += `<div class="box" style="background-color: rgb(${r},$(g),$(b));"></div>`;
                 }
             }
-            
+            // const box = document.querySelector('.box');
+            // box.style.width = ((700-(level*20))/level + 1) +'px';
+            // box.style.hight = ((700-(level*20))/level + 1) +'px';
+            // console.log(hight);
             // 當點擊到正確答案
             const blocks = document.querySelectorAll('.box');
             for (let index = 0; index < (level ** 2); index++) {
