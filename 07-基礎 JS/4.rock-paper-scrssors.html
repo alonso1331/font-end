@@ -23,18 +23,51 @@
         }
 
         main{
+            padding: 20px;
             background-color: wheat;
             display: flex;
             flex-direction: column;
-            justify-self: center;
+            justify-content: center;
             width: 100%;
             height: 94.8vh;
             text-align: center;
         }
+
+        .mask{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #FCE33A;
+            opacity: 0.6;
+        }
+
+        button{
+            background-color: #113285;
+            color: aliceblue;
+            font-size: 22px;
+            border: 0px;
+            border-radius: 12px;
+            padding: 10px 14px;
+            display: none;
+            cursor: pointer;
+            opacity: 1;
+        }
         
         h1{
-            margin: 20px auto;
+            margin: 0px auto 20px;
             color: red;
+            width: 100%;
+            height: 40px;
+            opacity: 1;
+        }
+
+        h2{
+            display: block;
+            width: 90%;
+            height: 40px;
+            margin: auto;
+            border-bottom: #113285 solid 4px;
         }
         
         .zone{
@@ -44,7 +77,7 @@
 
         .computer, .player{
             width: 50%;
-            height: 85vh;
+            height: 83vh;
         }
 
         .computer{
@@ -53,40 +86,196 @@
 
         h3{
             display: block;
-            margin: 14px auto;
+            margin: 18px auto;
         }
 
+        p{
+            font-size: 22px;
+            margin-top: 40px;
+        }
 
+        /* 出拳展示區共同設定 */
+        .show{
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            width: 60%;
+            height: 50%;
+            background-color: cornsilk;
+            margin: 0px auto 10px;
+        }
+
+        .show img{
+            width: 100%;
+        }
+        
+        /* 玩家出拳展示區 */
+        .player .show img{
+            transform: rotateY(180deg);
+        }
+        
+        .picture{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .picture img{
+            transform: rotateY(180deg);
+            width: 20%;
+            height: 20%;
+            cursor: pointer;
+        }
+
+        .picture img:nth-child(2){
+            margin: 0px 20px;
+        }
+
+        .picture img:hover{
+            transform: scale(1.2) rotateY(180deg);
+        }
     </style>
 </head>
 <body>
     <nav>猜拳遊戲</nav>
     <main>
-        <h1>玩家勝</h1>
+        <h1></h1>
+        <button type="button">再來一次？</button>
         <div class="zone">
             <div class="computer">
                 <h2>電腦</h2>
-                <h3>勝利次數</h3>
+                <h3>勝利次數：0</h3>
                 <div class="show"></div>
             </div>
             <div class="player">
                 <h2>玩家</h2>
-                <h3>勝利次數</h3>
+                <h3>勝利次數：0</h3>
                 <div class="show"></div>
+                <p>請出拳：</p>
+                <div class="picture">
+                    <img src="./img/rock-svgrepo-com.svg" alt="" class="rock">
+                    <img src="./img/paper-svgrepo-com.svg" alt="" class="paper">
+                    <img src="./img/scissors-svgrepo-com.svg" alt="" class="scissors">
+                </div>
             </div>
         </div>
     </main>
     
     <script>
+        const main = document.querySelector('main');
+        const h1 = document.querySelector('h1');
+        const btn = document.querySelector('button');
+        const zone = document.querySelector('.zone');
+        const computerNmber = document.querySelector('.computer h3');
+        const playerNmber = document.querySelector('.player h3');
+        const computer = document.querySelector('.computer .show');
+        const player = document.querySelector('.player .show');
+        const rock = document.querySelector('.rock');
+        const paper = document.querySelector('.paper');
+        const scissors = document.querySelector('.scissors');
 
-        function game(){
-            let random = Math.floor(Math.random()*3);
-            if ra
-            
+        let playerNumber = 0;
+        let playerWin = 0;
+        let computerWin = 0;
 
+        playerGame()
 
-        }
+        // 玩家出拳後觸發電腦出拳
+        function playerGame(){
+            rock.addEventListener('click', () => {
+                player.innerHTML = '<img src="./img/rock-svgrepo-com.svg" alt="" class="rock">';
+                playerNumber = 0;
+                game();
+            });
+
+            paper.addEventListener('click', () => {
+                player.innerHTML = '<img src="./img/paper-svgrepo-com.svg" alt="" class="paper">';
+                playerNumber = 1;
+                game();
+            });
+
+            scissors.addEventListener('click', () => {
+                player.innerHTML = '<img src="./img/scissors-svgrepo-com.svg" alt="" class="scissors">';
+                playerNumber = 2;
+                game();
+            });
+        };
         
+        function game(){
+            // 電腦隨機出拳
+            let random = Math.floor(Math.random()*3);
+            if (random == 0){
+                computer.innerHTML = '<img src="./img/rock-svgrepo-com.svg" alt="" class="rock">'
+            } else if( random == 1){
+                computer.innerHTML = '<img src="./img/paper-svgrepo-com.svg" alt="" class="rock">'
+            } else {
+                computer.innerHTML = '<img src="./img/scissors-svgrepo-com.svg" alt="" class="rock">'
+            }
+
+            // 玩家贏3次，即停止遊戲
+            if (playerWin == 2) {
+                main.classList.add('mask');
+                zone.style.display = 'none';
+                h1.innerHTML = '恭喜你贏了！';
+                btn.style.display = 'block';
+            } else if (computerWin == 2) {
+                main.classList.add('mask');
+                zone.style.display = 'none';
+                h1.innerHTML = '你輸了！';
+                btn.innerHTML = '再挑戰一次嗎？';
+                btn.style.display = 'block';
+            }else{
+                //判定猜拳結果、贏的次數
+                if ( (random == 0) && (playerNumber == 1)) {
+                    h1.innerHTML = '玩家贏';
+                    playerWin++;
+                    playerNmber.innerHTML = '勝利次數：'+ playerWin +'';
+                } else if ( (random == 0) && (playerNumber == 2)) {
+                    h1.innerHTML = '電腦贏';
+                    computerWin++;
+                    computerNmber.innerHTML = '勝利次數：'+ computerWin +'';
+                } else if ( (random == 1) && (playerNumber == 0)) {
+                    h1.innerHTML = '電腦贏';
+                    computerWin++;
+                    computerNmber.innerHTML = '勝利次數：'+ computerWin +'';
+                } else if ( (random == 1) && (playerNumber == 2)) {
+                    h1.innerHTML = '玩家贏';
+                    playerWin++;
+                    playerNmber.innerHTML = '勝利次數：'+ playerWin +'';
+                } else if ( (random == 2) && (playerNumber == 0)) {
+                    h1.innerHTML = '玩家贏';
+                    playerWin++;
+                    playerNmber.innerHTML = '勝利次數：'+ playerWin +'';
+                } else if ( (random == 2) && (playerNumber == 1)) {
+                    h1.innerHTML = '電腦贏';
+                    computerWin++;
+                    computerNmber.innerHTML = '勝利次數：'+ computerWin +'';
+                } else {
+                    h1.innerHTML = '平手';
+                }
+                console.log(playerWin);
+            }
+        };
+        
+
+        newGame();
+
+        function newGame(){
+            btn.addEventListener('click', () => {
+                main.classList.remove('mask');
+                zone.style.display = 'flex';
+                h1.innerHTML = '';
+                btn.innerHTML = '再來一次？';
+                btn.style.display = 'none';
+                h1.innerHTML = '';
+                playerNmber.innerHTML = '勝利次數：0';
+                computerNmber.innerHTML = '勝利次數：0';
+                player.innerHTML = '';
+                computer.innerHTML = '';
+                playerWin = 0;
+                computerWin = 0;
+            });
+        };
     </script>
 </body>
 </html>
