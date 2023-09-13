@@ -39,10 +39,11 @@
         border-top-left-radius: 14px;
         color: floralwhite;
         cursor: pointer;
+        text-align: center;
     }
 
     .tab2{
-        margin: 0px 40px;
+        margin: 0px 20px;
     }
 
     .contents{
@@ -67,13 +68,17 @@
         display: block;
         width: 100%;
         height: 50px;
+        margin-bottom: 16px;
     }
 
     .act{
         background-color: violet;
+        color: darkblue;
+        font-weight: bolder;
     }
 
-    content div .active{
+    /* .active 與div 分開和連起來會抓到不同的DOM */
+    .contents div.active{
         display: block;
     }
 
@@ -81,21 +86,21 @@
 <body>
     <main>
         <div class="tabs">
-            <div class="tab tab1 act">Tab1</div>
-            <div class="tab tab2">Tab2</div>
-            <div class="tab tab3">Tab3</div>
+            <div class="tab tab1 act">風</div>
+            <div class="tab tab2">雅</div>
+            <div class="tab tab3">頌</div>
         </div>
         <div class="contents">
             <div class="content active">
-                <h1>content1</h1>
+                <h1>風</h1>
                 <p>二人出口，看出批發方面手裡準備相信，服務項目當天他不，優惠眼中針對機關沒有手指遵守，你還糖尿病周圍。</p>
             </div>
             <div class="content">
-                <h1>content2</h1>
+                <h1>雅</h1>
                 <p>組織瀏覽本人現實，一方面病人液晶山西參考雙手配件獲取網遊人體歡迎光臨，手機相信第一章品種。</p>
             </div>
             <div class="content">
-                <h1>content3</h1>
+                <h1>頌</h1>
                 <p>強烈範圍內排名指數這樣紅色資料庫任何人，和他所以，一句話它的絶對工程發行房產團隊演出日記我的心情況物流，那麼不管交流我。</p>
             </div>
         </div>
@@ -104,7 +109,6 @@
     <script>
         const tabs = document.querySelectorAll('.tab');
         const contents = document.querySelectorAll('.content');
-        console.log(tabs);
         
         tabs.forEach((tab, index) => {
             tab.addEventListener('click', () => {
@@ -117,6 +121,7 @@
                     // content.style.display = 'none';
                     content.classList.remove('active');
                 });
+                // contents[index].style.display = 'block';
                 contents[index].classList.add('active');
             });
         });
