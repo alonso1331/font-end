@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab 頁籤</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        height: 0px;
+        box-sizing: border-box;
+    }
+
+    main{
+        display: block;
+        background-color: bisque;
+        width: 100%;
+        height: 100vh;
+        padding: 20px 30px;
+    }
+
+    .tabs{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 400px;
+        height: 60px;
+    }
+
+    .tab{
+        width: 100px;
+        height: 60px;
+        line-height: 40px;
+        font-size: 30px;
+        padding: 10px 20px;
+        background-color: cornflowerblue;
+        border-top-right-radius: 14px;
+        border-top-left-radius: 14px;
+        color: floralwhite;
+        cursor: pointer;
+    }
+
+    .tab2{
+        margin: 0px 40px;
+    }
+
+    .contents{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 400px;
+        border: cornflowerblue solid 4px;
+        padding: 20px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+
+    .contents div{
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    h1{
+        display: block;
+        width: 100%;
+        height: 50px;
+    }
+
+    .act{
+        background-color: violet;
+    }
+
+    content div .active{
+        display: block;
+    }
+
+</style>
+<body>
+    <main>
+        <div class="tabs">
+            <div class="tab tab1 act">Tab1</div>
+            <div class="tab tab2">Tab2</div>
+            <div class="tab tab3">Tab3</div>
+        </div>
+        <div class="contents">
+            <div class="content active">
+                <h1>content1</h1>
+                <p>二人出口，看出批發方面手裡準備相信，服務項目當天他不，優惠眼中針對機關沒有手指遵守，你還糖尿病周圍。</p>
+            </div>
+            <div class="content">
+                <h1>content2</h1>
+                <p>組織瀏覽本人現實，一方面病人液晶山西參考雙手配件獲取網遊人體歡迎光臨，手機相信第一章品種。</p>
+            </div>
+            <div class="content">
+                <h1>content3</h1>
+                <p>強烈範圍內排名指數這樣紅色資料庫任何人，和他所以，一句話它的絶對工程發行房產團隊演出日記我的心情況物流，那麼不管交流我。</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.content');
+        console.log(tabs);
+        
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                tabs.forEach((item) =>　{
+                    item.classList.remove('act');
+                });
+                tab.classList.add('act');
+                
+                contents.forEach((content) => {
+                    // content.style.display = 'none';
+                    content.classList.remove('active');
+                });
+                contents[index].classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
