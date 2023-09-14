@@ -31,14 +31,25 @@
         h1{
             color: gold;
             width: 100%;
-            height: 40px;
+            height: 50px;
             text-align: center;
+            font-size: 42px;
+        }
+
+        h2{
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        h3{
+            display: inline-block;
+            font-size: 34px;
         }
 
         nav img{
             width: 60%;
             height: 10%;
-            margin: 40px;
+            margin: 70px 0px;
         }
 
         main{
@@ -67,19 +78,31 @@
             transform: scale(0.9);
         }
 
-        .show{
+        p{
+            width: 310px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 28px;
+            background-color: #598c14;
+            color: yellow;
+            border-radius: 8px;
+            display: none;
+            margin: 50px;
+        }
+
+        .dices{
             display: flex;
             justify-content: center;
             padding: 30px;
             position: relative;
         }
 
-        .show img{
+        .dices img{
             width: 25%;
-            /* height: 60%; */
         }
 
-        .show img:nth-child(2){
+        .dices img:nth-child(2){
             position: absolute;
             top: 80%;
             left: 37.5%;
@@ -92,53 +115,127 @@
         <h1>十八拉</h1>
         <img src="./img/pngwing.com.png" alt="">
         <h2>總計：0</h2>
+        <h3>次數：0</h3>
     </nav>
     <main>
         <button type="button">請擲骰子</button>
-        <div class="show">
-            <!-- <img src="./img/dice-6-svgrepo-com.svg" alt="" class="dice1">
-            <img src="./img/dice-5-svgrepo-com.svg" alt="" class="dice2">
-            <img src="./img/dice-4-svgrepo-com.svg" alt="" class="dice3"> -->
+        <p>已經20次了，遊戲結束</p>
+        <div class="dices">
+            <img src="./img/dice-6-svgrepo-com.svg" alt="" class="dice dice1">
+            <img src="./img/dice-5-svgrepo-com.svg" alt="" class="dice dice2">
+            <img src="./img/dice-4-svgrepo-com.svg" alt="" class="dice dice3">
         </div>
     </main>
 
-    
     <script>
         const h2 = document.querySelector('h2');
+        const h3 = document.querySelector('h3');
         const btn = document.querySelector('button');
+        const p = document.querySelector('p');
+        const dices = document.querySelectorAll('.dice');
         const img1 = document.querySelector('.dice1');
         const img2 = document.querySelector('.dice2');
         const img3 = document.querySelector('.dice3');
+        let total = 0;
+        let times = 0;
 
-        // 隨機擲出骰子
-        let dice1 = Math.floor(Math.random() * 6);
-        let dice2 = Math.floor(Math.random() * 6);
-        let dice3 = Math.floor(Math.random() * 6);
-
+        // 點擊請擲骰子後的程式運作
         btn.addEventListener('click', ()=>{
+            // 隨機擲出骰子
+            let dice1 = Math.floor(Math.random() * 6)+1;
+            let dice2 = Math.floor(Math.random() * 6)+1;
+            let dice3 = Math.floor(Math.random() * 6)+1;
             console.log(dice1, dice2, dice3);
-            if ( dice1 == 0 ) {
 
-                h2.innerHTML = 'debug';
-                // img1.innerHTML = '<img src="./img/dice-1-svgrepo-com.svg" alt="" class="dice1">';
+            // 計算點擊次數
+            times++;
+            // console.log(times);
+            
+            // 判斷次數
+            // 當我點擊20次，要計算20次的總和，但是第20次結束後，就要停止遊戲
+            // 如果if 優先執行 p.style.display = 'block'; 會讓程式少一次計算或多按一次才會跳出停止遊戲的提示
+            if ( times < 20 ){
+                if ( dice1 == 1 ) {
+                    img1.src = "./img/dice-1-svgrepo-com.svg";
+                    // img3.src = "./img/dice-1-svgrepo-com.svg";
+                    // console.log(0);
+                } else if ( dice1 == 2 ) {
+                    img1.src = "./img/dice-2-svgrepo-com.svg";
+                    // img3.src = "./img/dice-2-svgrepo-com.svg";
+                    // console.log(1);
+                } else if ( dice1 == 3 ) {
+                    img1.src = "./img/dice-3-svgrepo-com.svg";
+                    
+                    // img3.src = "./img/dice-3-svgrepo-com.svg";
+                    // console.log(2);
+                } else if ( dice1 == 4 ) {
+                    img1.src = "./img/dice-4-svgrepo-com.svg";
+                    
+                    // img3.src = "./img/dice-4-svgrepo-com.svg";
+                    // console.log(3);
+                } else if ( dice1 == 5 ) {
+                    img1.src = "./img/dice-5-svgrepo-com.svg";
+                    
+                    // img3.src = "./img/dice-5-svgrepo-com.svg";
+                    // console.log(4);
+                } else {
+                    img1.src = "./img/dice-6-svgrepo-com.svg";
+                    // img3.src = "./img/dice-6-svgrepo-com.svg";
+                    // console.log(5);
+                // } else if ( dice2 == 1){
+                //     img2.src = "./img/dice-1-svgrepo-com.svg";
+                // } else if ( dice2 == 2){
+                //     img2.src = "./img/dice-2-svgrepo-com.svg";
+                // } else if ( dice2 == 3){
+                //     img2.src = "./img/dice-3-svgrepo-com.svg";
+                // } else if ( dice2 == 4){
+                //     img2.src = "./img/dice-4-svgrepo-com.svg";
+                // } else if ( dice2 == 5){
+                //     img2.src = "./img/dice-5-svgrepo-com.svg";
+                // } else if ( dice2 == 6){
+                //     img2.src = "./img/dice-6-svgrepo-com.svg";
+                }
+            } else {       
+                btn.style.display = 'none';
+                p.style.display = 'block';
+            };
 
-            } else if ( dice1 == 1 ) {
-                // img1.innerHTML = '<img src="./img/dice-2-svgrepo-com.svg" alt="" class="dice1">';
-                h2.innerHTML = 'debug2';
-            } else if ( dice1 == 2 ) {
-                // img1.innerHTML = '<img src="./img/dice-3-svgrepo-com.svg" alt="" class="dice1">';
-                h2.innerHTML = 'debug3';
-            } else if ( dice1 == 3 ) {
-                // img1.innerHTML = '<img src="./img/dice-4-svgrepo-com.svg" alt="" class="dice1">';
-                h2.innerHTML = 'debug4';
-            } else if ( dice1 == 4 ) {
-                // img1.innerHTML = '<img src="./img/dice-5-svgrepo-com.svg" alt="" class="dice1">';
-                h2.innerHTML = 'debug5';
+            if ( dice2 == 1 ) {
+                img2.src = "./img/dice-1-svgrepo-com.svg";
+            } else if ( dice2 == 2 ) {
+                img2.src = "./img/dice-2-svgrepo-com.svg";
+            } else if ( dice2 == 3 ) {
+                img2.src = "./img/dice-3-svgrepo-com.svg";
+            } else if ( dice2 == 4 ) {
+                img2.src = "./img/dice-4-svgrepo-com.svg";
+            } else if ( dice2 == 5 ) {
+                img2.src = "./img/dice-5-svgrepo-com.svg";
             } else {
-                // img1.innerHTML = '<img src="./img/dice-6-svgrepo-com.svg" alt="" class="dice1">';
-                h2.innerHTML = 'debug6';
-            }
+                img2.src = "./img/dice-6-svgrepo-com.svg";
+            };
+            
+            if ( dice3 == 1 ) {
+                img3.src = "./img/dice-1-svgrepo-com.svg";
+            } else if ( dice3 == 2 ) {
+                img3.src = "./img/dice-2-svgrepo-com.svg";
+            } else if ( dice3 == 3 ) {
+                img3.src = "./img/dice-3-svgrepo-com.svg";
+            } else if ( dice3 == 4 ) {
+                img3.src = "./img/dice-4-svgrepo-com.svg";
+            } else if ( dice3 == 5 ) {
+                img3.src = "./img/dice-5-svgrepo-com.svg";
+            } else {
+                img3.src = "./img/dice-6-svgrepo-com.svg";
+            };
+
+            total += dice1 + dice2 + dice3;
+            h2.innerHTML = '總計：' + total + '';
+            h2.style.color = 'mediumblue';
+            h3.innerHTML = '次數：' + times + '';
+            h3.style.color = 'khaki';
         });
+
+
     </script>
 </body>
 </html>
