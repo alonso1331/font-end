@@ -109,22 +109,33 @@
     <script>
         const tabs = document.querySelectorAll('.tab');
         const contents = document.querySelectorAll('.content');
-        
+
         tabs.forEach((tab, index) => {
             tab.addEventListener('click', () => {
-                tabs.forEach((item) =>　{
+                tabs.forEach((item, index2) => {
                     item.classList.remove('act');
-                });
-                tab.classList.add('act');
-                
-                contents.forEach((content) => {
-                    // content.style.display = 'none';
-                    content.classList.remove('active');
-                });
-                // contents[index].style.display = 'block';
-                contents[index].classList.add('active');
+                    contents[index2].style.display = 'none';
+                })
+                tabs[index].classList.add('act');
+                contents[index].style.display = 'block';
             });
         });
+        
+        // tabs.forEach((tab, index) => {
+        //     tab.addEventListener('click', () => {
+        //         tabs.forEach((item) =>　{
+        //             item.classList.remove('act');
+        //         });
+        //         tab.classList.add('act');
+                
+        //         contents.forEach((content) => {
+        //             // content.style.display = 'none';
+        //             content.classList.remove('active');
+        //         });
+        //         // contents[index].style.display = 'block';
+        //         contents[index].classList.add('active');
+        //     });
+        // });
     </script>
 </body>
 </html>
