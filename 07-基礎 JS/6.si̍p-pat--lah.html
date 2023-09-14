@@ -20,36 +20,56 @@
 
         nav{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
             width: 20%;
             height: 100vh;
             background-color: #598c14;
-            padding: 20px 0px;
+            padding: 15px 0px;
         }
 
         h1{
+            display: inline-block;
             color: gold;
-            width: 100%;
+            width: 100px;
             height: 50px;
-            text-align: center;
-            font-size: 42px;
+            
+            /* text-align: center; */
+            /* font-size: 36px; */
         }
 
         h2{
-            font-size: 38px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            width: 100%;
+            text-align: center;
+        }
+
+        span{
+            margin: 10px 0px;
+            font-size: 26px;
+        }
+
+        span:nth-child(even){
+            margin-right: 22px;
         }
 
         h3{
             display: inline-block;
-            font-size: 34px;
+            font-size: 28px; 
+        }
+
+        h4{
+            display: inline-block;
+            font-size: 30px;
         }
 
         nav img{
-            width: 60%;
-            height: 10%;
-            margin: 70px 0px;
+            width: 30%;
+            height: 8%;
+            /* margin: 20px 0px; */
+            margin-right: 24px;
         }
 
         main{
@@ -121,14 +141,35 @@
             top: 80%;
             left: 37.5%;
         }
-
     </style>
 </head>
 <body>
     <nav>
-        <h1>十八拉</h1>
         <img src="./img/pngwing.com.png" alt="">
+        <h1>十八拉</h1>
         <h2>總計：0</h2>
+        <!-- <div class="spans"> -->
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+            <span>4+5+6=15</span>
+        <!-- </div> -->
         <h3>次數：0</h3>
     </nav>
     <main>
@@ -144,6 +185,9 @@
     <script>
         const h2 = document.querySelector('h2');
         const h3 = document.querySelector('h3');
+        // const spans = document.querySelectorAll('span');
+        const span = document.querySelector('span');
+        // const operation = document.querySelectorAll('span');
         const btn = document.querySelector('button');
         const p = document.querySelector('p');
         const dices = document.querySelectorAll('.dice');
@@ -154,7 +198,7 @@
         let times = 0;
 
         // 點擊請擲骰子後的程式運作
-        btn.addEventListener('click', ()=>{
+        btn.addEventListener('click', ()=> {
             // 隨機擲出骰子
             let dice1 = Math.floor(Math.random() * 6)+1;
             let dice2 = Math.floor(Math.random() * 6)+1;
@@ -223,11 +267,21 @@
                 img2.classList.remove('rotate2');
                 img3.classList.remove('rotate3');
             };
+
+            // spans.forEach((span, index) => {
+            //     // span.innerHTML = `${dice1} + ${dice2} + dice3 + '=' + total;`;
+            //     // // dice1 + dice2 + dice3 + '=' + total;
+            //     span.innerHTML = '1+2+5=6';
+            // });
+            span.innerHTML = dice1 + dice2 + dice3 = total;
             total += dice1 + dice2 + dice3;
             h2.innerHTML = '總計：' + total + '';
             h2.style.color = 'mediumblue';
+            // spans.innerHTML = '';
             h3.innerHTML = '次數：' + times + '';
             h3.style.color = 'khaki';
+
+            sessionStorage.setItem
         });
     </script>
 </body>
