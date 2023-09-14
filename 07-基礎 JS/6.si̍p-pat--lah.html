@@ -72,10 +72,12 @@
             background-color: #598c14;
             color: #f9e498;
             font-size: 30px;
+            box-shadow: 2px 3px 7px 2px #000;
         }
 
         button:hover{
             transform: scale(0.9);
+            /* box-shadow: none; */
         }
 
         p{
@@ -100,6 +102,18 @@
 
         .dices img{
             width: 25%;
+        }
+
+        .rotate1{
+            transform: rotateZ(342deg)
+        }
+
+        .rotate2{
+            transform: rotateZ(10deg)
+        }
+
+        .rotate3{
+            transform: rotateZ(352deg);
         }
 
         .dices img:nth-child(2){
@@ -155,87 +169,66 @@
             // 當我點擊20次，要計算20次的總和，但是第20次結束後，就要停止遊戲
             // 如果if 優先執行 p.style.display = 'block'; 會讓程式少一次計算或多按一次才會跳出停止遊戲的提示
             if ( times < 20 ){
+                // 第一個骰子
                 if ( dice1 == 1 ) {
                     img1.src = "./img/dice-1-svgrepo-com.svg";
-                    // img3.src = "./img/dice-1-svgrepo-com.svg";
-                    // console.log(0);
                 } else if ( dice1 == 2 ) {
                     img1.src = "./img/dice-2-svgrepo-com.svg";
-                    // img3.src = "./img/dice-2-svgrepo-com.svg";
-                    // console.log(1);
                 } else if ( dice1 == 3 ) {
                     img1.src = "./img/dice-3-svgrepo-com.svg";
-                    
-                    // img3.src = "./img/dice-3-svgrepo-com.svg";
-                    // console.log(2);
                 } else if ( dice1 == 4 ) {
                     img1.src = "./img/dice-4-svgrepo-com.svg";
-                    
-                    // img3.src = "./img/dice-4-svgrepo-com.svg";
-                    // console.log(3);
                 } else if ( dice1 == 5 ) {
                     img1.src = "./img/dice-5-svgrepo-com.svg";
-                    
-                    // img3.src = "./img/dice-5-svgrepo-com.svg";
-                    // console.log(4);
                 } else {
                     img1.src = "./img/dice-6-svgrepo-com.svg";
-                    // img3.src = "./img/dice-6-svgrepo-com.svg";
-                    // console.log(5);
-                // } else if ( dice2 == 1){
-                //     img2.src = "./img/dice-1-svgrepo-com.svg";
-                // } else if ( dice2 == 2){
-                //     img2.src = "./img/dice-2-svgrepo-com.svg";
-                // } else if ( dice2 == 3){
-                //     img2.src = "./img/dice-3-svgrepo-com.svg";
-                // } else if ( dice2 == 4){
-                //     img2.src = "./img/dice-4-svgrepo-com.svg";
-                // } else if ( dice2 == 5){
-                //     img2.src = "./img/dice-5-svgrepo-com.svg";
-                // } else if ( dice2 == 6){
-                //     img2.src = "./img/dice-6-svgrepo-com.svg";
                 }
+            
+                // 第二個骰子
+                if ( dice2 == 1 ) {
+                    img2.src = "./img/dice-1-svgrepo-com.svg";
+                } else if ( dice2 == 2 ) {
+                    img2.src = "./img/dice-2-svgrepo-com.svg";
+                } else if ( dice2 == 3 ) {
+                    img2.src = "./img/dice-3-svgrepo-com.svg";
+                } else if ( dice2 == 4 ) {
+                    img2.src = "./img/dice-4-svgrepo-com.svg";
+                } else if ( dice2 == 5 ) {
+                    img2.src = "./img/dice-5-svgrepo-com.svg";
+                } else {
+                    img2.src = "./img/dice-6-svgrepo-com.svg";
+                };
+                
+                // 第三個骰子
+                if ( dice3 == 1 ) {
+                    img3.src = "./img/dice-1-svgrepo-com.svg";
+                } else if ( dice3 == 2 ) {
+                    img3.src = "./img/dice-2-svgrepo-com.svg";
+                } else if ( dice3 == 3 ) {
+                    img3.src = "./img/dice-3-svgrepo-com.svg";
+                } else if ( dice3 == 4 ) {
+                    img3.src = "./img/dice-4-svgrepo-com.svg";
+                } else if ( dice3 == 5 ) {
+                    img3.src = "./img/dice-5-svgrepo-com.svg";
+                } else {
+                    img3.src = "./img/dice-6-svgrepo-com.svg";
+                };
+                img1.classList.add('rotate1');
+                img2.classList.add('rotate2');
+                img3.classList.add('rotate3');
             } else {       
                 btn.style.display = 'none';
                 p.style.display = 'block';
+                img1.classList.remove('rotate1');
+                img2.classList.remove('rotate2');
+                img3.classList.remove('rotate3');
             };
-
-            if ( dice2 == 1 ) {
-                img2.src = "./img/dice-1-svgrepo-com.svg";
-            } else if ( dice2 == 2 ) {
-                img2.src = "./img/dice-2-svgrepo-com.svg";
-            } else if ( dice2 == 3 ) {
-                img2.src = "./img/dice-3-svgrepo-com.svg";
-            } else if ( dice2 == 4 ) {
-                img2.src = "./img/dice-4-svgrepo-com.svg";
-            } else if ( dice2 == 5 ) {
-                img2.src = "./img/dice-5-svgrepo-com.svg";
-            } else {
-                img2.src = "./img/dice-6-svgrepo-com.svg";
-            };
-            
-            if ( dice3 == 1 ) {
-                img3.src = "./img/dice-1-svgrepo-com.svg";
-            } else if ( dice3 == 2 ) {
-                img3.src = "./img/dice-2-svgrepo-com.svg";
-            } else if ( dice3 == 3 ) {
-                img3.src = "./img/dice-3-svgrepo-com.svg";
-            } else if ( dice3 == 4 ) {
-                img3.src = "./img/dice-4-svgrepo-com.svg";
-            } else if ( dice3 == 5 ) {
-                img3.src = "./img/dice-5-svgrepo-com.svg";
-            } else {
-                img3.src = "./img/dice-6-svgrepo-com.svg";
-            };
-
             total += dice1 + dice2 + dice3;
             h2.innerHTML = '總計：' + total + '';
             h2.style.color = 'mediumblue';
             h3.innerHTML = '次數：' + times + '';
             h3.style.color = 'khaki';
         });
-
-
     </script>
 </body>
 </html>
