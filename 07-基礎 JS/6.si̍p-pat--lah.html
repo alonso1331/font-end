@@ -23,11 +23,10 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
             width: 20%;
             height: 100vh;
             background-color: #598c14;
-            padding: 15px 0px;
+            padding: 30px 20px;
         }
 
         h1{
@@ -35,7 +34,7 @@
             color: gold;
             width: 100px;
             height: 50px;
-            
+            line-height: 74.58px;
             /* text-align: center; */
             /* font-size: 36px; */
         }
@@ -46,23 +45,28 @@
             text-align: center;
         }
 
-        span{
-            margin: 10px 0px;
-            font-size: 26px;
+        .records{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        span:nth-child(even){
-            margin-right: 22px;
+        span{
+            font-size: 26px;
+            margin: 10px 0px;
+            width: 109px;
+        }
+
+        span:nth-child(odd){
+            margin-right: 40px;
+            width: 108px;
         }
 
         h3{
             display: inline-block;
+            width: 100%;
+            text-align: center;
             font-size: 28px; 
-        }
-
-        h4{
-            display: inline-block;
-            font-size: 30px;
         }
 
         nav img{
@@ -148,28 +152,7 @@
         <img src="./img/pngwing.com.png" alt="">
         <h1>十八拉</h1>
         <h2>總計：0</h2>
-        <!-- <div class="spans"> -->
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-            <span>4+5+6=15</span>
-        <!-- </div> -->
+        <div class="records"></div>
         <h3>次數：0</h3>
     </nav>
     <main>
@@ -186,7 +169,7 @@
         const h2 = document.querySelector('h2');
         const h3 = document.querySelector('h3');
         // const spans = document.querySelectorAll('span');
-        const span = document.querySelector('span');
+        const records = document.querySelector('.records');
         // const operation = document.querySelectorAll('span');
         const btn = document.querySelector('button');
         const p = document.querySelector('p');
@@ -273,15 +256,30 @@
             //     // // dice1 + dice2 + dice3 + '=' + total;
             //     span.innerHTML = '1+2+5=6';
             // });
-            span.innerHTML = dice1 + dice2 + dice3 = total;
+            // span.innerHTML = dice1 + dice2 + dice3 = total;
             total += dice1 + dice2 + dice3;
             h2.innerHTML = '總計：' + total + '';
             h2.style.color = 'mediumblue';
             // spans.innerHTML = '';
             h3.innerHTML = '次數：' + times + '';
             h3.style.color = 'khaki';
-
-            sessionStorage.setItem
+            
+            // 將骰子的點數相加的公式渲染到html
+            // 建立一個空的陣列
+            const array = [];
+            const add = '+';
+            const equal = '=';
+            // 建立一個變數，是三個數字相加的總和
+            let number = dice1 + dice2 + dice3;
+            // 將運算公式寫在record變數裡
+            let record = dice1 + add + dice2 + add + dice3 + equal + number;
+            // 把變數推到array
+            array.push(record);
+            // 用forEach迴圈將資料渲染到html
+            array.forEach(item => {
+                records.innerHTML += '<span>' + array + '</span>';
+            });
+            // sessionStorage.setItem 另一種方式？
         });
     </script>
 </body>
