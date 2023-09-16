@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/gold-dice.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>十八骰子</title>
     <style>
         *{
@@ -162,6 +163,9 @@
             <img src="./img/dice-6-svgrepo-com.svg" alt="" class="dice dice1">
             <img src="./img/dice-5-svgrepo-com.svg" alt="" class="dice dice2">
             <img src="./img/dice-4-svgrepo-com.svg" alt="" class="dice dice3">
+            <!-- <img src="./img/dice-6-svgrepo-com.svg" alt="" class="dice dice1 animate__animated animate__rotateInDownLeft">
+            <img src="./img/dice-5-svgrepo-com.svg" alt="" class="dice dice2 animate__animated animate__rotateInDownRight">
+            <img src="./img/dice-4-svgrepo-com.svg" alt="" class="dice dice3 animate__animated animate__rotateInDownLeft"> -->
         </div>
     </main>
 
@@ -196,6 +200,64 @@
             // 當我點擊20次，要計算20次的總和，但是第20次結束後，就要停止遊戲
             // 如果if 優先執行 p.style.display = 'block'; 會讓程式少一次計算或多按一次才會跳出停止遊戲的提示
             if ( times < 20 ){
+                diceImgChange();
+                img1.classList.add('rotate1');
+                img2.classList.add('rotate2');
+                img3.classList.add('rotate3');
+            } else {
+                diceImgChange();    
+                btn.style.display = 'none';
+                p.style.display = 'block';
+                img1.classList.remove('rotate1');
+                img2.classList.remove('rotate2');
+                img3.classList.remove('rotate3');
+            };
+
+            // 骰子的隨機角度
+            let rotateZ1 = Math.floor((365 - Math.random()*73)+32);
+            let rotateZ2 = Math.floor((365 - Math.random()*73)+32);
+            let rotateZ3 = Math.floor((365 - Math.random()*73)+32);
+            console.log(rotateZ1,rotateZ2,rotateZ3);
+
+            img1.style.transform = 'rotate(' + rotateZ1 +'deg)';
+            img2.style.transform = 'rotate(' + rotateZ2 +'deg)';
+            img3.style.transform = 'rotate(' + rotateZ3 +'deg)';
+
+            total += dice1 + dice2 + dice3;
+            h2.innerHTML = '總計：' + total + '';
+            h2.style.color = 'mediumblue';
+            // spans.innerHTML = '';
+            h3.innerHTML = '次數：' + times + '';
+            h3.style.color = 'khaki';
+            
+            // 將骰子的點數相加的公式渲染到html
+            // 建立一個空的陣列
+            const array = [];
+            const add = '+';
+            const equal = '=';
+            // 建立一個變數，是三個數字相加的總和
+            let number = dice1 + dice2 + dice3;
+            // 將運算公式寫在record變數裡
+            let record = dice1 + add + dice2 + add + dice3 + equal + number;
+            // 把變數推到array
+            array.push(record);
+            // 用forEach迴圈將資料渲染到html
+            array.forEach(item => {
+                records.innerHTML += '<span>' + array + '</span>';
+            });
+
+            // 將骰子的點數相加的公式渲染到html，原先錯誤的寫法
+            // spans.forEach((span, index) => {
+            //     // span.innerHTML = `${dice1} + ${dice2} + dice3 + '=' + total;`;
+            //     // // dice1 + dice2 + dice3 + '=' + total;
+            //     span.innerHTML = '1+2+5=6';
+            // });
+            // span.innerHTML = dice1 + dice2 + dice3 = total;
+
+            // sessionStorage.setItem 另一種方式？
+            
+            // 將轉變骰子圖片寫成一個function
+            function diceImgChange(){
                 // 第一個骰子
                 if ( dice1 == 1 ) {
                     img1.src = "./img/dice-1-svgrepo-com.svg";
@@ -240,46 +302,7 @@
                 } else {
                     img3.src = "./img/dice-6-svgrepo-com.svg";
                 };
-                img1.classList.add('rotate1');
-                img2.classList.add('rotate2');
-                img3.classList.add('rotate3');
-            } else {       
-                btn.style.display = 'none';
-                p.style.display = 'block';
-                img1.classList.remove('rotate1');
-                img2.classList.remove('rotate2');
-                img3.classList.remove('rotate3');
-            };
-
-            // spans.forEach((span, index) => {
-            //     // span.innerHTML = `${dice1} + ${dice2} + dice3 + '=' + total;`;
-            //     // // dice1 + dice2 + dice3 + '=' + total;
-            //     span.innerHTML = '1+2+5=6';
-            // });
-            // span.innerHTML = dice1 + dice2 + dice3 = total;
-            total += dice1 + dice2 + dice3;
-            h2.innerHTML = '總計：' + total + '';
-            h2.style.color = 'mediumblue';
-            // spans.innerHTML = '';
-            h3.innerHTML = '次數：' + times + '';
-            h3.style.color = 'khaki';
-            
-            // 將骰子的點數相加的公式渲染到html
-            // 建立一個空的陣列
-            const array = [];
-            const add = '+';
-            const equal = '=';
-            // 建立一個變數，是三個數字相加的總和
-            let number = dice1 + dice2 + dice3;
-            // 將運算公式寫在record變數裡
-            let record = dice1 + add + dice2 + add + dice3 + equal + number;
-            // 把變數推到array
-            array.push(record);
-            // 用forEach迴圈將資料渲染到html
-            array.forEach(item => {
-                records.innerHTML += '<span>' + array + '</span>';
-            });
-            // sessionStorage.setItem 另一種方式？
+            }
         });
     </script>
 </body>
