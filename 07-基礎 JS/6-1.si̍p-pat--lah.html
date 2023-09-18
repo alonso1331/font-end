@@ -195,120 +195,144 @@
         const img3 = document.querySelector('.dice3');
         let total = 0;
         let times = 0;
-
-        // 點擊請擲骰子後的程式運作
-        btn.addEventListener('click', ()=> {
-            // 隨機擲出骰子
-            let dice1 = Math.floor(Math.random() * 6)+1;
-            let dice2 = Math.floor(Math.random() * 6)+1;
-            let dice3 = Math.floor(Math.random() * 6)+1;
-            console.log(dice1, dice2, dice3);
-
-            // 計算點擊次數
-            times++;
-            // console.log(times);
-            
-            // 判斷次數
-            // 當我點擊20次，要計算20次的總和，但是第20次結束後，就要停止遊戲
-            // 如果if 優先執行 p.style.display = 'block'; 會讓程式少一次計算或多按一次才會跳出停止遊戲的提示
-            if ( times < 20 ){
-                diceImgChange();
-                img1.classList.add('rotate1');
-                img2.classList.add('rotate2');
-                img3.classList.add('rotate3');
-            } else {
-                diceImgChange();
-                btn.style.display = 'none';
-                p.style.display = 'block';
-                img1.classList.remove('rotate1');
-                img2.classList.remove('rotate2');
-                img3.classList.remove('rotate3');
-            };
-
-            // 骰子的隨機角度
-            let rotateZ1 = Math.floor((365 - Math.random()*73)+32);
-            let rotateZ2 = Math.floor((365 - Math.random()*73)+32);
-            let rotateZ3 = Math.floor((365 - Math.random()*73)+32);
-            console.log(rotateZ1,rotateZ2,rotateZ3);
-
-            img1.style.transform = 'rotate(' + rotateZ1 +'deg)';
-            img2.style.transform = 'rotate(' + rotateZ2 +'deg)';
-            img3.style.transform = 'rotate(' + rotateZ3 +'deg)';
-
-            total += dice1 + dice2 + dice3;
-            h2.innerHTML = '總計：' + total + '';
-            h2.style.color = 'mediumblue';
-            // spans.innerHTML = '';
-            h3.innerHTML = '次數：' + times + '';
-            // h3.style.color = 'khaki';
-            h3.style.color = '#598c14';
-            
-            // 將骰子的點數相加的公式渲染到html
-            // 建立一個空的陣列
-            const array = [];
-            const add = '+';
-            const equal = '=';
-            // 建立一個變數，是三個數字相加的總和
-            let number = dice1 + dice2 + dice3;
-            // 將運算公式寫在record變數裡
-            let record = dice1 + add + dice2 + add + dice3 + equal + number;
-            // 把變數推到array
-            array.push(record);
-            // 用forEach迴圈將資料渲染到html
-            array.forEach(item => {
-                records.innerHTML += '<span>' + array + '</span>';
-            });
-
-            // sessionStorage.setItem 另一種方式？
-
-            // 將轉變骰子圖片寫成一個function
-            function diceImgChange(){
-                // 第一個骰子
-                if ( dice1 == 1 ) {
-                    img1.src = "./img/dice-1-svgrepo-com.svg";
-                } else if ( dice1 == 2 ) {
-                    img1.src = "./img/dice-2-svgrepo-com.svg";
-                } else if ( dice1 == 3 ) {
-                    img1.src = "./img/dice-3-svgrepo-com.svg";
-                } else if ( dice1 == 4 ) {
-                    img1.src = "./img/dice-4-svgrepo-com.svg";
-                } else if ( dice1 == 5 ) {
-                    img1.src = "./img/dice-5-svgrepo-com.svg";
-                } else {
-                    img1.src = "./img/dice-6-svgrepo-com.svg";
-                }
-            
-                // 第二個骰子
-                if ( dice2 == 1 ) {
-                    img2.src = "./img/dice-1-svgrepo-com.svg";
-                } else if ( dice2 == 2 ) {
-                    img2.src = "./img/dice-2-svgrepo-com.svg";
-                } else if ( dice2 == 3 ) {
-                    img2.src = "./img/dice-3-svgrepo-com.svg";
-                } else if ( dice2 == 4 ) {
-                    img2.src = "./img/dice-4-svgrepo-com.svg";
-                } else if ( dice2 == 5 ) {
-                    img2.src = "./img/dice-5-svgrepo-com.svg";
-                } else {
-                    img2.src = "./img/dice-6-svgrepo-com.svg";
-                };
-                
-                // 第三個骰子
-                if ( dice3 == 1 ) {
-                    img3.src = "./img/dice-1-svgrepo-com.svg";
-                } else if ( dice3 == 2 ) {
-                    img3.src = "./img/dice-2-svgrepo-com.svg";
-                } else if ( dice3 == 3 ) {
-                    img3.src = "./img/dice-3-svgrepo-com.svg";
-                } else if ( dice3 == 4 ) {
-                    img3.src = "./img/dice-4-svgrepo-com.svg";
-                } else if ( dice3 == 5 ) {
-                    img3.src = "./img/dice-5-svgrepo-com.svg";
-                } else {
-                    img3.src = "./img/dice-6-svgrepo-com.svg";
-                };
+        let SetIntervaltimes = 0;
+        
+        // setInterval 定時器自動跑20次
+        SetIntervaltimes = setInterval(() => {
+            console.log(SetIntervaltimes);
+            SetIntervaltimes++;
+            if (SetIntervaltimes > 23) {
+                // 時間計時結束
+                clearInterval(SetIntervaltimes);
+            }else{
+                diceDice();
             }
-        });
+            
+        }, 1000);
+
+        // setTimeout 一秒跑完20次
+        // for (let index = 0; index < 20; index++) {
+        //     // setTimeout(() => {
+        //     //     diceDice();
+        //     // }, 1000);
+        // }
+        
+        function diceDice() {
+                let dice1 = Math.floor(Math.random() * 6)+1;
+                let dice2 = Math.floor(Math.random() * 6)+1;
+                let dice3 = Math.floor(Math.random() * 6)+1;
+                console.log(dice1, dice2, dice3);
+    
+                // 計算點擊次數
+                times++;
+                // console.log(times);
+                
+                // 判斷次數
+                // 當我點擊20次，要計算20次的總和，但是第20次結束後，就要停止遊戲
+                // 如果if 優先執行 p.style.display = 'block'; 會讓程式少一次計算或多按一次才會跳出停止遊戲的提示
+                if ( times < 20 ){
+                    diceImgChange();
+                    img1.classList.add('rotate1');
+                    img2.classList.add('rotate2');
+                    img3.classList.add('rotate3');
+                } else {
+                    diceImgChange();
+                    btn.style.display = 'none';
+                    p.style.display = 'block';
+                    img1.classList.remove('rotate1');
+                    img2.classList.remove('rotate2');
+                    img3.classList.remove('rotate3');
+                };
+    
+                // 骰子的隨機角度
+                let rotateZ1 = Math.floor((365 - Math.random()*73)+32);
+                let rotateZ2 = Math.floor((365 - Math.random()*73)+32);
+                let rotateZ3 = Math.floor((365 - Math.random()*73)+32);
+                console.log(rotateZ1,rotateZ2,rotateZ3);
+    
+                img1.style.transform = 'rotate(' + rotateZ1 +'deg)';
+                img2.style.transform = 'rotate(' + rotateZ2 +'deg)';
+                img3.style.transform = 'rotate(' + rotateZ3 +'deg)';
+    
+                total += dice1 + dice2 + dice3;
+                h2.innerHTML = '總計：' + total + '';
+                h2.style.color = 'mediumblue';
+                // spans.innerHTML = '';
+                h3.innerHTML = '次數：' + times + '';
+                // h3.style.color = 'khaki';
+                h3.style.color = '#598c14';
+                
+                // 將骰子的點數相加的公式渲染到html
+                // 建立一個空的陣列
+                const array = [];
+                const add = '+';
+                const equal = '=';
+                // 建立一個變數，是三個數字相加的總和
+                let number = dice1 + dice2 + dice3;
+                // 將運算公式寫在record變數裡
+                let record = dice1 + add + dice2 + add + dice3 + equal + number;
+                // 把變數推到array
+                array.push(record);
+                // 用forEach迴圈將資料渲染到html
+                array.forEach(item => {
+                    records.innerHTML += '<span>' + array + '</span>';
+                });
+    
+                // sessionStorage.setItem 另一種方式？
+    
+                // 將轉變骰子圖片寫成一個function
+                function diceImgChange(){
+                    // 第一個骰子
+                    if ( dice1 == 1 ) {
+                        img1.src = "./img/dice-1-svgrepo-com.svg";
+                    } else if ( dice1 == 2 ) {
+                        img1.src = "./img/dice-2-svgrepo-com.svg";
+                    } else if ( dice1 == 3 ) {
+                        img1.src = "./img/dice-3-svgrepo-com.svg";
+                    } else if ( dice1 == 4 ) {
+                        img1.src = "./img/dice-4-svgrepo-com.svg";
+                    } else if ( dice1 == 5 ) {
+                        img1.src = "./img/dice-5-svgrepo-com.svg";
+                    } else {
+                        img1.src = "./img/dice-6-svgrepo-com.svg";
+                    }
+                
+                    // 第二個骰子
+                    if ( dice2 == 1 ) {
+                        img2.src = "./img/dice-1-svgrepo-com.svg";
+                    } else if ( dice2 == 2 ) {
+                        img2.src = "./img/dice-2-svgrepo-com.svg";
+                    } else if ( dice2 == 3 ) {
+                        img2.src = "./img/dice-3-svgrepo-com.svg";
+                    } else if ( dice2 == 4 ) {
+                        img2.src = "./img/dice-4-svgrepo-com.svg";
+                    } else if ( dice2 == 5 ) {
+                        img2.src = "./img/dice-5-svgrepo-com.svg";
+                    } else {
+                        img2.src = "./img/dice-6-svgrepo-com.svg";
+                    };
+                    
+                    // 第三個骰子
+                    if ( dice3 == 1 ) {
+                        img3.src = "./img/dice-1-svgrepo-com.svg";
+                    } else if ( dice3 == 2 ) {
+                        img3.src = "./img/dice-2-svgrepo-com.svg";
+                    } else if ( dice3 == 3 ) {
+                        img3.src = "./img/dice-3-svgrepo-com.svg";
+                    } else if ( dice3 == 4 ) {
+                        img3.src = "./img/dice-4-svgrepo-com.svg";
+                    } else if ( dice3 == 5 ) {
+                        img3.src = "./img/dice-5-svgrepo-com.svg";
+                    } else {
+                        img3.src = "./img/dice-6-svgrepo-com.svg";
+                    };
+                }
+            }
+            // 點擊請擲骰子後的程式運作
+            // btn.addEventListener('click', ()=> {
+            //     // 隨機擲出骰子
+                
+            // });
     </script>
 </body>
 </html>
