@@ -32,28 +32,38 @@
             position: relative;
         }
 
+        .clock-face{
+            width: 100%;
+            height: 100%;
+            margin: 20px auto;
+        }
+
         .clock-face div{
             width: 50%;
             height: 6px;
             background-color: black;
             position: absolute;
             top: 50%;
-            margin: 20px;
-            /* transform: translateY(-14px); */
             transform-origin: 100%;
+            transition: all .05s;
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
         }
 
         .hour{
             transform: rotate(45deg);
-            /* top: 28.8%;
-            left: 8%; */
+            /* background-color: red */
         }
 
         .minute{
             transform: rotate(92deg);
-            /* top: 22.8%;
-            left: 20%; */
+            background-color: blue !important;
         }
+
+        .second{
+            background-color: red !important;
+        }
+
+
 
     </style>
 </head>
@@ -66,5 +76,32 @@
         </div>
     </div>
     
+    <script>
+        const hour = document.querySelector('.hour');
+        const minute = document.querySelector('.minute');
+        const second = document.querySelector('.second');
+
+        function setTime(){
+            // 建立一個變數，用Date()取得時間
+            const now = new Date();
+            // 用getHours()取得時，並存在變數裡
+            const hours = now.getHours();
+            // 計算該時間的角度
+            const hrDegrees = ((hours / 12) * 360) + 90;
+            // 放在css transform 裡
+            hour.style.transform = `rotate(${hrDegrees}deg)`;
+
+            const minutes = now.getMinutes();
+            const minDegrees = ((minutes / 60) * 360) + 90;
+            minute.style.transform = `rotate(${minDegrees}deg)`;
+
+            const seconds = now.getSeconds();
+            const secDegrees = ((seconds / 60) * 360) + 90;
+            second.style.transform = `rotate(${secDegrees}deg)`;
+            
+        };
+
+        setInterval(setTime, 1000);
+    </script>
 </body>
 </html>
