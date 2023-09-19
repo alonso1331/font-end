@@ -1,0 +1,54 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/background.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.block{
+    width: 118px;
+    height: 90px;
+    text-align: center;
+    border: #000 solid 4px;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.4);
+    text-shadow: 0px 0px 5px black;
+    transition: .08s; /* 會影響js監聽事件，所以要設定 */
+}
+
+kbd{
+    color: #fff;
+    font-size: 38px;
+    /* font-family: monospace; ← Kbd預設自型就是monospace */
+    display: block;
+}
+
+span{
+    font-size: 12px;
+    color: #ffc600;
+    font-family: sans-serif;
+}
+
+.press{
+    border-color: #ffc600;
+    box-shadow:  0 0 8px #ffc600;
+    transform: scale(1.1);
+}
