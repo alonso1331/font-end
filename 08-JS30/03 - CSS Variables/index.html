@@ -11,6 +11,12 @@
             box-sizing: border-box;
         }
 
+        :root{
+            --base: #ffc600;
+            --spacing: 10px;
+            --blur: 10px;
+        }
+
         body{
             font-family: 'helvetica neue', sans-serif;
             font-weight: bolder;
@@ -29,6 +35,7 @@
         span{
             font-size: 75px;
             color: #d0fda8;
+            color: var(--base);
         }
 
         .controls{
@@ -52,9 +59,11 @@
         }
 
         img{
-            /* width: 100%; */
             display: flex;
             margin: auto;
+            padding: var(--spacing);
+            background: var(--base);
+            filter: blur(var(--blur));
         }
     </style>
 </head>
@@ -62,20 +71,26 @@
     <p>Update CSS Variables with <span>JS</span></p>
     <div class="controls">
         <label for="spacing">Spacing:</label>
-        <input type="range" id="spacing" max="200" min="10" value="10" data-sizing="px">
+        <input type="range" id="spacing" name="spacing" max="200" min="10" value="10" data-sizing="px">
 
         <label for="blur">Blur:</label>
-        <input type="range" id="blur" max="25" min="0" data-sizing="px">
+        <input type="range" id="blur" name="blur" max="25" min="0" data-sizing="px">
 
         <label for="base">Base Color</label>
-        <input type="color" id="base" name="base" value="#ffc600">
-        
-        
+        <input type="color" id="base" name="base" value="#ffc600">         
     </div>
     <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
     <script>
+        const inputs = document.querySelectorAll('input');
 
+        inputs.forEach(input => input.addEventListener('change', update));
+
+        function update(){
+            // console.log(this.value);
+            const px = this.dataset.sizing || '';
+            document.documentElement.style.setProperty(`--${this.name}`, this.value + px);
+        }
     </script>
 </body>
 </html>
