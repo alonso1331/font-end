@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Ahead</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #ffc600;
+        }
+
+        /* main{
+            width: 100%;
+            height: 100vh;
+            padding: 60px 0px 50px;
+        } */
+
+        form{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 50px auto;
+        }
+
+        input{
+            /* margin-top: 60px; */
+            font-size: 40px;
+            text-align: center;
+            width: 480px;
+            height: 105px;
+            border: 10px solid #F7F7F7;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.12),
+                        inset 0 0 2px rgba(0, 0, 0, 0.19);
+            position: relative;
+            z-index: 2;
+        }
+
+        input:focus{
+            outline: 0px;
+        }
+
+        ul{
+            position: absolute;
+            top:16.8%;
+        }
+
+        li{
+            list-style: none;
+            font-size: 20px;
+            text-transform: capitalize;
+            background-color: #fff;
+            border-bottom: 1px solid #D8D8D8;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+            margin: 0;
+            padding: 20px;
+            transition: background 0.2s;
+            width: 406px;
+            height: 63px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul li:nth-child(odd){
+            transform: perspective(100px) rotateX(-3deg) translateY(3px);
+            background: linear-gradient(to top, #fff 0%,#EFEFEF 100%);
+        }
+
+        ul li:nth-child(even){
+            transform: perspective(100px) rotateX(3deg) translateY(2px); 
+            background: linear-gradient(to bottom, #fff 0%, #EFEFEF 100%);
+        }
+
+        .num{
+            font-size: 15px;
+        }
+
+        .mark{
+            background-color: #ffc600;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="text" placeholder="City or State">
+        <ul>
+            <li>FIlter for a city</li>
+            <li>or a state</li>
+        </ul>
+    </form>
+    
+    <script>
+        const url = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+        const cities = [];
+
+        // 利用push() 將fetch() 來的資料放到一個物件裡
+        fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                return cities.push(...data);
+            })
+
+        // 作者的寫法
+        // fetch(url)
+        //     .then(blob => blob.json())
+        //     .then(data => cities.push(...data))
+        
+        // 找出城市的函式
+        function filterCity(key, cities){
+            return cities.filter(item => {
+                // RegExp()方法，gi 正規表達示用法，全域的，不分大小寫
+                const result = new RegExp(key, 'gi');
+                return item.city.match(result) || item.state.match(result)
+            })
+        };
+
+        const input = document.querySelector('input');
+        const ul = document.querySelector('ul');
+        // 渲染城市的函式
+        function show(){
+            const showCity = filterCity(this.value, cities);
+            const html = showCity.map(item => {
+                const keyWord = new RegExp(this.value, 'gi');
+                console.log(keyWord);
+                const markCity = item.city.replace(keyWord, `<span class="mark">${this.value}</span>`)
+                const markState = item.state.replace(keyWord, `<span class="mark">${this.value}</span>`)
+                return `<li>
+                        <span>${markCity}, ${markState}</span>
+                        <span class="num">${commaPeople(item.population)}</span>
+                    </li>`;
+            }).join(''); // 用join('')給空值連起個別的物件
+            ul.innerHTML = html;
+        }
+
+        // 人口數以千分位顯示
+        function commaPeople(p){
+            // 用正規表達式建立一個變數
+            let comma=/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g;
+            return p.toString().replace(comma, ',');
+        }
+        
+        // 當input 有變化的時候，執行funciton show;
+        input.addEventListener('change', show);
+
+        // 當input 有打字動作時，執行funciton show;
+        input.addEventListener('keyup', show);
+    </script>
+</body>
+</html>
