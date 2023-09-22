@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hold Shift and Check Checkboxes</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #ffc600;
+        }
+
+        main{
+            width: 400px;
+            height: auto;
+            margin: 50px auto;
+            border-radius: 5px;
+            background-color: #ffffff;
+            box-shadow: 10px 10px 0 rgb(0, 0, 0, .1);
+        }
+
+        .item{
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #F1F1F1;
+        }
+
+        input{
+            margin: 20px;
+        }
+
+        p{
+            padding: 20px;
+            font-size: 20px;
+            border-left: 1px solid #D1E2FF;
+        }
+
+        .line{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="item">
+            <input type="checkbox" name="" id="">
+            <p>This is an inbox layout.</p>
+        </div>
+        <div class="item">
+            <input type="checkbox" name="" id="">
+            <p>Check one item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox" name="" id="">
+            <p>Hold down your Shift key</p>
+        </div>
+        <div class="item">
+            <input type="checkbox" name="" id="">
+            <p>Check a lower item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox" name="" id="">
+            <p>Everything in between should also be set to checked</p>
+        </div>
+        <div class="item">
+            <input type="checkbox" name="" id="">
+            <p>Try do it without any libraries</p>
+        </div>
+        <div class="item">
+            <input type="checkbox" name="" id="">
+            <p>Just regular JavaScript</p>
+        </div>
+        <div class="item">
+            <input type="checkbox" name="" id="">
+            <p>Good Luck!</p>
+        </div>
+        <div class="item">
+            <input type="checkbox" name="" id="">
+            <p>Don't forget to tweet your result!</p>
+        </div>
+
+    </main>
+
+    <script>
+        const inputs = document.querySelectorAll('input');
+        const ps = document.querySelectorAll('p')
+
+        inputs.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                if (item.checked){
+                    ps[index].style.textDecoration = 'line-through';
+                } else {
+                    ps[index].style.textDecoration = 'none';
+                }
+            })
+        });
+    </script>
+</body>
+</html>

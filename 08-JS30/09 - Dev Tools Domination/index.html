@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+  <!-- <link rel="icon" href="https://fav.farm/🔥" /> -->
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('HOLA!');
+
+    // Interpolated 插值
+    console.log('Hola, estoy escribiendo %s', 'JS');
+
+    // Styled
+    console.log('%c¡Quiero muchísimo dormir!', 'color:#00f; font-size:25px');
+
+    // warning!
+    console.warn('這是警告');
+
+    // Error :|
+    console.error('出現錯誤，好討厭');
+    // Info
+    console.info('這是訊息');
+
+    // Testing
+    // console.assert(1 === 1, '¡Correct!'); 判斷正確的話，不會顯示訊息
+    console.assert(1 === 2, '¡La Falta!');
+
+    // clearing 清除console 頁面，也可以用清除主控台清除
+    // console.clear();
+
+    // Viewing DOM Elements
+    const p = document.querySelector('p');
+    console.log(p);
+    console.dir(p); // 以物件的形式呈現資料
+
+    // Grouping together group() 方法將相關的資訊包在一起
+    dogs.forEach(dog=>{
+      // console.group(`${dog.name}`);
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} years old`);
+      console.groupEnd(`${dog.name}`);
+    })
+
+    // counting 分類並累計數量
+    console.count('perro');
+    console.count('cato');
+    console.count('pez');
+    console.count('cato');
+    console.count('cato');
+    console.count('perro');
+    console.count('pez');
+
+    // timing 計算時間 將要計算的程式包在console.time() 和 console.timeEnd()裡面
+    console.time('fetching');
+    fetch('https://api.github.com/users/webos')
+      .then(data => data.json())
+      .then(data => {
+        // console.timeEnd('fetching');
+        console.log(data);
+      })
+    console.timeEnd('fetching');
+
+    // table 將要log 出來的資料以表格的方式顯示
+    console.table(dogs);
+  </script>
+</body>
+</html>

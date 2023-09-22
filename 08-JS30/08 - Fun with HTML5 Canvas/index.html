@@ -25,36 +25,64 @@
         canvas.height = window.innerHeight;
 
         // 畫筆顏色
-        ctx.strokeStyle = '#bada55';
+        // ctx.strokeStyle = '#bada55';  後用hue 設定，此處可以取消
+
         // 畫筆轉折處的樣式 有圓弧round, 方形bevel, 尖角miter 三種
         ctx.lineJoin = 'round';
 
         // 畫筆頭尾兩端的樣式 有圓弧round, 方形butt, 較butt 突出的方形square 三種
-        ctx.linCap = 'round';
+        ctx.lineCap = 'round';
+
+        // 畫筆的寬度,這個設定會影響第一筆下筆的粗度，不能取消
+        ctx.lineWidth = 100;
+
+        // 線條重疊處會有的效果，供參
+        // ctx.globalCompositeOperation = 'multiply';
 
         let isDrawing = false;
-        let lastX = 0;
-        let lastY = 0;
+        let x = 0;
+        let y = 0;
+        let hue = 0;
+        let thickness = true;
 
         function draw(e){
             if (!isDrawing) return; //如果沒有作畫，不要執行程式
 
+            // 設定畫筆顏色
+            ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+            
             // 開始作畫
             ctx.beginPath();
             // 從哪個位置開始
-            ctx.moveTo(lastX, lastY);
+            ctx.moveTo(x, y);
             // 線條長度
             ctx.lineTo(e.offsetX, e.offsetY)
             // 執行從beginPath() 開始以下的程式
             ctx.stroke();
-            [lastX, lastY] = [e.offsetX, offsetY]
+            [x, y] = [e.offsetX, e.offsetY] // offsetY 忘了加e , 導致畫筆都從0開始畫，沒辦法從中間開始畫
+            
+            hue++;
+            if (hue >= 360) {
+                hue = 0;
+            }
+
+            // 畫筆粗度隨hue 參數變化
+            // ctx.lineWidth = hue;
+            if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1){
+                thickness = !thickness;
+            }
+            if (thickness) {
+                ctx.lineWidth++;
+            } else {
+                ctx.lineWidth--;
+            }
         }
 
         // 監聽滑鼠的狀態
         canvas.addEventListener('mousemove', draw);
         canvas.addEventListener('mousedown', (e)=> {
             isDrawing = true;
-            [lastX, lastY] = [e.offsetX, offsetY]
+            [x, y] = [e.offsetX, e.offsetY] // offsetY 忘了加e , 導致畫筆都從0開始畫，沒辦法從中間開始畫
         });
         canvas.addEventListener('mouseout', ()=> {
             isDrawing = false;
@@ -63,9 +91,7 @@
             isDrawing = false;
         });
 
-
-
-
+        // https://mothereffinghsl.com/ 畫筆想要的特效
     </script>
 </body>
 </html>
