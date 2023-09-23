@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Sequence Detection</title>
+    <script src="./cornify.js"></script>
+</head>
+<body>
+    
+    <script>
+        // 設置一個空物件，用來放資料
+        const keyin = [];
+        // 設置一個變數
+        const word = 'hola';
+
+        window.addEventListener('keyup', (e) => {
+            console.log(e.key);
+            // push() 將輸入的資料存入keyin物件裡
+            keyin.push(e.key);
+            // splice(從第幾個值開始刪除，刪除幾個值，增加的值)
+            keyin.splice(-word.length - 1, keyin.length - word.length);
+
+            if (keyin.join('').includes(word)) {
+                console.log('Good job!');
+                // 載入的JS檔，每次答對就會跑出一個圖片
+                cornify_add();
+            }
+            console.log(keyin);
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #7c1599 0%, #921099 48%, #7e4ae8 100%);
+            display: flex;
+            align-items: center;
+        }
+
+        .player{
+            max-width: 650px;
+            /* height: 100%; 設定高度會影響 controls 的位置 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            position: relative;
+            overflow: hidden; /* 超過player範圍的要影藏 */
+            transition: 0.3s;
+        }
+
+        video{
+            width: 100%;
+            border: 5px solid rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .controls{
+            /* position定在:hover,導致畫面跳動 */
+            position: absolute;
+            width: 98.5%;
+            bottom: -9%;
+            padding: 10px 0px;
+        }
+
+        .controls:hover{
+            transform: translateY(-29px);
+            display: block;
+        }
+
+        .play{
+            background: none;
+            border: 0px;
+            color: #fff;
+            padding: 5px 10px;
+            margin-left: 5px;
+        }
+
+        .progress{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            background-color: rgba(0,0,0,0.5);
+            cursor: ew-resize;
+            flex: 10;
+        }
+
+        .progress-bar{
+            width: 50%;
+            height: 5px;
+            background-color: #ffc600;
+            flex: 0;
+            flex-basis: 30%;
+            transition: 0.3s;
+        }
+
+        .player:hover .progress-bar {
+            height: 15px;
+        }
+
+        .volume, .playbackRate{
+            width: 240px;
+            margin: 0px 5px;
+        }
+
+        .ship-btn{
+            border: 0px;
+            background: none;
+            color: #fff;
+        }
+
+        .controls button:nth-child(5){
+            margin-right: 12px;
+        }
+
+        input, button{
+            cursor: pointer;
+        }
+
+        /* 控制條的滾軸的顏色 */
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+            background: rgba(255,255,255,0.8);
+            border-radius: 1.3px;
+            border: 0.2px solid rgba(1, 1, 1, 0);
+        }
+        /* 控制條的按鈕 */
+        input[type=range]::-webkit-slider-thumb {
+            border-radius: 50px;
+            width: 15px;
+            height: 15px;
+            background-color: #ffc600;
+            -webkit-appearance: none;
+            box-shadow:0 0 2px rgba(0,0,0,0.2);
+            margin-top: -3.5px;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+
+        /* 當按鈕點下去後會改變控制條的顏色 */
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #bada55;
+        }
+    </style>
+</head>
+<body>
+    <div class="player">
+        <!-- <video src="./652333414.mp4" autoplay></video> -->
+        <video src="./652333414.mp4"></video>
+        
+        <div class="controls">
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+            <button type="button" class="play">►</button>
+            <input type="range" name="volume" class="volume" min="0" max="1" step="0.05" value="1">
+            <input type="range" name="playbackRate" class="playbackRate" min="0.5" max="2" step="0.1" value="1">
+            <button data-skip="-10" class="ship-btn">« 10s</button>
+            <button data-skip="25" class="ship-btn">25s »</button>
+        </div>
+        <!-- <div class="a">
+            𓀀
+        </div> -->
+    </div>
+    
+    <script>
+        const player = document.querySelector('.player');
+        const video = player.querySelector('video');
+        const progress = player.querySelector('.progress');
+        const progressBar = player.querySelector('.progress-bar');
+        const play = player.querySelector('.play');
+        const skipBtns = player.querySelectorAll('[data-skip]');
+        const ranges = player.querySelectorAll('input');
+
+        // 點擊播放按鈕後，執行播放的程式
+        play.addEventListener('click', videoPlay);
+        
+        // 當影片播放狀態改變時，執行改變播放按鈕的程式
+        video.addEventListener('play', changePlay);
+        video.addEventListener('pause', changePlay);
+
+        // 點擊前進或倒退的按鈕，會觸發相對應的程式
+        skipBtns.forEach(btn => btn.addEventListener('click', skip));
+
+        // 綁定音量和播放速度
+        ranges.forEach(range => range.addEventListener('change', updateRange));
+        ranges.forEach(range => range.addEventListener('mousemove', updateRange));
+
+        // 綁定播放條長度
+        video.addEventListener('timeupdate', progressBars);
+
+        // 監聽播放條長度的設定
+        let mouseDown = false;
+        progress.addEventListener('click', switchLenght);
+        // progress.addEventListener('mpusemove', switchLenght);
+        progress.addEventListener('mpusemove', () => {
+            if (mouseDown) {
+                switchLenght();
+            }
+        });
+        progress.addEventListener('mousedown', () => mouseDown = true);
+        progress.addEventListener('mousedup', () => mouseDown = false);
+
+        // 點擊幫撥放按鈕，讓影片撥放或暫停
+        function videoPlay(){
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        // 設定播放按鈕顯示的樣式
+        function changePlay(){
+            if (this.paused){
+                play.textContent = '►';
+            } else {
+                play.textContent = '❚ ❚';
+            }
+        }
+
+        // 快速前進或倒退的功能
+        function skip(){
+            // console.log(this.dataset.skip);
+            video.currentTime +=  parseFloat(this.dataset.skip);
+        }
+
+        // 更新音量和播放速度
+        function updateRange(){
+            video[this.name] = this.value;
+        }
+
+        // 更新播放條長度
+        function progressBars(){
+            const percent = (video.currentTime / video.duration) * 100;
+            progressBar.style.flexBasis = `${percent}%`;
+        }
+
+        // 縮放播放條的長度
+        function switchLenght(e){
+            const time = (e.offsetX / progress.offsetWidth) * video.duration;
+            video.currentTime = time;
+        }
+    </script>
+</body>
+</html>
