@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Move Shadow</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .word{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+        }
+
+        p{
+            font-size: 100px;
+            font-weight: bolder;
+            /* text-shadow: 10px 10px 0 rgba(0,0,0,1); */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="word">
+        <p contenteditable>🔥WOAH!</p>
+    </div>
+    
+    <script>
+        const word = document.querySelector('.word');
+        const p = document.querySelector('p');
+
+        // 設定一個距離
+        const distance = 500;
+
+        function shadow(e){
+            // const width = word.offsetWidth;
+            // const height = word.offsetHeight;
+            const { offsetWidth: width, offsetHeight: height } = word;
+            let { offsetX: x, offsetY: y } = e;
+            // console.log(x, y);
+
+            if (this !== e.target) {
+                x = x + e.target.offsetLeft;
+                y = y + e.target.offsetTop;
+            }
+
+            // 將shadow 移動的距離控制在一定範圍內
+            const xdistance = Math.round((x / width * distance) - (distance / 2));
+            const ydistance = Math.round((y / height * distance) - (distance / 2));
+
+            p.style.textShadow = `
+            ${xdistance}px ${ydistance}px 0 rgba(255, 0, 255, 0.7),
+            ${xdistance * -1}px ${ydistance}px 0 rgba(0, 255, 255, 0.7),
+            ${ydistance}px ${xdistance * -1}px 0 rgba(0, 255, 0, 0.7),
+            ${ydistance * -1}px ${ydistance}px 0 rgba(0, 0, 255, 0.7)
+            `;
+
+        }
+
+        word.addEventListener('mousemove', shadow);
+
+    </script>
+</body>
+</html>
