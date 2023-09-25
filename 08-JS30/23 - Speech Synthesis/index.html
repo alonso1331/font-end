@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Synthesis</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            background-image: radial-gradient(circle at 100% 150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, #3BC1AC 24%, #42D2BB 25%, #42D2BB 28%, #3BC1AC 29%, #3BC1AC 36%, #42D2BB 36%, #42D2BB 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, #42D2BB 10%, #3BC1AC 11%, #3BC1AC 23%, #42D2BB 24%, #42D2BB 30%, #3BC1AC 31%, #3BC1AC 43%, #42D2BB 44%, #42D2BB 50%, #3BC1AC 51%, #3BC1AC 63%, #42D2BB 64%, #42D2BB 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent), radial-gradient(circle at 0 50%, #42D2BB 5%, #3BC1AC 6%, #3BC1AC 15%, #42D2BB 16%, #42D2BB 20%, #3BC1AC 21%, #3BC1AC 30%, #42D2BB 31%, #42D2BB 35%, #3BC1AC 36%, #3BC1AC 45%, #42D2BB 46%, #42D2BB 49%, transparent 50%, transparent);
+            background-size: 100px 50px;
+        }
+
+        main{
+            width: 500px;
+            height: 617px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            border-radius: 10px;
+            background-color: #fff;
+            font-family: sans-serif;
+        }
+
+        h1{
+            width: 500px;
+            height: 103px;
+            margin: -20px 0px 20px;
+            padding: 8px 0px;
+            font-size: 50px;
+            text-align: center;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        label{
+            margin-right: auto;
+            font-size: 12px;
+        }
+
+        select, input, textarea{
+            background-color: #F7F7F7;
+            font-size: 20px;
+            padding: 10px;
+            width: 100%;
+            margin: 10px;
+            border: 0px;
+        }
+
+        select, textarea{
+            margin: 0px 10px 10px;
+            outline: none;
+        }
+
+        ::placeholder{
+            color: #000;
+        }
+
+        .buttons button:first-child{
+            margin-right: 8px;
+        }
+
+        button{
+            font-size: 20px;
+            border: 0px;
+            width: 223px;
+            height: 60px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        button:active{
+            transform: translateY(2px);
+        }
+
+        h1, button{
+            background-color: #ffc600;
+            font-family: 'Pacifico', cursive;
+            font-weight: 200;
+            border-bottom: 5px solid #F3C010;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>The Voiceinator 5000</h1>
+        <select name="voice" id="voices">
+            <option value="">Select A Voice</option>
+        </select>
+        <label for="">Rate:</label>
+        <input type="range" name="rate" id="" min="0" max="3" value="1" step="0.1">
+        <label for="">Pitch:</label>
+        <input type="range" name="pitch" id="" min="0" max="2" step="0.1">
+        <textarea name="text" id="" cols="30" rows="10" >Hello! I love JavaScript 👍</textarea>
+        <div class="buttons">
+            <button type="button" id="stop">Stop!</button>
+            <button type="button" id="speak">Speak</button>
+        </div>
+    </main>
+    
+    <script>
+        const msg = new SpeechSynthesisUtterance();
+        let voices = [];
+        const voicesDropdown = document.querySelector('[name="voice"]');
+        const options = document.querySelectorAll('[type="range"], [name="text"]');
+        const stopBtn = document.querySelector('#stop');
+        const speakBtn = document.querySelector('#speak');
+        msg.text = document.querySelector('[name="text"]').value;
+
+        function sound(){
+            voices = this.getVoices();
+            console.log(voices);
+        }
+        
+        speechSynthesis.addEventListener('voiceschanged', sound)
+
+    </script>
+</body>
+</html>
