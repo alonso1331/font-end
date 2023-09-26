@@ -76,6 +76,7 @@
 </head>
 <body>
     <main>
+        <span></span>
         <nav>
             <ul>
                 <li><a href="">Home</a></li>
@@ -96,6 +97,7 @@
     <script>
         const elements = document.querySelectorAll('a');
         const mark = document.createElement('span');
+        console.log(mark);
         mark.classList.add('mark');
         document.body.append(mark);
 
@@ -116,7 +118,6 @@
             mark.style.width = `${position.width}px`;
             mark.style.height = `${position.height}px`;
             mark.style.transform = `translate(${position.left}px, ${position.top}px)`;
-            
         }
 
         elements.forEach(item => item.addEventListener('mouseenter', markLink));
