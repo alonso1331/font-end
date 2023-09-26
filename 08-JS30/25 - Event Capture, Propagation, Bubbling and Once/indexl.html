@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Capture, Propagation, Bubbling and Once</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        div{
+            padding: 100px;
+        }
+
+        .one{
+            background-color: thistle;
+        }
+
+        .two{
+            background-color: mistyrose;
+        }
+
+        .three{
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">
+        <div class="two">
+            <div class="three">
+            </div>
+        </div>
+    </div>
+    <button type="button">我是按紐</button>
+
+    <script>
+        const divs = document.querySelectorAll('div');
+
+        function logText(e){
+            console.log(this.classList.value);
+            e.stopPropagation(); // 防止事件傳遞 要關閉capture: true，才會正常按到不同的div
+        }
+
+        // 事件冒泡 (Event Bubbling)是由底層往上
+        divs.forEach(div => {
+            div.addEventListener('click', logText, {
+                // capture: true  // 事件捕捉 (Event Capture)是由上往底層
+            });
+        });
+
+
+        // once: true 讓觸發事件只能執行一次 
+        const btn = document.querySelector('button');
+        // 就等於下面程式
+        // div.removeEventListener('click', logText, capture? : boolean);
+        btn.addEventListener('click', () => {
+            console.log('Click!');
+        }, { once: true });
+    </script>
+</body>
+</html>

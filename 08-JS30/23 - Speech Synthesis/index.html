@@ -27,7 +27,6 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            /* justify-content: center; */
             align-items: center;
             border-radius: 10px;
             background-color: #fff;
@@ -43,6 +42,10 @@
             text-align: center;
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
+        }
+
+        option{
+            width: 100%;
         }
 
         label{
@@ -111,6 +114,7 @@
     </main>
     
     <script>
+        // SpeechSynthesisUtterance()為web speech api 的語音功能，可以讓瀏覽器發聲
         const msg = new SpeechSynthesisUtterance();
         let voices = [];
         const voicesDropdown = document.querySelector('[name="voice"]');
@@ -119,13 +123,42 @@
         const speakBtn = document.querySelector('#speak');
         msg.text = document.querySelector('[name="text"]').value;
 
+        // 抓取語音放入網頁下拉選單option裡
         function sound(){
+            // 用getVoices()方法，抓取瀏覽器的語音，並存在voices
             voices = this.getVoices();
-            console.log(voices);
+            voicesDropdown.innerHTML = voices
+                .filter(voice => voice.lang.includes('en')) // 語音種類很多，這裡只有類別是'en'的
+                .map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+                .join('');
+        }
+
+        // 設定聲音
+        function setVoice(){
+            msg.voice = voices.find(voice => voice.name === this.value);
+            toggle();
+        }
+
+        // 判定語音是否是執行的狀況，如果true 就執行語音，否則停止語音
+        function toggle(start = true){
+            speechSynthesis.cancel(); // cancel() 取消語音的方法
+            if (start) {
+                speechSynthesis.speak(msg); // speak() 發出語音的方法
+            }
+        }
+
+        // 這個部分是控制語速rate 和 音調pitch，rate, pitch在SpeechSynthesisUtterance()是專用寫法
+        function setOption(){
+            msg[this.name] = this.value;
+            toggle();
         }
         
-        speechSynthesis.addEventListener('voiceschanged', sound)
-
+        speechSynthesis.addEventListener('voiceschanged', sound); // 監聽語音改變時，執行sound function
+        voicesDropdown.addEventListener('change', setVoice); // 下拉選單的內容改變時，執行setVoice function，設定變語音
+        options.forEach(option => option,addEventListener('change', setOption)); // 抓取rate, pitch 的值
+        speakBtn.addEventListener('click', toggle);
+        stopBtn.addEventListener('click', () => toggle(false));
+        // stopBtn.addEventListener('click', toggle.bind(null, false));
     </script>
 </body>
 </html>
