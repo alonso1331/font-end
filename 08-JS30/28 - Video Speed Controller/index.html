@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Speed Controller</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #4C4C4C url("https://unsplash.it/1500/900?image=1021");
+            background-size: cover;
+            font-family: sans-serif;
+        }
+
+        .video-block{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .speed{
+            width: 65px;
+            height: 410px;
+            line-height: 410px;
+            background-color: #efefef;
+            margin: 10px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 20px;
+            box-shadow: 0 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .speed-bar{
+            background: linear-gradient(-170deg, #2376ae 0%, #c16ecf 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 16.3%;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-block">
+        <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
+        <div class="speed">
+            <div class="speed-bar">1×</div>
+        </div>
+    </div>
+    
+    <script>
+        // 做法跟第27題類似，只是從抓取X軸的值換成Y軸，另外加上第11題客製化video rate()方法
+        const video = document.querySelector('video');
+        const speed = document.querySelector('.speed');
+        const bar = document.querySelector('.speed-bar');
+        let startY;
+        let percent;
+        let height;
+        const min = 0.4;
+        const max = 4;
+        let playbackRate;
+
+        speed.addEventListener('mousemove', (e) =>  {
+            // 取得bar 高度的位置
+            startY = e.pageY - speed.offsetTop;
+            percent = startY / speed.offsetHeight;
+            height = Math.round(percent * 100) + '%'
+            playbackRate = percent * (max - min) + min;
+            bar.innerHTML = `${playbackRate.toFixed(2)}x`;
+            // bar.textContent = videoRate.toFixed(2) + 'x';
+            bar.style.height = height;
+            video.playbackRate = playbackRate;
+        });
+
+        // bar.addEventListener('mousemove', (e) =>  {
+        //     // 取得bar 高度的位置
+        //     startY = e.pageY - bar.offsetTop;
+
+        //     const percent = startY / bar.offsetHeight;
+        //     const height = Math.round(percent * 100) + '%'
+        //     const min = 0.4;
+        //     const max = 4;
+        //     console.log(height);
+
+        //     bar.innerHTML = height;
+        //     bar.style.height = height;
+        //     // bar.innerHTML = `${startY.toFixed(2)}x`;
+        //     video.rate = `${startY.toFixed(2)}x`;
+        // });
+
+        // video.addEventListener('ratechange', ()=> {
+            
+        // });
+    </script>
+</body>
+</html>
