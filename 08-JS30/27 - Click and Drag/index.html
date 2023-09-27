@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click and Drag</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            background: url('https://source.unsplash.com/NFs6dRTBgaM/2000x2000') fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            padding: 110px 0px;
+        }
+
+        .items{
+            width: 100%;
+            height: 800px;
+            padding: 100px;
+            overflow-x: scroll;
+            border: 1px solid #fff;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(0.98);
+            transition: .2s;
+            /* perspective 原先放在 nth-child 裡，但是會造成間隙 */
+            perspective: 500px;
+        }
+
+        .items:active{
+            background: rgba(255 ,255 ,255 ,0.3);
+            transform: scale(1);
+            cursor: grabbing;
+        }
+
+        .item{
+            color: rgba(0,0,0,0.15);
+            font-size: 80px;
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            height: calc(100% - 40px);
+            padding: 0px 60px;
+            box-shadow: inset 0px 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .items div:nth-child(odd){
+            transform: scaleX(1.31) rotateY(-40deg);
+        }
+
+        .items div:nth-child(even){
+            transform: scaleX(1.31) rotateY(40deg);
+        }
+
+        .items div:nth-child(9n + 1){
+            background-color: dodgerblue;
+        }
+
+        .items div:nth-child(9n + 2){
+            background-color: goldenrod;
+        }
+
+        .items div:nth-child(9n + 3){
+            background-color: paleturquoise;
+        }
+
+        .items div:nth-child(9n + 4){
+            background-color: gold;
+        }
+
+        .items div:nth-child(9n + 5){
+            background-color: cadetblue;
+        }
+
+        .items div:nth-child(9n + 6){
+            background-color: tomato;
+        }
+
+        .items div:nth-child(9n + 7){
+            background-color: lightcoral;
+        }
+
+        .items div:nth-child(9n + 8){
+            background-color: darkslateblue;
+        }
+
+        .items div:nth-child(9n){
+            background-color: rebeccapurple;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="items">
+        <div class="item item1">01</div>
+        <div class="item item2">02</div>
+        <div class="item item3">03</div>
+        <div class="item item4">04</div>
+        <div class="item item5">05</div>
+        <div class="item item6">06</div>
+        <div class="item item7">07</div>
+        <div class="item item8">08</div>
+        <div class="item item9">09</div>
+        <div class="item item10">10</div>
+        <div class="item item11">11</div>
+        <div class="item item12">12</div>
+        <div class="item item13">13</div>
+        <div class="item item14">14</div>
+        <div class="item item15">15</div>
+        <div class="item item16">16</div>
+        <div class="item item17">17</div>
+        <div class="item item18">18</div>
+        <div class="item item19">19</div>
+        <div class="item item20">20</div>
+        <div class="item item21">21</div>
+        <div class="item item22">22</div>
+        <div class="item item23">23</div>
+        <div class="item item24">24</div>
+        <div class="item item25">25</div>
+      </div>
+    
+    <script>
+        const item = document.querySelector('.items');
+        // 設定一個布林值變數，有點像是之前教的插旗flag，判斷true or false
+        let grabbing = false;
+        // 滑鼠點在滾軸式窗內的滑鼠起始點
+        let starX;
+        // x軸滾動條到左邊的距離
+        let scrollLeft;
+
+        item.addEventListener('mousedown', (e)=> {
+            grabbing = true;
+            startX = e.pageX - item.offsetLeft;
+            scrollLeft = item.scrollLeft;
+            // console.log(startX); // 654
+        });
+
+        item.addEventListener('mousemove', (e)=> {
+            if (grabbing == false) return;
+            e.preventDefault();
+            // 滑鼠移動後的x座標位置
+            const x = e.pageX - item.offsetLeft;
+            // 滑鼠點下去到滑鼠移動的距離
+            // console.log(x); // 652
+            const move = x - startX;
+            // console.log(move); //-2
+            // item.scrollLeft 得到 scrollLeft - (-2) 的值，就是item 的 x軸滾動條到左邊的距離
+            // scrollLeft數值越大，x軸滾動條越右邊
+            item.scrollLeft = scrollLeft - move;
+            // console.log(scrollLeft); //0
+            // console.log(item.scrollLeft); //3
+        });
+        
+        // 如果不設置mouseup, mouseleave 會讓 mouseleave 監聽事件的 grabbing 一直是trun 然後滑鼠就移不開了
+        item.addEventListener('mouseup', ()=> {
+            grabbing = false;
+        });
+        
+        item.addEventListener('mouseleave', ()=> {
+            grabbing = false;
+        });
+    </script>
+</body>
+</html>
