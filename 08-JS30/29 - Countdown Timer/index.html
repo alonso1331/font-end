@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Timer</title>
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
     <style>
+        /* 這個html設定可以讓nav, section都吃到漸層背景色 */
+        html{
+            background: linear-gradient(45deg, #42a5f5 0%, #478ed1 50%, #0d47a1 100%);
+        }
+
         *{
             margin: 0px;
             padding: 0px;
@@ -14,18 +20,244 @@
         body{
             width: 100%;
             height: 100vh;
+            font-family: sans-serif;
+        }
+        
+        nav{
             display: flex;
+            flex-direction: row;
+            height: 65px;
+        }
+
+        button{
+            flex: 1;
+            font-size: 20px;
+            color: #fff;
+            font-family: 'Inconsolata', monospace;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.1);
+            border: 0px;
+            border-left: 1px solid rgba(0, 0, 0, 0.2);
+            border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+        }
+
+        input{
+            padding: 20px;
+            border: 0px;
+        }
+
+        section{
+            width: 100%;
+            height: calc(100% - 65px);
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-family: sans-serif;
+            display: none;
+        }
+
+        h1, p{
+            color: #fff;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, .05);
+            font-family: 'Inconsolata', monospace;
+        }
+
+        h1{
+            font-size: 200px;
+            font-weight: 200;
+        }
+
+        p{
+            font-size: 38px;
+            margin: 20px;
         }
     </style>
 </head>
 <body>
-    
+    <nav>
+        <button type="button" class="sec">20 SECS</button>
+        <button type="button" class="word">WORK 5</button>
+        <button type="button" class="quick">QUICK 15</button>
+        <button type="button" class="sanck">SNACK sanck</button>
+        <button type="button" class="lunch">LUNCH BREAK</button>
+        <input type="text" placeholder="Enter Minutes">
+    </nav>
+    <section>
+        <h1></h1>
+        <p></p>
+    </section>
     
     <script>
-        
+        const sec = document.querySelector('.sec');
+        const word = document.querySelector('.word');
+        const quick = document.querySelector('.quick');
+        const sanck = document.querySelector('.sanck');
+        const lunch = document.querySelector('.lunch');
+        const input = document.querySelector('input');
+        const section = document.querySelector('section');
+        const h1 = document.querySelector('h1');
+        const p = document.querySelector('p');
+        let timer;
+        let time = 20;
+        let timeWord = 60*5;
+        let timeQuick = 60*15;
+        let timeSanck = 60*20;
+        let timeLunch = 60*60;
+        let timeInput;
+        let secs;
+        let mins;
+        let flag = 0;
+
+        // timeout 會執行的程式
+        function timeZero(){
+            if  (time == -1 || timeWord == -1 || timeQuick == -1 || timeSanck == -1 || timeLunch == -1 || timeInput == -1 ) {
+                clearInterval(timer);
+            }
+        }
+
+        // 點擊事件觸發後，倒數器和現在時間會顯示
+        function textShow(){
+            section.style.display = 'flex';
+            const nowTime = new Date();
+
+            if (10 > (nowTime.getMinutes())) {
+                if ((nowTime.getHours()%12) == 0) {
+                    p.innerHTML = `Be Back At 12: 0${nowTime.getMinutes()}`;
+                } else {
+                    p.innerHTML = `Be Back At ${nowTime.getHours()%12}: ${nowTime.getMinutes()}`;
+                }
+            } else {
+                if ((nowTime.getHours()%12) == 0) {
+                    p.innerHTML = `Be Back At 12: 0${nowTime.getMinutes()}`;
+                } else {
+                    p.innerHTML = `Be Back At ${nowTime.getHours()%12}: ${nowTime.getMinutes()}`;
+                }
+            }
+        }
+
+        // 回歸原來的設定時間
+        function backTimer(){
+            clearInterval(timer);
+            if (flag = 1) {
+                time = 20
+            } else if (flag = 2) {
+                timeLunch = 60*60;
+            } else if (flag = 3) {
+                timeLunch = 60*60;
+            } else if (flag = 4) {
+                timeLunch = 60*60;
+            } else if (flag = 5) {
+                timeLunch = 60*60;
+            } else {
+                timeInput = input.value*60;
+            }
+        }
+
+        // 各時間按鈕的觸發事件
+        sec.addEventListener('click', ()=> {
+            flag = 1
+            backTimer()
+            timer = setInterval( ()=> {
+                mins = Math.floor(time / 60);
+                secs = time % 60;
+                if (10 > secs) {
+                    h1.innerHTML = `${mins}:0${secs}`;
+                }else{
+                    h1.innerHTML = `${mins}:${secs}`;
+                }
+                time--;
+                textShow();
+                timeZero();
+            }, 1000);
+        });
+
+        word.addEventListener('click', ()=> {
+            flag = 2
+            backTimer()
+            timer = setInterval( ()=> {
+                mins = Math.floor(timeWord / 60);
+                secs = timeWord % 60;
+                if (10 > secs) {
+                    h1.innerHTML = `${mins}:0${secs}`;
+                }else{
+                    h1.innerHTML = `${mins}:${secs}`;
+                }
+                timeWord--;
+                textShow();
+                timeZero();
+            }, 1000);
+        });
+
+        quick.addEventListener('click', ()=> {
+            flag = 3
+            backTimer()
+            timer = setInterval( ()=> {
+                mins = Math.floor(timeQuick / 60);
+                secs = timeQuick % 60;
+                if (10 > secs) {
+                    h1.innerHTML = `${mins}:0${secs}`;
+                }else{
+                    h1.innerHTML = `${mins}:${secs}`;
+                }
+                timeQuick--;
+                textShow();
+                timeZero();
+            }, 1000);
+        });
+
+       sanck.addEventListener('click', ()=> {
+            flag = 4
+            backTimer()
+            timer = setInterval( ()=> {
+                mins = Math.floor(timeSanck / 60);
+                secs = timeSanck % 60;
+                if (10 > secs) {
+                    h1.innerHTML = `${mins}:0${secs}`;
+                }else{
+                    h1.innerHTML = `${mins}:${secs}`;
+                }
+                timeSanck--;
+                textShow();
+                timeZero();
+            }, 1000);
+        });
+
+        lunch.addEventListener('click', ()=> {
+            flag = 5
+            backTimer()
+            timer = setInterval( ()=> {
+                mins = Math.floor(timeLunch / 60);
+                secs = timeLunch % 60;
+                if (10 > secs) {
+                    h1.innerHTML = `${mins}:0${secs}`;
+                }else{
+                    h1.innerHTML = `${mins}:${secs}`;
+                }
+                timeLunch--;
+                textShow();
+                timeZero();
+            }, 1000);
+        });
+
+        input.addEventListener('keydown', (e)=> {
+            if (e.keyCode === 13) {
+                timeInput = input.value*60;
+                backTimer()
+                timer = setInterval( ()=> {
+                    mins = Math.floor(timeInput / 60);
+                    secs = timeInput % 60;
+                    if (10 > secs) {
+                        h1.innerHTML = `${mins}:0${secs}`;
+                    }else{
+                        h1.innerHTML = `${mins}:${secs}`;
+                    }
+                    timeInput--;
+                    textShow();
+                    timeZero();
+                    // console.log(timeInput);
+                }, 1000);
+            };
+        });
     </script>
 </body>
 </html>
