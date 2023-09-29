@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack A Mole</title>
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            font-family: 'Amatic SC', cursive;
+            background-color: #ffc600;
+        }
+
+        h1{
+            height: 166px;
+            font-size: 100px;
+            padding-top: 53px;
+            text-align: center;
+        }
+
+        span{
+            background: rgba(255,255,255,0.2);
+            padding: 0px 30px;
+            border-radius: 12px;
+        }
+        
+        button{
+            padding: 1px 6px;
+        }
+
+        .game{
+            width: 600px;
+            height: 400px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .hole{
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hole::after{
+            content: '';
+            width: 200px;
+            height: 70px;
+            background-image: url('./dirt.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: bottom;
+            position: relative;
+            position: absolute;
+            bottom: -30px;
+            
+        }
+        
+        .game div > div{
+            width: 200px;
+            height: 200px;
+            background-image: url('./mole.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%;
+            position: absolute;
+            transition: 0.5s;
+            transform: translateY(164px);
+        }
+
+        .game div.active div{
+            transform: translateY(22px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Whack-a-mole! <span>0</span></h1>
+    <button>Start!</button>
+    <div class="game">
+        <div class="hole hole1">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole2">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole3">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole4">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole5">
+            <div class="mole"></div>
+        </div>
+        <div class="hole hole6">
+            <div class="mole"></div>
+        </div>
+    </div>
+
+    <script>
+        const span = document.querySelector('span');
+        const btn = document.querySelector('button');
+        const holes = document.querySelectorAll('.hole');
+        const moles = document.querySelectorAll('.mole');
+        const mole = document.querySelector('.mole');
+        let ans; // 土撥鼠所在位置
+        let scores = 0; // 分數
+        let times = 0; // 次數
+
+        // 遊戲執行的函式
+        function playGame(){
+            // 隨機選出一個數字做為顯示土撥鼠位置的數字
+            const ans = Math.floor((Math.random() * 7));
+            // const hole = holes[ans];
+
+            const showTime = randomTime(300, 800);
+            // 讓土撥鼠跑出來
+            // 隨機出現的數字ans 可能連續出現同一個數字
+            // 這邊程式要避免這個問題，所以要排除這種情況
+
+            holes.forEach((hole, index) => {
+                if (index == ans) {
+                    holes[index].classList.add('active');
+                } else {
+                    holes[index].classList.remove('active');
+                }
+            });
+            
+            // 用這種方式會造成分數到第4分用跳的
+            // moles.forEach((mole, index2) => {
+            //     moles[index2].addEventListener('click', () => {
+            //         if (index2 == ans){
+            //             scores++;
+            //             span.innerHTML = scores;
+            //         }
+            //     });
+            // })
+
+            // 土撥鼠跑出來的速度
+            const speed = Math.abs((Math.random() * 1 - 0.5).toFixed(2));
+            moles.forEach((mole, index) => {
+                mole.style.transition = speed + 's';
+            })
+        }
+
+        function randomTime(min, max){
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+        moles.forEach(mole => {
+            mole.addEventListener('click', (e)=> {
+                if (!e.isTrusted) return;
+                scores++;
+                mole.classList.remove('active');
+                span.innerHTML = scores;
+
+            });
+        });
+
+        btn.addEventListener('click', () => {
+            span.innerHTML = 0;
+            times = 0;
+            scores = 0;
+            playGame();
+
+            // 遊戲設計是於10秒內結束遊戲
+            // 把倒數計時器的變數設成計算次數的 times，造成程式從10開始計算
+            gameTimes = setInterval(() => {
+                times++;
+                    if (times > 24) {
+                        clearInterval(gameTimes);
+                        holes.forEach((hole, index) => {
+                            holes[index].classList.remove('active');
+                        })
+                    } else {
+                        playGame();
+                    }
+                // console.log(times);
+            }, 500)
+        });
+    </script>
+</body>
+</html>

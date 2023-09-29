@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Detection</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            font-family: 'Amatic SC', cursive;
+            background-color: #ffc600;
+            padding: 50px 0px;
+        }
+
+        div{
+            width: 570px;
+            margin: auto;
+            padding: 10px 20px 10px 50px;
+            font-size: 20px;
+            font-family: 'helvetica neue';
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+            background-size: 100% 30px; /* 第一個值是寬，第二個值是高*/
+            border-radius: 5px;
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+            line-height: 30px;
+            position: relative;
+        }
+
+        div::before{
+            content: '';
+            position: absolute;
+            border: 1px solid;
+            border-color: transparent #efe4e4;
+            width: 4px;
+            top: 0px;
+            left: 30px;
+            bottom: 0px;
+        }
+        
+        p{
+            margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="word" contenteditable></div>
+    
+    <script>
+        // 程式設定好後，瀏覽器就會自動詢問是否開啟麥克風功能，不用裝任何套件
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+
+        // 判斷一段的語音是否為一個段落
+        recognition.interimResults = true;
+        // 辨識的語言
+        recognition.lang = 'en-US';
+        // recognition.lang = 'zh-TW';
+        // recognition.lang = 'ja';
+
+        const word = document.querySelector('.word');
+        let p = document.createElement('p');
+        word.appendChild(p);
+
+        recognition.addEventListener('result', (e) => {
+            // console.log(e);
+            // 從log 出來的資料來看，語音會存成一個物件object，將資料傳換成陣列Array
+            // 並找出語音的存放位置
+            [...e.results].forEach((item, index) => {
+                item[0].transcript;
+
+                p.innerHTML = item[0].transcript;
+
+                if (e.results[0].isFinal) {
+                    p = document.createElement('p');
+                    word.appendChild(p);
+                }
+
+            });
+            // console.log(transcript);
+
+            // const transcript = [...e.results]
+            //     // 作者用map() 方法
+            //     .map(result => result[0])
+            //     .map(result => result.transcript)
+            //     .join('');
+
+            //     p.innerHTML = transcript;
+
+            //     if (e.results[0].isFinal) {
+            //         p = document.createElement('p');
+            //         word.appendChild(p);
+            //     }
+            
+        });
+
+        // 收音結束後，執行start 函式
+        recognition.addEventListener('end', recognition.start);
+
+        // 讓語音功能開始執行
+        recognition.start();
+    </script>
+</body>
+</html>
