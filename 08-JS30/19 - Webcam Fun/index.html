@@ -5,10 +5,258 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webcam Fun</title>
     <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            background-color: #ffc600;
+            padding: 20px 10px;
+        }
         
+        .white-background{
+            width: 100%;
+            /* height: 476.5px; */
+            background-color: #fff;
+            position: relative;
+        }
+
+        button{
+            padding: 1px 6px;
+        }
+
+        .rgba{
+            margin-top: 8px;
+        }
+
+        .color{
+            display: flex;
+            flex-direction: row;
+            margin: 6px 0px;
+        }
+
+        label{
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        input{
+            margin-right: 8px;
+        }
+
+        video{
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            /* background-color: brown; */
+        }
+
+        canvas{
+            width: 100%;
+            /* height: 386.5px; */
+        }
+
+        .pictures{
+            margin-top: -4px;
+            padding: 0px 20px 20px;
+            background-color: #fff;
+        }
+
+        img{
+            width: 100px;
+            padding: 5px 5px 20px;
+            border: 1px solid rgba(0, 0, 0, .1);
+        }
     </style>
 </head>
 <body>
+    <div class="white-background">
+        <button type="button">Take Photo</button>
+        <div class="rgba">
+            <div class="color">
+                <label for="">Red Min:</label>
+                <input type="range" name="rmin" min="0" max="255">
+                <label for="">Red Max:</label>
+                <input type="range" name="rmax" min="0" max="255">
+            </div>
+            <p></p>
+            <div class="color">
+                <label for="">Green Min:</label>
+                <input type="range" name="gmin" min="0" max="255">
+                <label for="">Green Max:</label>
+                <input type="range" name="gmax" min="0" max="255">
+            </div>
+            <div class="color">
+                <label for="">Blue Min:</label>
+                <input type="range" name="bmin" min="0" max="255">
+                <label for="">Blue Max:</label>
+                <input type="range" name="bmax" min="0" max="255">
+            </div>
+        </div>
+        <video></video>
+        <canvas></canvas>
+        <div class="pictures"></div>
+    </div>
     
+    <audio src="./snap.mp3" hidden></audio>
+
+    <script>
+        const button = document.querySelector('button');
+        const video = document.querySelector('video');
+        const inputs = document.querySelectorAll('input');
+        const canvas = document.querySelector('canvas');
+        // 設定canvas
+        const context = canvas.getContext('2d');
+        // 將拍的照片放在.picture 裡
+        const pictures = document.querySelector('.pictures');
+        // 拍照時的音效
+        const audio = document.querySelector('audio');
+
+        // 取得瀏覽器上的video 功能
+        navigator.mediaDevices.getUserMedia({video:true, audio:false})
+            .then((stream) => {
+                video.srcObject = stream;
+                video.play();
+                // console.log(stream);
+            })
+            .catch((err) => {
+                console.error('MediaDevices Error!');
+            });
+
+        // 顯現在canvas
+        video.addEventListener('canplay', () => {
+            const width = video.videoWidth;
+            const height = video.videoHeight;
+            canvas.width = width;
+            canvas.height = height;
+
+            return setInterval(() => {
+                context.drawImage(video, 0, 0, width, height);
+                // 將圖片的點解析出來
+                let pixels = context.getImageData(0, 0, width, height);
+
+                // 將每個pixels套用在特效裡
+                // pixels = redColor(pixels);
+
+                pixels = split(pixels);
+                context.globalAlpha = 0.1; // 網路上查是透明效果，作者是覺得有點鬼影的感覺
+
+                // pixels = greenScreen(pixels);
+
+                // 再輸出圖片
+                context.putImageData(pixels, 0, 0);
+            }, 16);
+        });
+
+        // 顏色特效
+        function redColor(pixels){
+            for (let index = 0; index < pixels.data.length; index += 4) {
+                pixels.data[index] = pixels.data[index] + 100 // red
+                pixels.data[index + 1] = pixels.data[index + 1] - 100 // green
+                pixels.data[index + 2] = pixels.data[index + 2] * 0.5 // blue 
+                // pixels.data[index + 3] = pixels.data[index + 3] * 0.1 // 透明度 Alpha
+            }
+            return pixels;
+        }
+
+        // 顏色分割效果
+        function split(pixels){
+            for (let index = 0; index < pixels.data.length; index += 4) {
+                // [index - 100] index加減後面數值，可移動該顏色的位置
+                pixels.data[index - 100] = pixels.data[index] // red
+                pixels.data[index + 200] = pixels.data[index + 1] // green
+                pixels.data[index - 150] = pixels.data[index + 2] // blue 
+            }
+            return pixels; //忘了返回值，沒有特效
+        }
+        // 去背效果 綠屏
+        function greenScreen(pixels){
+            const levels = {};
+
+            inputs.forEach((input) => {
+              levels[input.name] = input.value;
+              console.log();
+            })
+
+            for (let index = 0; index < pixels.data.length; index += 4) {
+                // [index - 100] index加減後面數值，可移動該顏色的位置
+                red = pixels.data[index] // red
+                green = pixels.data[index + 1] // green
+                blue = pixels.data[index + 2] // blue
+                alpha = pixels.data[index + 3] // alpha
+
+                if(red >= levels.rmin && green >= levels.gmin && blue >= levels.bmin
+                    && red <= levels.rmax && green <= levels.gmax && blue <= levels.bmax) {
+                        pixels.data[index + 3] = 0;
+                }
+            }
+            return pixels;
+        }
+
+        // (e) => {
+        //     if (!streaming) {
+        //         video.setAttribute("width", width);
+        //         video.setAttribute("height", height);
+        //         canvas.setAttribute("width", width);
+        //         canvas.setAttribute("height", height);
+        //         height = (video.videoHeight / video.videoWidth) * width;
+
+        //         streaming = true;
+        //     }
+        // }, false);
+        
+        // 拍照會執行的程式
+        button.addEventListener('click', ()=> {
+            // 音效
+            audio.currentTime = 0;
+            audio.play();
+    
+            // 拍照
+            const data = canvas.toDataURL('image/png'); //也可以存成jpeg，圖像會轉為base64檔
+            // 拍照後會產生一個a 標籤
+            const link = document.createElement('a');
+            link.href = data;
+            link.setAttribute('download', 'picture');
+            // link.textContent = 'Download Picture';
+            link.innerHTML = `<img src='${data}' alt='pictures'/>`;
+            pictures.insertBefore(link, pictures.firstChild);
+        });
+
+       
+
+        // function takePicture(){
+        //     photo.setAttribute('src', data);
+
+        //     if (width && height) {
+        //         const width = video.width;
+        //         const height = video.height;
+        //         canvas.width = width;
+        //         canvas.height = height;
+
+        //         // 讓圖像呈現在canvas 的長寬是多少
+        //         context.drawImage(video, 0, 0, width, height);
+
+        //         const data = canvas.toDataURL('image/png');
+        //         photo.setAttribute('src', data);
+        //     } else {
+        //         clearpicture();
+        //     }
+        // }
+
+        // function clearPicture(){
+        //     const context = canvas.getContext('2d');
+        //     context.fillStyle = '#AAA';
+        //     context.fillRect(0, 0, canvas.width, canvas.height);
+
+        //     const data = canvas.toDataURL('image/png');
+        //     photo.setAttribute('src', data);
+        // }
+    </script>
 </body>
 </html>

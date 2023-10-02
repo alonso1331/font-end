@@ -38,8 +38,8 @@
         .content{
             width: 322px;
             padding: 20px;
-            background-color: #fff;
             opacity: 0.95;
+            background-color: #fff;
             box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
         }
 
@@ -47,22 +47,11 @@
             font-weight: 200;
             text-align: center;
             margin-bottom: 16px;
-            
         }
-        .check{
+
+        ul{
             display: flex;
-            padding: 11px 0px;
-            border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
-        }
-
-        .checkbox{
-            margin-right: 10px;
-            border: rgba(0, 0, 0, 0.2) solid 1px;
-        }
-
-        span{
-            /* display: block; */
-            width: 100px;
+            flex-direction: column;
         }
 
         .item-input{
@@ -80,9 +69,32 @@
             width: 84px;
             height: 37px;
             border: rgba(0, 0, 0, 0.1) solid 1px;
-            background-color: #f0f0f0;
         }
 
+        li{
+            list-style: none;
+            border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
+            padding: 11px 0px;
+        }
+        
+        li input{
+            margin-right: 10px;
+        }
+        
+        .content ul li input:checked{
+            display: none;
+        }
+        
+        li input + label::before{
+            margin-right: 10px;
+            content: "⬜️";
+            display: none;
+        }
+        
+        li input:checked + label::before{
+            content: '🌮';
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -91,16 +103,59 @@
 
         <div class="content">
             <h2>LOCAL TAPAS</h2>
-            <div class="check">
-                <input type="checkbox" name="" id="" class="checkbox">
-                <span>tapas</span>
-            </div>
-            <input type="text" placeholder="Item Name" class="item-input">
+            <ul>
+                <!-- <li>tapas</li> -->
+            </ul>
+            <input type="text" placeholder="Item Name" name="item-imput" class="item-input">
             <button>+ Add Item</button>
         </div>
     </main>
 
     <script>
+        const itemInput = document.querySelector("[name = item-imput]");
+        const button = document.querySelector('button');
+        const ul = document.querySelector('ul');
+        const items = JSON.parse(localStorage.getItem('items')) || [];
+
+        // 加物品的按鈕點擊後的運作
+        button.addEventListener('click', ()=> {
+            const itemName = itemInput.value;
+            const list = {
+                itemName,
+                done: false
+            };
+
+            // 將itemName push()推到localStorage
+            items.push(list);
+            createList(items, ul);
+            localStorage.setItem('items', JSON.stringify(items));
+            // itemInput.reset(); // 作者因為是用form 表單傳送訊息，所以可以用reset() 方法清楚input 資料。
+            itemInput.value = '';
+        })
+
+        // 物品清單的按鈕點擊後，會跳出tacos 的icon
+        ul.addEventListener('click', (e)=>{
+            if(!e.target.matches('input')) return;
+            const el = e.target;
+            const index = el.dataset.index;
+            items[index].done = !items[index].done;
+            localStorage.setItem('items', JSON.stringify(items));
+            createList(items, ul);
+        })
+
+        // 從localStorage 撈出資料，並渲染到html 上
+        function createList(data = [], dataList){
+            dataList.innerHTML = data.map((plate, i) => {
+                return `
+                <li>
+                    <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} />
+                    <label for="item${i}">${plate.itemName}</label>
+                </li>
+                `
+            }).join('');
+        }
+        
+        createList(items, ul);
 
     </script>
 </body>
