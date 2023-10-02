@@ -46,7 +46,8 @@
         let thickness = true;
 
         function draw(e){
-            if (!isDrawing) return; //如果沒有作畫，不要執行程式
+            //如果沒有作畫，不要執行程式
+            if (!isDrawing) return; 
 
             // 設定畫筆顏色
             ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
@@ -59,7 +60,8 @@
             ctx.lineTo(e.offsetX, e.offsetY)
             // 執行從beginPath() 開始以下的程式
             ctx.stroke();
-            [x, y] = [e.offsetX, e.offsetY] // offsetY 忘了加e , 導致畫筆都從0開始畫，沒辦法從中間開始畫
+            // offsetY 忘了加e , 導致畫筆都從0開始畫，沒辦法從中間開始畫
+            [x, y] = [e.offsetX, e.offsetY]
             
             hue++;
             if (hue >= 360) {

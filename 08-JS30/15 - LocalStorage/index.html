@@ -106,13 +106,13 @@
             <ul>
                 <!-- <li>tapas</li> -->
             </ul>
-            <input type="text" placeholder="Item Name" name="item-imput" class="item-input">
+            <input type="text" placeholder="Item Name" name="item-input" class="item-input">
             <button>+ Add Item</button>
         </div>
     </main>
 
     <script>
-        const itemInput = document.querySelector("[name = item-imput]");
+        const itemInput = document.querySelector("[name = item-input]");
         const button = document.querySelector('button');
         const ul = document.querySelector('ul');
         const items = JSON.parse(localStorage.getItem('items')) || [];

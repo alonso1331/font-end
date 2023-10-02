@@ -42,16 +42,19 @@
 
         function logText(e){
             console.log(this.classList.value);
-            e.stopPropagation(); // 防止事件傳遞 要關閉capture: true，才會正常按到不同的div
+            // 防止事件傳遞 要關閉capture: true，才會正常按到不同的div
+            e.stopPropagation();
         }
 
         // 事件冒泡 (Event Bubbling)是由底層往上
         divs.forEach(div => {
             div.addEventListener('click', logText, {
-                // capture: true  // 事件捕捉 (Event Capture)是由上往底層
+                // 事件捕捉 (Event Capture)是由上往底層，事件冒泡 (Event Bubbling)是由底層往上
+                capture: true,
+                // 讓點擊事件只能執行一次
+                once: true
             });
         });
-
 
         // once: true 讓觸發事件只能執行一次 
         const btn = document.querySelector('button');

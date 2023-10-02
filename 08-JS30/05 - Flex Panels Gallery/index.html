@@ -146,14 +146,14 @@
             this.classList.toggle('enlarge');
         };
 
-        function toggleactive(){
+        function toggleActive(){
             this.classList.toggle('active');
         };
 
 
         panels.forEach(panel => {
             panel.addEventListener('click', toggleEnlarge);
-            panel.addEventListener('transitionend', toggleactive);
+            panel.addEventListener('transitionend', toggleActive);
         });
     </script>
 </body>
