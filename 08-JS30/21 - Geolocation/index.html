@@ -74,8 +74,8 @@
                 // deg = 100;
                 compass.style.transform = `rotate(${deg}deg)`;
     
-                // 移動速度 m/s
-                const speeds = position.coords.speed.toFixed(2);
+                // 移動速度 m/s 題目要的是 km/h
+                const speeds = (position.coords.speed * 3.6).toFixed(2);
                 // speeds = 10;
                 speed.innerHTML = `${speeds}`;
 
