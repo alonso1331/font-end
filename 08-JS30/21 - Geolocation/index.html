@@ -75,7 +75,7 @@
                 compass.style.transform = `rotate(${deg}deg)`;
     
                 // 移動速度 m/s
-                const speeds = position.coords.speed;
+                const speeds = position.coords.speed.toFixed(2);
                 // speeds = 10;
                 speed.innerHTML = `${speeds}`;
 
